@@ -10,8 +10,28 @@ yarn-error.log*
 Thumbs.db
 desktop.ini
 
-# Temporary artifacts
+# Temporary artifacts & extracted assets
 *.tmp
 *.temp
 .tempmediaStorage/
 .user_uploaded/
+*.log
+
+# Intermediate images and templates
+rendered_slide_*.png
+sih_template_*.png
+sih_clean_*.png
+sih_official_*.png
+extracted_img_*.png
+edge_*.png
+code_catalyst_*.jpg
+impact_target_bullseye.jpg
+udyamsetu_solution_concept.jpg
+
+# Internal working notes
+PROJECT_MEMORY_*.md
+SIH26092_10Min_*.md
+SIH26092_Master_*.md
+SIH26092_Research_*.md
+SIH26092_Ultimate_*.md
+prototype_demo.html
