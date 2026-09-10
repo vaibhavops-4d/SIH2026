@@ -19,13 +19,10 @@ Over **63 Million MSMEs** in India face a **₹25 Lakh Crore credit deficit**. W
 
 ---
 
-## 🚀 Live Demo & Hosting on Vercel
+## 🚀 Live Demo & Deployment
 
-### Deploy with Vercel in 1-Click:
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
-
-### Local / Static Usage:
-Simply open `index.html` in any modern web browser or host on any static provider (Vercel, Netlify, GitHub Pages).
+- **Live Production URL:** [https://udyamsetu-ai.vercel.app](https://udyamsetu-ai.vercel.app)
+- **Local / Offline Usage:** Simply open `index.html` in any modern web browser.
 
 ---
 
@@ -58,9 +55,9 @@ graph TD
 | `netlify.toml` | Netlify deployment configuration |
 | `SIH26092_AI_Scheme_Matching.pptx` | Official SIH 2026 Presentation Pitch Deck |
 | `SIH26092_AI_Scheme_Matching_Rendered.pdf` | Rendered PDF version of the presentation slides |
-| `SIH26092_10Min_Pitch_And_QA_Defense_Mastery.md` | Complete 10-Minute & 3-Minute Pitch Script with Defense Q&A |
-| `SIH26092_Ultimate_Pitch_Slide_Analysis_And_Master_Defense.md` | Deep slide-by-slide jury analysis and technical strategy |
-| `SIH26092_Master_Team_Blueprint.md` | Team roles, presentation choreography, and speaker distribution |
+| `live_demo_qr.png` | Live Production Demo QR Code for mobile scanning |
+| `README.md` | Project documentation and architecture blueprint |
+| `.gitignore` | Git ignore rules |
 
 ---
 
