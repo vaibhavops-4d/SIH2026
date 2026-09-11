@@ -5,7 +5,10 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "dest": "/index.html",
+      "headers": {
+        "cache-control": "s-maxage=0, no-cache, no-store, must-revalidate"
+      }
     }
   ]
 }
