@@ -57,45 +57,13 @@
       background: #475569;
     }
 
-    
-    /* High Contrast Accessibility Theme */
-    body.high-contrast {
-      background-color: #000000 !important;
-      color: #FFFF00 !important;
-    }
-    body.high-contrast header, 
-    body.high-contrast footer,
-    body.high-contrast .bg-slate-900,
-    body.high-contrast .bg-slate-950,
-    body.high-contrast .bg-[#0B192C],
-    body.high-contrast .bg-[#07172B] {
-      background-color: #050505 !important;
-      border-color: #FFFF00 !important;
-    }
-    body.high-contrast h1, 
-    body.high-contrast h2, 
-    body.high-contrast h3, 
-    body.high-contrast strong, 
-    body.high-contrast .text-white {
-      color: #FFFFFF !important;
-    }
-    body.high-contrast p, 
-    body.high-contrast span, 
-    body.high-contrast .text-slate-400,
-    body.high-contrast .text-slate-300 {
-      color: #E2E8F0 !important;
-    }
-    body.high-contrast button {
-      border: 2px solid #FFFF00 !important;
-    }
-    
     @media print {
       body * { visibility: hidden; }
       #dpr-print-section, #dpr-print-section * { visibility: visible; }
       #dpr-print-section { position: absolute; left: 0; top: 0; width: 100%; border: none; box-shadow: none; background: white !important; color: black !important; }
     }
   
-    /* Suppress Vercel toolbar and any stray floating elements */
+    /* Suppress Vercel toolbar & stray floating elements */
     #vercel-live-feedback, #vercel-toolbar, [data-vercel-toolbar], [data-feedback-widget] {
       display: none !important;
       visibility: hidden !important;
@@ -165,162 +133,26 @@
 
   </style>
 </head>
-    <!-- Top Sovereign Government of India Strip -->
-  <div class="bg-[#05111E] border-b border-slate-800/90 text-[11px] text-slate-300 py-1.5 px-4 md:px-8">
-    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
-      <!-- Left: State Emblem + Official Ministry Affiliation -->
-      <div class="flex items-center gap-3">
-        <!-- National Emblem of India (Ashoka Lion Capital) -->
-        <div class="flex items-center gap-2">
-          <svg class="w-5 h-6 text-amber-400 flex-shrink-0" viewBox="0 0 36 44" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <!-- Lion Capital Stylized Silhouette -->
-            <path d="M18 2 C16.5 2 15 3.5 15 5 C15 6 15.5 6.8 16.2 7.3 C14.5 8 13 9.5 12.5 11.5 C11.5 11 10.5 11.5 10 12.5 C9.5 13.5 10 14.5 10.8 15 C9.5 16.5 9 18.5 9.5 20.5 C10 22.5 11.5 24 13.5 24.8 L13.5 27 L22.5 27 L22.5 24.8 C24.5 24 26 22.5 26.5 20.5 C27 18.5 26.5 16.5 25.2 15 C26 14.5 26.5 13.5 26 12.5 C25.5 11.5 24.5 11 23.5 11.5 C23 9.5 21.5 8 19.8 7.3 C20.5 6.8 21 6 21 5 C21 3.5 19.5 2 18 2 Z" fill="#D4AF37"/>
-            <!-- Abacus with Ashoka Chakra -->
-            <rect x="8" y="28" width="20" height="4" rx="1" fill="#FF9933"/>
-            <circle cx="18" cy="30" r="1.5" fill="#000080"/>
-            <!-- Base Plinth -->
-            <path d="M6 33 L30 33 L28 37 L8 37 Z" fill="#D4AF37"/>
-            <!-- Satyameva Jayate Inscription Banner -->
-            <rect x="7" y="38" width="22" height="3" rx="0.8" fill="#1E293B"/>
-            <text x="18" y="40.5" font-size="2.5" fill="#F8FAFC" font-weight="bold" text-anchor="middle" font-family="sans-serif">सत्यमेव जयते</text>
-          </svg>
-          <div class="leading-tight">
-            <span class="font-extrabold text-white text-[12px] tracking-wide flex items-center gap-1.5">
-              <span>भारत सरकार</span>
-              <span class="text-slate-500 font-normal">|</span>
-              <span class="text-slate-200">Government of India</span>
-            </span>
-            <span class="text-[10px] text-amber-300/90 font-medium block">सामाजिक न्याय और अधिकारिता मंत्रालय • Ministry of Social Justice & Empowerment</span>
-          </div>
-        </div>
-      </div>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased selection:bg-orange-500 selection:text-white">
 
-      <!-- Right: Accessibility Toolbar & Language Switcher -->
-      <div class="flex items-center gap-3 text-slate-400 text-[11px]">
-        <button onclick="toggleScreenReader()" class="hidden lg:inline hover:text-white transition">Screen Reader</button>
-        <button onclick="document.querySelector('main').scrollIntoView({behavior:'smooth'})" class="hidden md:inline hover:text-white transition">Skip to Content</button>
-        
-        <!-- High Contrast Mode Toggle -->
-        <button onclick="toggleHighContrast()" class="px-2 py-0.5 bg-slate-800 hover:bg-slate-700 text-amber-400 font-bold rounded border border-slate-700 transition flex items-center gap-1 text-[10px]">
-          <span>🌓</span>
-          <span class="hidden sm:inline">Contrast</span>
-        </button>
+  <!-- Top Tricolor Accent Line -->
+  <div class="h-1.5 w-full bg-gradient-to-r from-orange-500 via-white to-green-600 sticky top-0 z-50"></div>
 
-        <!-- Font Sizing Buttons -->
-        <div class="flex items-center gap-1 border-l border-slate-700 pl-2 font-mono text-[10px]">
-          <button class="px-1.5 py-0.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded font-bold" title="Decrease Font Size" onclick="changeFontSize(-5)">A-</button>
-          <button class="px-1.5 py-0.5 bg-slate-800 hover:bg-slate-700 text-orange-400 font-bold rounded" title="Standard Font Size" onclick="changeFontSize(0)">A</button>
-          <button class="px-1.5 py-0.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold rounded" title="Increase Font Size" onclick="changeFontSize(5)">A+</button>
-        </div>
-
-        <!-- Indic Language Selector -->
-        <div class="border-l border-slate-700 pl-2">
-          <select id="topLangSelect" onchange="changeTopLanguage(this.value)" class="bg-slate-900 border border-slate-700 text-slate-200 text-[10px] font-bold rounded px-1.5 py-0.5 focus:outline-none focus:ring-1 focus:ring-orange-500">
-            <option value="hi-IN">🇮🇳 हिन्दी (Hindi)</option>
-            <option value="en-IN">🌐 English</option>
-            <option value="bho-IN">🇮🇳 भोजपुरी (Bhojpuri)</option>
-            <option value="mr-IN">🇮🇳 मराठी (Marathi)</option>
-            <option value="bn-IN">🇮🇳 বাংলা (Bengali)</option>
-            <option value="ta-IN">🇮🇳 தமிழ் (Tamil)</option>
-            <option value="te-IN">🇮🇳 తెలుగు (Telugu)</option>
-            <option value="gu-IN">🇮🇳 ગુજરાતી (Gujarati)</option>
-            <option value="kn-IN">🇮🇳 ಕನ್ನಡ (Kannada)</option>
-            <option value="pa-IN">🇮🇳 ਪੰਜਾਬੀ (Punjabi)</option>
-            <option value="or-IN">🇮🇳 ଓଡ଼ିଆ (Odia)</option>
-            <option value="as-IN">🇮🇳 অসমীয়া (Assamese)</option>
-          </select>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- National Tricolor Accent Ribbon (Saffron - White - Green) -->
-  <div class="h-1 w-full bg-gradient-to-r from-[#FF9933] via-[#FFFFFF] to-[#138808]"></div>
-
-  <!-- Master Sovereign Navigation Header -->
-  <header class="bg-[#0B192C]/95 backdrop-blur-md border-b border-slate-800 sticky top-0 z-40 px-4 md:px-8 py-2.5">
+  <!-- Master Navigation Header -->
+  <header class="bg-[#0B192C]/95 backdrop-blur-md border-b border-slate-800 sticky top-1.5 z-40 px-4 md:px-8 py-3.5">
     <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
       
-      <!-- Official UdyamSetu Sovereign Brand Identity & Logo -->
+      <!-- Brand & SIH Badge -->
       <div class="flex items-center gap-3.5 cursor-pointer" onclick="switchPortal('landing')">
-        <!-- Master Vector Sovereign Emblem -->
-        <div class="w-13 h-13 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-[#07172B] via-[#0B192C] to-[#1E3E62] border-2 border-amber-400/80 p-1 flex items-center justify-center shadow-xl shadow-orange-500/20 flex-shrink-0 hover:scale-105 transition group">
-          <svg class="w-11 h-11 sm:w-12 sm:h-12" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="goldRim" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#FFE082"/>
-                <stop offset="50%" stop-color="#D4AF37"/>
-                <stop offset="100%" stop-color="#B8860B"/>
-              </linearGradient>
-              <linearGradient id="bridgeGrad" x1="0%" y1="100%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#FF9933"/>
-                <stop offset="50%" stop-color="#FFD700"/>
-                <stop offset="100%" stop-color="#138808"/>
-              </linearGradient>
-              <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#FFF9C4" stop-opacity="1"/>
-                <stop offset="60%" stop-color="#F59E0B" stop-opacity="0.8"/>
-                <stop offset="100%" stop-color="#D97706" stop-opacity="0"/>
-              </radialGradient>
-            </defs>
-
-            <!-- Outer Golden Chakra Rim with 24 Radial Dots -->
-            <circle cx="60" cy="60" r="56" stroke="url(#goldRim)" stroke-width="3" fill="#07172B"/>
-            <circle cx="60" cy="60" r="51" stroke="#D4AF37" stroke-width="1" stroke-dasharray="2 4"/>
-
-            <!-- Saffron & Green Sovereign Tricolor Halo Arcs -->
-            <path d="M16 60 A44 44 0 0 1 104 60" stroke="#FF9933" stroke-width="5" stroke-linecap="round"/>
-            <path d="M16 60 A44 44 0 0 0 104 60" stroke="#138808" stroke-width="5" stroke-linecap="round"/>
-
-            <!-- Radiant Rising Sun of Enterprise (उद्यम) -->
-            <circle cx="60" cy="56" r="22" fill="url(#sunGlow)"/>
-            <g stroke="#F59E0B" stroke-width="1.8" opacity="0.9">
-              <line x1="60" y1="28" x2="60" y2="34"/>
-              <line x1="40" y1="36" x2="45" y2="41"/>
-              <line x1="80" y1="36" x2="75" y2="41"/>
-              <line x1="32" y1="56" x2="38" y2="56"/>
-              <line x1="88" y1="56" x2="82" y2="56"/>
-            </g>
-
-            <!-- Central Ashoka Dharma Chakra (24 Spokes in Navy Blue) -->
-            <circle cx="60" cy="56" r="16" stroke="#000080" stroke-width="2.5" fill="#FFFFFF"/>
-            <circle cx="60" cy="56" r="3.5" fill="#000080"/>
-            <g stroke="#000080" stroke-width="1">
-              <line x1="60" y1="40" x2="60" y2="72"/>
-              <line x1="44" y1="56" x2="76" y2="56"/>
-              <line x1="49" y1="45" x2="71" y2="67"/>
-              <line x1="49" y1="67" x2="71" y2="45"/>
-              <line x1="54" y1="41" x2="66" y2="71"/>
-              <line x1="41" y1="50" x2="79" y2="62"/>
-              <line x1="66" y1="41" x2="54" y2="71"/>
-              <line x1="79" y1="50" x2="41" y2="62"/>
-            </g>
-
-            <!-- The Golden Bridge of Inclusion (सेतु) -->
-            <path d="M22 84 Q60 48 98 84" stroke="url(#bridgeGrad)" stroke-width="5" fill="none" stroke-linecap="round"/>
-            <path d="M26 89 Q60 55 94 89" stroke="#D4AF37" stroke-width="2" fill="none" stroke-linecap="round"/>
-            <!-- Bridge Vertical Cable Pillars -->
-            <line x1="42" y1="71" x2="42" y2="86" stroke="#D4AF37" stroke-width="1.5"/>
-            <line x1="60" y1="63" x2="60" y2="88" stroke="#D4AF37" stroke-width="2"/>
-            <line x1="78" y1="71" x2="78" y2="86" stroke="#D4AF37" stroke-width="1.5"/>
-
-            <!-- Summit AI Intelligence Spark (Neural Node) -->
-            <path d="M60 20 L64 25 L60 30 L56 25 Z" fill="#38BDF8"/>
-            <circle cx="60" cy="25" r="1.5" fill="#FFFFFF"/>
-          </svg>
+        <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-orange-500 via-amber-500 to-yellow-400 flex items-center justify-center font-bold text-slate-950 text-2xl shadow-lg shadow-orange-500/20">
+          🇮🇳
         </div>
-
-        <!-- Official Brand Typographic Name & Subtitle -->
         <div>
           <div class="flex items-center gap-2">
-            <div class="flex items-baseline gap-1">
-              <span class="font-black text-2xl tracking-tight text-white font-sans">उद्यमसेतु</span>
-              <span class="text-xs font-black px-2 py-0.5 rounded-md bg-gradient-to-r from-orange-500 via-amber-400 to-yellow-400 text-slate-950 font-mono shadow-sm">AI</span>
-            </div>
-            <span class="hidden sm:inline-block text-[9px] uppercase font-extrabold tracking-widest px-2 py-0.5 bg-slate-800/90 text-amber-400 font-mono rounded border border-amber-500/30">MoSJE Sovereign</span>
-            <span class="text-[9px] uppercase font-extrabold tracking-widest px-2 py-0.5 bg-orange-500/20 text-orange-300 rounded border border-orange-500/30">SIH26092</span>
+            <h1 class="font-black text-xl tracking-tight text-white">UdyamSetu AI</h1>
+            <span class="text-[10px] uppercase font-extrabold tracking-widest px-2.5 py-0.5 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-full shadow-sm">SIH 2026</span>
           </div>
-          <p class="text-[11px] text-slate-300 font-medium">राष्ट्रीय रियायती ऋण एवं माइक्रो-डीपीआर पोर्टल • Team: <strong class="text-orange-400 font-bold">Code Catalyst</strong></p>
+          <p class="text-xs text-slate-400">MoSJE • PS ID: <strong class="text-slate-300">SIH26092</strong> • Team: <strong class="text-orange-400 font-bold">Code Catalyst</strong></p>
         </div>
       </div>
 
@@ -362,15 +194,12 @@
     </div>
   </header>
 
-  <!-- Official Government Ticker Ribbon -->
-  <div class="bg-gradient-to-r from-slate-900 via-[#0B192C] to-slate-900 border-b border-slate-800/80 text-[11px] font-medium py-1.5 px-4 md:px-8 text-slate-300">
-    <div class="max-w-7xl mx-auto flex items-center justify-between overflow-hidden gap-4">
-      <div class="flex items-center gap-2 truncate">
-        <span class="bg-orange-500/20 text-orange-400 border border-orange-500/30 px-2 py-0.5 rounded text-[10px] uppercase font-mono font-bold tracking-wider flex-shrink-0">📢 राष्ट्रीय सूचना / Alert:</span>
-        <span class="truncate text-slate-200">पीएम विश्वकर्मा, एनएसएफडीसी, एनबीसीएफडीसी, एनएसकेएफडीसी एवं स्टैंड-अप इंडिया योजनाएं 100% बैंक-ग्रेड माइक्रो-डीपीआर के साथ सक्रिय हैं | Concessional Interest 3% - 6% p.a. • 100% Free Public Service</span>
-      </div>
-      <span class="hidden lg:inline font-mono text-[10px] text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-2 py-0.5 rounded flex-shrink-0">MoSJE Sovereign Engine v2.6</span>
+  <!-- Notification Toast Container -->
+  <div id="toast" class="fixed top-20 right-6 z-50 hidden bg-slate-900/95 text-white px-5 py-3.5 rounded-2xl shadow-2xl border border-slate-700 flex items-center gap-3 fade-enter backdrop-blur-xl">
+    <div class="p-1.5 rounded-xl bg-orange-500/20 text-orange-400">
+      <i data-lucide="bell" class="w-4 h-4"></i>
     </div>
+    <span id="toastMsg" class="text-xs font-semibold">Notification</span>
   </div>
 
   <!-- Main Content Wrapper -->
@@ -382,79 +211,39 @@
     <section id="view-landing" class="portal-view hidden fade-enter space-y-10 py-6">
       
       <!-- Hero Section -->
-      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#07172B] via-[#0B192C] to-[#1E3E62] border-2 border-amber-500/30 p-8 md:p-12 shadow-2xl">
-        <!-- Subtle Sovereign Watermark Background -->
-        <div class="absolute -right-16 -bottom-16 opacity-5 pointer-events-none">
-          <svg class="w-96 h-96 text-white" viewBox="0 0 100 100" fill="currentColor">
-            <circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="2" fill="none"/>
-            <circle cx="50" cy="50" r="10" fill="currentColor"/>
-          </svg>
-        </div>
-
-        <div class="relative z-10 max-w-4xl space-y-6">
-          <div class="flex flex-wrap items-center gap-2">
-            <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/30 text-orange-400 text-xs font-bold">
-              <span class="w-2 h-2 rounded-full bg-orange-400 animate-ping"></span>
-              <span>भारत सरकार • राष्ट्रीय डिजिटल सार्वजनिक अवसंरचना (DPI)</span>
-            </span>
-            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-300 text-xs font-semibold">
-              <i data-lucide="shield" class="w-3.5 h-3.5"></i>
-              <span>SIH 2026 Problem ID: SIH26092</span>
-            </span>
+      <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0B192C] via-slate-900 to-[#1E3E62] border border-slate-800 p-8 md:p-12 shadow-2xl">
+        <div class="relative z-10 max-w-3xl space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/30 text-orange-400 text-xs font-bold">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+            <span>Smart India Hackathon 2026 • Problem Statement SIH26092</span>
           </div>
           
-          <h1 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white leading-tight">
-            वंचित उद्यमियों के लिए <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-yellow-400">रियायती ऋण एवं बैंक-ग्रेड माइक्रो-डीपीआर</span> पोर्टल
+          <h1 class="text-4xl md:text-5xl font-black tracking-tight text-white leading-tight">
+            Connecting <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-yellow-400">Marginalized Entrepreneurs</span> to Concessional Credit.
           </h1>
           
-          <p class="text-sm md:text-base text-slate-300 font-normal leading-relaxed max-w-3xl">
-            Connecting India's 63M+ grassroots artisans, SC, ST, OBC, Safai Karamchari, and Women micro-entrepreneurs to statutory central welfare credit. Powered by <strong class="text-white font-bold">MeitY Bhashini Multilingual IndicASR</strong>, <strong class="text-white font-bold">Zero-Hallucination Statutory Matching (22+ Schemes)</strong>, and an <strong class="text-white font-bold">Automated 1-Page Bank-Grade Micro-DPR Engine (DSCR ≥ 1.5x)</strong>.
+          <p class="text-base text-slate-300 font-normal leading-relaxed">
+            A multilingual, voice-first discovery engine powered by <strong class="text-white">Project Bhashini IndicASR</strong>, <strong class="text-white">100% Zero-Hallucination Statutory Matching</strong>, and an <strong class="text-white">Automated Bank-Grade Micro-DPR Generator (DSCR ≥ 1.5x)</strong> for SC, ST, OBC, Women, and Artisan enterprises.
           </p>
 
           <div class="flex flex-wrap gap-4 pt-2">
-            <button onclick="switchPortal('citizen'); goToStep(1);" class="px-7 py-3.5 rounded-2xl bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-slate-950 font-black text-sm shadow-xl shadow-orange-500/30 transition transform hover:-translate-y-0.5 flex items-center gap-2">
-              <i data-lucide="mic" class="w-4 h-4"></i>
+            <button onclick="switchPortal('citizen'); goToStep(1);" class="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-slate-950 font-black text-sm shadow-xl shadow-orange-500/25 transition transform hover:-translate-y-0.5 flex items-center gap-2">
               <span>Launch Citizen Voice Portal</span>
               <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </button>
-            <button onclick="switchPortal('bank')" class="px-6 py-3.5 rounded-2xl bg-slate-900/90 hover:bg-slate-800 text-white font-bold text-sm border border-slate-700 transition flex items-center gap-2">
+            <button onclick="switchPortal('bank')" class="px-6 py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm border border-slate-700 transition flex items-center gap-2">
               <i data-lucide="landmark" class="w-4 h-4 text-blue-400"></i>
-              <span>Bank Underwriter Desk</span>
+              <span>Bank Underwriter Portal</span>
             </button>
-            <button onclick="switchPortal('schemes')" class="px-6 py-3.5 rounded-2xl bg-slate-900/90 hover:bg-slate-800 text-white font-bold text-sm border border-slate-700 transition flex items-center gap-2">
+            <button onclick="switchPortal('schemes')" class="px-6 py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm border border-slate-700 transition flex items-center gap-2">
               <i data-lucide="book-open" class="w-4 h-4 text-amber-400"></i>
               <span>Browse 22+ Welfare Schemes</span>
             </button>
           </div>
         </div>
 
-        <!-- Official Apex Corporations & Ministry Banner -->
-        <div class="mt-10 pt-6 border-t border-slate-800/80">
-          <span class="text-[10px] uppercase font-mono font-bold text-slate-400 tracking-wider block mb-3">🏛️ Official Statutory Apex Corporations & Ministry Integrations:</span>
-          <div class="flex flex-wrap items-center gap-3">
-            <span class="px-3 py-1.5 bg-slate-950/80 border border-slate-800 text-slate-200 text-xs font-semibold rounded-xl flex items-center gap-1.5">
-              <span class="text-orange-400 font-bold">NSFDC</span> (Scheduled Castes)
-            </span>
-            <span class="px-3 py-1.5 bg-slate-950/80 border border-slate-800 text-slate-200 text-xs font-semibold rounded-xl flex items-center gap-1.5">
-              <span class="text-emerald-400 font-bold">NBCFDC</span> (Backward Classes)
-            </span>
-            <span class="px-3 py-1.5 bg-slate-950/80 border border-slate-800 text-slate-200 text-xs font-semibold rounded-xl flex items-center gap-1.5">
-              <span class="text-blue-400 font-bold">NSKFDC</span> (Safai Karamcharis)
-            </span>
-            <span class="px-3 py-1.5 bg-slate-950/80 border border-slate-800 text-slate-200 text-xs font-semibold rounded-xl flex items-center gap-1.5">
-              <span class="text-amber-400 font-bold">PM Vishwakarma</span> (18 Artisan Trades)
-            </span>
-            <span class="px-3 py-1.5 bg-slate-950/80 border border-slate-800 text-slate-200 text-xs font-semibold rounded-xl flex items-center gap-1.5">
-              <span class="text-purple-400 font-bold">PMEGP / KVIC</span> (35% Subsidy)
-            </span>
-            <span class="px-3 py-1.5 bg-slate-950/80 border border-slate-800 text-slate-200 text-xs font-semibold rounded-xl flex items-center gap-1.5">
-              <span class="text-cyan-400 font-bold">Jan Samarth & DigiLocker</span>
-            </span>
-          </div>
-        </div>
-
         <!-- Macro Stats Ribbon -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 pt-6 border-t border-slate-800/80">
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-10 pt-8 border-t border-slate-800/80">
           <div>
             <div class="text-2xl font-black text-white font-mono">63M+</div>
             <div class="text-xs text-slate-400 font-medium mt-0.5">Grassroots MSMEs in India</div>
@@ -469,7 +258,7 @@
           </div>
           <div>
             <div class="text-2xl font-black text-blue-400 font-mono">₹0 Fee</div>
-            <div class="text-xs text-slate-400 font-medium mt-0.5">100% Free Citizen Service</div>
+            <div class="text-xs text-slate-400 font-medium mt-0.5">100% Free for Citizens</div>
           </div>
         </div>
       </div>
@@ -620,111 +409,99 @@
         </div>
       </div>
 
-            <!-- STEP 2: VOICE & INDIC INTAKE -->
+      <!-- STEP 2: VOICE & INDIC INTAKE -->
       <div id="screen-2" class="screen hidden fade-enter">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
           
           <!-- Left: Voice & Dialect Intake Box -->
           <div class="lg:col-span-7 bg-slate-900/90 backdrop-blur-xl rounded-3xl p-6 md:p-8 shadow-xl border border-slate-800 flex flex-col justify-between h-full">
-            <div class="space-y-4">
-              <div class="flex items-center justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
                 <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 rounded-full text-xs font-bold">
                   <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
                   MeitY Bhashini IndicASR Engine Active
                 </span>
-                <span id="activeLangDisplay" class="text-xs text-orange-400 font-extrabold tracking-wide">Current: हिन्दी (Hindi)</span>
+                <span id="activeLangDisplay" class="text-xs text-orange-400 font-bold font-mono">Current: हिन्दी (Hindi)</span>
               </div>
 
-              <div>
-                <h2 class="text-2xl font-black text-white tracking-tight">Select Your Language & Speak</h2>
-                <p class="text-xs text-slate-400 mt-1">Tap your native dialect below, then click the microphone to speak naturally.</p>
-              </div>
+              <h2 class="text-2xl font-black text-white">Select Your Language & Speak</h2>
+              <p class="text-xs text-slate-400 mt-1">Click your preferred mother tongue below, then tap the mic to speak naturally.</p>
 
-              <!-- Interactive Language Pills (Solid Active High-Contrast State) -->
-              <div class="flex flex-wrap gap-2 pt-1" id="langPillContainer">
-                <button type="button" onclick="setSpeechLanguage('hi-IN', 'हिन्दी (Hindi)', this)" class="lang-pill px-3.5 py-1.5 bg-gradient-to-r from-orange-500 to-amber-500 text-slate-950 font-black rounded-xl text-xs shadow-md shadow-orange-500/40 ring-2 ring-orange-400 transition transform hover:scale-105">
+              <!-- CLICKABLE Interactive Language Pills -->
+              <div class="flex flex-wrap gap-2 mt-4" id="langPillContainer">
+                <button onclick="setSpeechLanguage('hi-IN', 'हिन्दी (Hindi)', this)" class="lang-pill px-3 py-1.5 bg-orange-500 text-slate-950 font-black rounded-xl text-xs shadow-md shadow-orange-500/30 transition">
                   हिन्दी (Hindi)
                 </button>
-                <button type="button" onclick="setSpeechLanguage('bho-IN', 'भोजपुरी (Bhojpuri)', this)" class="lang-pill px-3.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold rounded-xl text-xs border border-slate-700 transition transform hover:scale-105">
+                <button onclick="setSpeechLanguage('bho-IN', 'भोजपुरी (Bhojpuri)', this)" class="lang-pill px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold rounded-xl text-xs border border-slate-700 transition">
                   भोजपुरी (Bhojpuri)
                 </button>
-                <button type="button" onclick="setSpeechLanguage('mr-IN', 'मराठी (Marathi)', this)" class="lang-pill px-3.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold rounded-xl text-xs border border-slate-700 transition transform hover:scale-105">
+                <button onclick="setSpeechLanguage('mr-IN', 'मराठी (Marathi)', this)" class="lang-pill px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold rounded-xl text-xs border border-slate-700 transition">
                   मराठी (Marathi)
                 </button>
-                <button type="button" onclick="setSpeechLanguage('ta-IN', 'தமிழ் (Tamil)', this)" class="lang-pill px-3.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold rounded-xl text-xs border border-slate-700 transition transform hover:scale-105">
+                <button onclick="setSpeechLanguage('ta-IN', 'தமிழ் (Tamil)', this)" class="lang-pill px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold rounded-xl text-xs border border-slate-700 transition">
                   தமிழ் (Tamil)
                 </button>
-                <button type="button" onclick="setSpeechLanguage('bn-IN', 'বাংলা (Bengali)', this)" class="lang-pill px-3.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold rounded-xl text-xs border border-slate-700 transition transform hover:scale-105">
+                <button onclick="setSpeechLanguage('bn-IN', 'বাংলা (Bengali)', this)" class="lang-pill px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold rounded-xl text-xs border border-slate-700 transition">
                   বাংলা (Bengali)
                 </button>
-                <button type="button" onclick="setSpeechLanguage('te-IN', 'తెలుగు (Telugu)', this)" class="lang-pill px-3.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold rounded-xl text-xs border border-slate-700 transition transform hover:scale-105">
+                <button onclick="setSpeechLanguage('te-IN', 'తెలుగు (Telugu)', this)" class="lang-pill px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold rounded-xl text-xs border border-slate-700 transition">
                   తెలుగు (Telugu)
                 </button>
-                <button type="button" onclick="setSpeechLanguage('gu-IN', 'ગુજરાતી (Gujarati)', this)" class="lang-pill px-3.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold rounded-xl text-xs border border-slate-700 transition transform hover:scale-105">
-                  ગુજરાતી (Gujarati)
-                </button>
-                <button type="button" onclick="setSpeechLanguage('en-IN', 'English (India)', this)" class="lang-pill px-3.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold rounded-xl text-xs border border-slate-700 transition transform hover:scale-105">
+                <button onclick="setSpeechLanguage('en-IN', 'English (India)', this)" class="lang-pill px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold rounded-xl text-xs border border-slate-700 transition">
                   English
                 </button>
               </div>
 
-              <!-- Mic Interactive Card -->
-              <div class="p-6 rounded-3xl bg-slate-950 border border-slate-800 text-center relative overflow-hidden">
-                <button id="micBtn" type="button" onclick="toggleSpeechRecognition()" class="w-20 h-20 mx-auto rounded-full bg-gradient-to-tr from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-slate-950 flex items-center justify-center shadow-xl shadow-orange-500/30 hover:scale-105 transition transform active:scale-95 focus:outline-none">
-                  <i data-lucide="mic" class="w-10 h-10" id="micIcon"></i>
+              <!-- Mic Interactive Section -->
+              <div class="mt-5 p-6 rounded-3xl bg-slate-950 border border-slate-800 text-center">
+                <button id="micBtn" onclick="toggleSpeechRecognition()" class="w-18 h-18 mx-auto p-4 rounded-full bg-gradient-to-tr from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-slate-950 flex items-center justify-center shadow-lg shadow-orange-500/30 hover:scale-105 transition">
+                  <i data-lucide="mic" class="w-9 h-9" id="micIcon"></i>
                 </button>
+                <div id="micStatus" class="text-xs font-bold text-white mt-3.5">Click to Speak (Live IndicASR)</div>
                 
-                <div id="micStatus" class="text-xs font-black uppercase tracking-wider text-white mt-3.5">
-                  Click to Speak (Live IndicASR)
-                </div>
-                
-                <!-- Dynamic Localized Prompt Box -->
-                <div class="mt-3.5 p-3.5 bg-slate-900 rounded-2xl border border-slate-800 text-left min-h-[68px] max-h-[110px] overflow-y-auto custom-scrollbar">
-                  <p id="liveTranscript" class="text-xs text-slate-300 font-medium leading-relaxed">
-                    माइक दबाएं और कहें: "मुझे 3 लाख का लोन सिलाई की दुकान के लिए चाहिए, मैं एससी वर्ग से हूँ"
-                  </p>
+                <div class="mt-3.5 p-3.5 bg-slate-900 rounded-2xl border border-slate-800 text-left min-h-[64px] max-h-[100px] overflow-y-auto custom-scrollbar">
+                  <p id="liveTranscript" class="text-xs text-slate-300 italic">"Tap mic and say: 'मुझे 3 लाख का लोन सिलाई की दुकान के लिए चाहिए, मैं एससी वर्ग से हूँ' or click sample presets below."</p>
                 </div>
 
-                <!-- Animated Waveform Bars (Appears when recording) -->
+                <!-- Live NLP Extracted Banner -->
+                <div id="nlpExtractionBadge" class="hidden mt-3 p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-mono font-bold text-left flex items-center gap-2">
+                  <i data-lucide="check-check" class="w-4 h-4 text-emerald-400"></i>
+                  <span id="nlpExtractionText">Parsed: Tailoring • ₹3,00,000 • SC Category • ₹2,50,000 Income</span>
+                </div>
+
+                <!-- Animated Wave Bars -->
                 <div id="waveContainer" class="hidden flex items-center justify-center gap-1.5 h-8 mt-3">
                   <div class="w-1 bg-orange-400 rounded-full wave-bar" style="animation-delay: 0.1s"></div>
                   <div class="w-1 bg-amber-400 rounded-full wave-bar" style="animation-delay: 0.3s"></div>
                   <div class="w-1 bg-orange-500 rounded-full wave-bar" style="animation-delay: 0.2s"></div>
                   <div class="w-1 bg-amber-500 rounded-full wave-bar" style="animation-delay: 0.4s"></div>
                   <div class="w-1 bg-orange-400 rounded-full wave-bar" style="animation-delay: 0.15s"></div>
-                  <div class="w-1 bg-amber-300 rounded-full wave-bar" style="animation-delay: 0.35s"></div>
-                </div>
-
-                <!-- Live NLP Extracted Banner -->
-                <div id="nlpExtractionBadge" class="hidden mt-3 p-3 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-bold text-left flex items-center gap-2">
-                  <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400 flex-shrink-0"></i>
-                  <span id="nlpExtractionText">✨ Parsed: Tailoring • ₹3,00,000 • SC Category • ₹2,50,000 Income</span>
                 </div>
               </div>
 
-              <!-- Fast 1-Click Voice Simulation Buttons for Jury Demo -->
-              <div class="pt-2 border-t border-slate-800">
-                <span class="text-xs font-extrabold uppercase tracking-wider text-slate-400 block mb-2">⚡ 1-Click Spoken Dialect Simulation for Jury:</span>
+              <!-- Fast 1-Click Voice Simulation Buttons for Live Jury Demo -->
+              <div class="mt-4 pt-3 border-t border-slate-800">
+                <span class="text-[11px] font-bold text-slate-400 block mb-2">⚡ 1-Click Spoken Dialect Simulation:</span>
                 <div class="grid grid-cols-2 gap-2 text-xs">
-                  <button type="button" onclick="simulateVoicePhrase('tailoring', 300000, 250000, 'SC', 'Garment Tailoring Shop', 'मुझे 3 लाख का लोन सिलाई की दुकान के लिए चाहिए, सालाना आमदनी ₹2.5 लाख, एससी वर्ग', 'hi-IN', 'हिन्दी (Hindi)')" class="p-2.5 bg-slate-800/90 hover:bg-orange-500/20 hover:border-orange-500/50 text-slate-200 rounded-xl text-left border border-slate-700 transition">
-                    🗣️ <strong class="text-white">Hindi:</strong> "3L Tailor, SC"
+                  <button onclick="simulateVoicePhrase('tailoring', 300000, 250000, 'SC', 'Garment Tailoring Shop', 'मुझे 3 लाख का लोन सिलाई की दुकान के लिए चाहिए, सालाना आमदनी ₹2.5 लाख, एससी वर्ग')" class="p-2 bg-slate-800/80 hover:bg-slate-700 text-slate-300 rounded-xl text-left border border-slate-700 transition">
+                    🗣️ <strong>Hindi:</strong> "3L Tailor, SC"
                   </button>
-                  <button type="button" onclick="simulateVoicePhrase('pottery', 200000, 200000, 'OBC', 'Traditional Pottery Unit', 'हमके 2 लाख के लोन माटी के बर्तन खातिर चाहीं, हमार सालाना आमदनी 2 लाख बा, ओबीसी वर्ग', 'bho-IN', 'भोजपुरी (Bhojpuri)')" class="p-2.5 bg-slate-800/90 hover:bg-orange-500/20 hover:border-orange-500/50 text-slate-200 rounded-xl text-left border border-slate-700 transition">
-                    🗣️ <strong class="text-white">Bhojpuri:</strong> "2L Potter, OBC"
+                  <button onclick="simulateVoicePhrase('pottery', 200000, 200000, 'OBC', 'Traditional Pottery Unit', 'हमके 2 लाख के लोन माटी के बर्तन खातिर चाही, ओबीसी वर्ग बा')" class="p-2 bg-slate-800/80 hover:bg-slate-700 text-slate-300 rounded-xl text-left border border-slate-700 transition">
+                    🗣️ <strong>Bhojpuri:</strong> "2L Potter, OBC"
                   </button>
-                  <button type="button" onclick="simulateVoicePhrase('beauty_parlor', 500000, 350000, 'Women', 'Beauty Salon & Wellness', 'मला ब्यूटी पार्लरसाठी 5 लाखांचे कर्ज हवे आहे, वार्षिक उत्पन्न 3.5 लाख, महिला उद्योजक', 'mr-IN', 'मराठी (Marathi)')" class="p-2.5 bg-slate-800/90 hover:bg-orange-500/20 hover:border-orange-500/50 text-slate-200 rounded-xl text-left border border-slate-700 transition">
-                    🗣️ <strong class="text-white">Marathi:</strong> "5L Salon, Women"
+                  <button onclick="simulateVoicePhrase('beauty_parlor', 500000, 350000, 'Women', 'Beauty Parlour Unit', 'मला ब्यूटी पार्लरसाठी 5 लाखांचे कर्ज हवे आहे, महिला उद्योजक')" class="p-2 bg-slate-800/80 hover:bg-slate-700 text-slate-300 rounded-xl text-left border border-slate-700 transition">
+                    🗣️ <strong>Marathi:</strong> "5L Parlour, Women"
                   </button>
-                  <button type="button" onclick="simulateVoicePhrase('carpentry', 350000, 220000, 'ST', 'Tribal Woodcraft Unit', 'Need 3.5 Lakhs loan for woodcraft workshop, annual income 2.2 Lakhs, Scheduled Tribe category', 'en-IN', 'English (India)')" class="p-2.5 bg-slate-800/90 hover:bg-orange-500/20 hover:border-orange-500/50 text-slate-200 rounded-xl text-left border border-slate-700 transition">
-                    🗣️ <strong class="text-white">English:</strong> "3.5L Woodcraft, ST"
+                  <button onclick="simulateVoicePhrase('carpentry', 350000, 220000, 'ST', 'Tribal Woodcraft Unit', 'Need 3.5 Lakhs loan for woodcraft workshop, Scheduled Tribe category')" class="p-2 bg-slate-800/80 hover:bg-slate-700 text-slate-300 rounded-xl text-left border border-slate-700 transition">
+                    🗣️ <strong>English:</strong> "3.5L Woodcraft, ST"
                   </button>
                 </div>
               </div>
             </div>
 
             <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between">
-              <button type="button" onclick="goToStep(1)" class="text-xs font-bold text-slate-400 hover:text-white transition">&larr; Back to Auth</button>
-              <button id="btnEvaluateSchemes" type="button" onclick="processAndMatchSchemes()" class="px-6 py-3 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-slate-950 text-xs font-black rounded-xl shadow-lg shadow-orange-500/25 flex items-center gap-2 transition transform hover:-translate-y-0.5">
+              <button onclick="goToStep(1)" class="text-xs font-bold text-slate-400 hover:text-white transition">&larr; Back to Auth</button>
+              <button onclick="processAndMatchSchemes()" class="px-6 py-3 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-slate-950 text-xs font-black rounded-xl shadow-lg shadow-orange-500/20 flex items-center gap-2 transition">
                 <span>Evaluate 22+ Welfare Schemes</span>
                 <i data-lucide="arrow-right" class="w-4 h-4"></i>
               </button>
@@ -733,41 +510,41 @@
 
           <!-- Right: Real-Time Parameter Verification & Fine-Tuning -->
           <div class="lg:col-span-5 bg-gradient-to-br from-[#0B192C] to-slate-900 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-xl flex flex-col justify-between h-full">
-            <div class="space-y-5">
-              <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-                <h3 class="text-sm font-black tracking-wider text-orange-400 uppercase flex items-center gap-1.5">
+            <div>
+              <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
+                <h3 class="text-xs font-black tracking-wider text-orange-400 uppercase flex items-center gap-1.5">
                   <i data-lucide="sliders" class="w-4 h-4"></i>
                   <span>Live Extracted Parameters</span>
                 </h3>
                 <div class="flex items-center gap-2">
-                  <button type="button" onclick="clearExtractedParameters()" class="text-[11px] bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white px-2.5 py-1 rounded-xl border border-slate-700 transition flex items-center gap-1" title="Reset all selections to blank defaults">
+                  <button type="button" onclick="clearExtractedParameters()" class="text-[10px] bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white px-2 py-0.5 rounded-lg border border-slate-700 transition flex items-center gap-1" title="Clear and reset form to start fresh">
                     <i data-lucide="rotate-ccw" class="w-3 h-3 text-orange-400"></i>
-                    <span>Clear Selection</span>
+                    <span>Clear</span>
                   </button>
-                  <span class="text-[10px] bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 font-bold px-2 py-1 rounded-xl">0-Hallucination</span>
+                  <span class="text-[10px] bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 font-bold px-2 py-0.5 rounded-lg">0-Hallucination</span>
                 </div>
               </div>
 
-              <div class="space-y-5 text-xs">
+              <div class="space-y-4 text-xs">
                 <!-- Trade Selection -->
                 <div>
-                  <label class="block text-sm font-extrabold uppercase tracking-wider text-slate-200 mb-2">Business Trade / Sector</label>
-                  <select id="tradeSelect" onchange="updateLiveParameters()" class="w-full bg-slate-800 border-2 border-slate-700 rounded-2xl px-4 py-3 text-white font-bold text-sm focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/30 transition">
+                  <label class="block text-slate-300 font-bold mb-1.5">Business Trade / Sector</label>
+                  <select id="tradeSelect" onchange="updateLiveParameters()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2.5 text-white font-semibold focus:outline-none focus:ring-2 focus:ring-orange-500">
                     <option value="tailoring">Garment Tailoring & Manufacturing</option>
                     <option value="pottery">Traditional Clay Pottery & Ceramic Craft</option>
                     <option value="carpentry">Woodworking & Carpentry Workshop</option>
                     <option value="kirana">General Kirana & Retail Store</option>
-                    <option value="beauty_parlor">Beauty Salon & Wellness Unit</option>
+                    <option value="beauty_parlor">Beauty Parlour & Wellness Unit</option>
                     <option value="mobile_repair">Mobile & Electronics Repair</option>
                     <option value="dairy">Dairy Farming & Milk Chilling</option>
-                    <option value="street_vendor">Street Food / Micro Vendor Cart</option>
+                    <option value="street_vendor">Street Food / Micro Vendor</option>
                   </select>
                 </div>
 
                 <!-- Social Category -->
                 <div>
-                  <label class="block text-sm font-extrabold uppercase tracking-wider text-slate-200 mb-2">Social Demographic Category</label>
-                  <select id="categorySelect" onchange="updateLiveParameters()" class="w-full bg-slate-800 border-2 border-slate-700 rounded-2xl px-4 py-3 text-white font-bold text-sm focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/30 transition">
+                  <label class="block text-slate-300 font-bold mb-1.5">Social Demographic Category</label>
+                  <select id="categorySelect" onchange="updateLiveParameters()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2.5 text-white font-semibold focus:outline-none focus:ring-2 focus:ring-orange-500">
                     <option value="SC">Scheduled Caste (SC) - NSFDC Apex Target</option>
                     <option value="OBC">Other Backward Classes (OBC) - NBCFDC Apex Target</option>
                     <option value="ST">Scheduled Tribe (ST) - NSTFDC Apex Target</option>
@@ -781,38 +558,31 @@
                 </div>
 
                 <!-- Capital Loan Slider -->
-                <div class="bg-slate-950/80 p-4 rounded-2xl border border-slate-800/80 space-y-2">
-                  <div class="flex items-center justify-between">
-                    <span class="text-xs font-extrabold uppercase tracking-wider text-slate-300">Required Capital Loan:</span>
-                    <span id="capitalDisplay" class="text-2xl font-black text-orange-400 font-sans tracking-tight num-tabular">₹3,00,000</span>
+                <div>
+                  <div class="flex justify-between font-bold mb-1.5">
+                    <span class="text-slate-300">Required Capital Loan:</span>
+                    <span id="capitalDisplay" class="text-orange-400 font-sans text-xl font-black num-tabular">₹3,00,000</span>
                   </div>
-                  <input id="capitalSlider" type="range" min="25000" max="1000000" step="25000" value="300000" oninput="updateCapitalDisplay(this.value)" onchange="updateCapitalDisplay(this.value)" class="w-full" />
-                  <div class="flex justify-between text-[10px] text-slate-500 font-medium pt-0.5">
-                    <span>Min: ₹25,000</span>
-                    <span>Max: ₹10,00,000</span>
-                  </div>
+                  <input id="capitalSlider" type="range" min="25000" max="1000000" step="25000" value="300000" oninput="updateCapitalDisplay(this.value)" class="w-full accent-orange-500 cursor-pointer h-2 bg-slate-800 rounded-lg" />
                 </div>
 
                 <!-- Annual Family Income Slider -->
-                <div class="bg-slate-950/80 p-4 rounded-2xl border border-slate-800/80 space-y-2">
-                  <div class="flex items-center justify-between">
-                    <span class="text-xs font-extrabold uppercase tracking-wider text-slate-300">Annual Family Income:</span>
-                    <span id="incomeDisplay" class="text-2xl font-black text-emerald-400 font-sans tracking-tight num-tabular">₹2,50,000</span>
+                <div>
+                  <div class="flex justify-between font-bold mb-1.5">
+                    <span class="text-slate-300">Annual Family Income:</span>
+                    <span id="incomeDisplay" class="text-emerald-400 font-sans text-xl font-black num-tabular">₹2,50,000</span>
                   </div>
-                  <input id="incomeSlider" type="range" min="50000" max="1000000" step="25000" value="250000" oninput="updateIncomeDisplay(this.value)" onchange="updateIncomeDisplay(this.value)" class="w-full" />
-                  <div class="flex items-center justify-between pt-0.5">
-                    <span id="incomeStatusBadge" class="text-[11px] text-emerald-400 font-bold">✓ Eligible for MoSJE Concessional Subsidies (&le; ₹5.00 Lakhs)</span>
-                    <span class="text-[10px] text-slate-500 font-medium">Max: ₹10L</span>
-                  </div>
+                  <input id="incomeSlider" type="range" min="50000" max="1000000" step="25000" value="250000" oninput="updateIncomeDisplay(this.value)" class="w-full accent-emerald-500 cursor-pointer h-2 bg-slate-800 rounded-lg" />
+                  <span id="incomeStatusBadge" class="text-[11px] text-emerald-400 mt-1.5 block font-semibold">✓ Eligible for MoSJE Concessional Subsidies (&le; ₹5.00 Lakhs)</span>
                 </div>
               </div>
             </div>
 
             <div class="mt-5 pt-3.5 border-t border-slate-800 text-xs text-slate-400 flex items-center justify-between">
-              <span>Applicant: <strong id="paramApplicantName" class="text-white font-bold">Ramesh Kumar</strong></span>
-              <span class="text-emerald-400 font-bold flex items-center gap-1.5">
-                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                22+ Schemes Matrix Synced
+              <span>Applicant: <strong id="paramApplicantName" class="text-white">Ramesh Kumar</strong></span>
+              <span class="text-emerald-400 font-bold flex items-center gap-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                22+ Schemes Matrix Active
               </span>
             </div>
           </div>
@@ -833,7 +603,7 @@
         </div>
 
         <!-- Container for Dynamically Ranked Scheme Cards -->
-        <div id="schemeCardsContainer" class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+        <div id="schemeCardsContainer" class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <!-- Injected dynamically by evaluateAndRenderSchemes() -->
         </div>
 
@@ -845,7 +615,7 @@
 
       <!-- STEP 4: DIGILOCKER & DOCUMENTS -->
       <div id="screen-4" class="screen hidden fade-enter">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
           
           <!-- Left: Full 6-Document Statutory Checklist -->
           <div class="lg:col-span-8 bg-slate-900/90 backdrop-blur-xl rounded-3xl p-6 md:p-8 shadow-xl border border-slate-800">
@@ -1087,17 +857,17 @@
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800">
                 <span class="text-slate-400 text-xs block">Total Project Cost</span>
-                <div id="dprProjectCost" class="text-2xl font-black text-white font-sans tracking-tight num-tabular mt-1">₹3,00,000</div>
+                <div id="dprProjectCost" class="text-2xl font-black text-white font-mono mt-1">₹3,00,000</div>
                 <span class="text-[11px] text-slate-500">100% Machinery & Stock</span>
               </div>
               <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800">
                 <span class="text-slate-400 text-xs block">Bank Loan Sanction (90%)</span>
-                <div id="dprLoanSanction" class="text-2xl font-black text-emerald-400 font-sans tracking-tight num-tabular mt-1">₹2,70,000</div>
+                <div id="dprLoanSanction" class="text-2xl font-black text-emerald-400 font-mono mt-1">₹2,70,000</div>
                 <span class="text-[11px] text-slate-500">Concessional @ 4.0% p.a.</span>
               </div>
               <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800">
                 <span class="text-slate-400 text-xs block">Capital Subsidy Grant (25%)</span>
-                <div id="dprSubsidyGrant" class="text-2xl font-black text-orange-400 font-sans tracking-tight num-tabular mt-1">₹75,000</div>
+                <div id="dprSubsidyGrant" class="text-2xl font-black text-orange-400 font-mono mt-1">₹75,000</div>
                 <span class="text-[11px] text-slate-500">Direct MoSJE DBT Credit</span>
               </div>
             </div>
@@ -1128,19 +898,19 @@
                 <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800 space-y-2">
                   <div class="flex justify-between">
                     <span class="text-slate-400">Gross Monthly Revenue:</span>
-                    <strong id="dprMonthlyRevenue" class="text-white font-sans num-tabular">₹66,000</strong>
+                    <strong id="dprMonthlyRevenue" class="text-white font-mono">₹66,000</strong>
                   </div>
                   <div class="flex justify-between">
                     <span class="text-slate-400">Operating Expenses (Raw Material):</span>
-                    <strong id="dprMonthlyOpex" class="text-slate-300 font-sans num-tabular">-₹24,000</strong>
+                    <strong id="dprMonthlyOpex" class="text-slate-300 font-mono">-₹24,000</strong>
                   </div>
                   <div class="flex justify-between">
                     <span class="text-slate-400">Monthly Loan EMI (5 Yrs @ 4%):</span>
-                    <strong id="dprMonthlyEmi" class="text-orange-400 font-sans num-tabular">-₹4,973</strong>
+                    <strong id="dprMonthlyEmi" class="text-orange-400 font-mono">-₹4,973</strong>
                   </div>
                   <div class="flex justify-between border-t border-slate-800 pt-2 font-bold">
                     <span class="text-emerald-400">Net Monthly Free Cash Flow:</span>
-                    <strong id="dprNetCashFlow" class="text-emerald-400 font-sans num-tabular">₹37,027</strong>
+                    <strong id="dprNetCashFlow" class="text-emerald-400 font-mono">₹37,027</strong>
                   </div>
                 </div>
               </div>
@@ -1232,9 +1002,9 @@
           </div>
 
           <div class="flex justify-center gap-3 pt-2">
-            <button onclick="showDbtTrackingModal()" class="px-5 py-2.5 bg-gradient-to-r from-orange-500 to-amber-500 text-slate-950 font-black text-xs rounded-xl shadow transition flex items-center gap-2">
+            <button onclick="switchPortal('bank')" class="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs rounded-xl transition flex items-center gap-2">
               <i data-lucide="external-link" class="w-4 h-4"></i>
-              <span>Track DBT in MoSJE Portal</span>
+              <span>View in Bank Officer Desk</span>
             </button>
             <button onclick="resetCitizenSession()" class="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-bold text-xs rounded-xl border border-slate-700 transition">
               New Application
@@ -1589,73 +1359,13 @@
       </div>
 
       <!-- Scheme Cards Grid -->
-      <div id="fullSchemeDirectoryGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+      <div id="fullSchemeDirectoryGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Dynamically rendered by renderSchemeDirectory() -->
       </div>
 
     </section>
 
   </main>
-
-  
-  <!-- Live MoSJE DBT Escrow Tracking Modal -->
-  <div id="dbtTrackingModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
-    <div class="bg-slate-900 border border-slate-700 rounded-3xl p-6 md:p-8 max-w-lg w-full shadow-2xl space-y-5">
-      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-        <div class="flex items-center gap-2.5">
-          <div class="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">
-            <i data-lucide="activity" class="w-4 h-4"></i>
-          </div>
-          <div>
-            <h3 class="text-base font-black text-white">MoSJE Public Financial Management System (PFMS)</h3>
-            <span class="text-[10px] text-emerald-400 font-mono">DBT Escrow Gateway: ACTIVE</span>
-          </div>
-        </div>
-        <button onclick="hideDbtTrackingModal()" class="text-slate-400 hover:text-white transition">
-          <i data-lucide="x" class="w-5 h-5"></i>
-        </button>
-      </div>
-
-      <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800 space-y-2 text-xs">
-        <div class="flex justify-between">
-          <span class="text-slate-400">Application Reference:</span>
-          <strong id="trackAppId" class="text-white font-mono">MoSJE-2026-UP-88419</strong>
-        </div>
-        <div class="flex justify-between">
-          <span class="text-slate-400">Beneficiary Name:</span>
-          <strong id="trackBeneficiary" class="text-orange-400">Ramesh Kumar (SC)</strong>
-        </div>
-        <div class="flex justify-between">
-          <span class="text-slate-400">PFMS Transaction UTR:</span>
-          <strong class="text-emerald-400 font-mono">UTR-2026-DBT-8891042</strong>
-        </div>
-        <div class="flex justify-between">
-          <span class="text-slate-400">Direct Capital Subsidy:</span>
-          <strong id="trackSubsidy" class="text-orange-400 font-sans num-tabular">₹75,000 (25% Grant)</strong>
-        </div>
-      </div>
-
-      <!-- Real-time Disbursal Milestones -->
-      <div class="space-y-2.5 text-xs">
-        <div class="p-3 bg-slate-800/80 rounded-xl border border-slate-700 flex items-center justify-between">
-          <span class="text-slate-300">1. Bank Lead Branch Pre-Approval</span>
-          <span class="text-emerald-400 font-bold">✓ Cleared</span>
-        </div>
-        <div class="p-3 bg-slate-800/80 rounded-xl border border-slate-700 flex items-center justify-between">
-          <span class="text-slate-300">2. DigiLocker SHA-256 e-KYC Vault</span>
-          <span class="text-emerald-400 font-bold">✓ Sealed</span>
-        </div>
-        <div class="p-3 bg-slate-800/80 rounded-xl border border-slate-700 flex items-center justify-between">
-          <span class="text-slate-300">3. MoSJE Central PFMS DBT Release</span>
-          <span class="text-orange-400 font-bold animate-pulse">⚡ Scheduled (48h)</span>
-        </div>
-      </div>
-
-      <button onclick="hideDbtTrackingModal()" class="w-full py-3 bg-gradient-to-r from-orange-500 to-amber-500 text-slate-950 font-black text-xs rounded-xl shadow transition">
-        Close Tracking Window
-      </button>
-    </div>
-  </div>
 
   <!-- Missing Document Help Modal -->
   <div id="missingDocModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
@@ -1684,73 +1394,11 @@
     </div>
   </div>
 
-  <!-- Master Sovereign Government Footer -->
-  <footer class="bg-[#05111E] text-slate-400 text-xs border-t-2 border-slate-800 mt-auto">
-    <!-- National Tricolor Border -->
-    <div class="h-1 w-full bg-gradient-to-r from-[#FF9933] via-[#FFFFFF] to-[#138808]"></div>
-
-    <!-- Official Initiative Badges Bar -->
-    <div class="max-w-7xl mx-auto px-6 py-6 border-b border-slate-800/80">
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 text-center">
-        <div class="p-3 bg-slate-900/60 rounded-2xl border border-slate-800 flex flex-col items-center justify-center gap-1">
-          <span class="text-lg">🇮🇳</span>
-          <strong class="text-white text-[11px]">Digital India</strong>
-          <span class="text-[9px] text-slate-500 font-mono">डिजिटल भारत</span>
-        </div>
-        <div class="p-3 bg-slate-900/60 rounded-2xl border border-slate-800 flex flex-col items-center justify-center gap-1">
-          <span class="text-lg">🦁</span>
-          <strong class="text-white text-[11px]">Make in India</strong>
-          <span class="text-[9px] text-slate-500 font-mono">आत्मनिर्भर भारत</span>
-        </div>
-        <div class="p-3 bg-slate-900/60 rounded-2xl border border-slate-800 flex flex-col items-center justify-center gap-1">
-          <span class="text-lg">🎙️</span>
-          <strong class="text-white text-[11px]">Project Bhashini</strong>
-          <span class="text-[9px] text-slate-500 font-mono">MeitY NLTM</span>
-        </div>
-        <div class="p-3 bg-slate-900/60 rounded-2xl border border-slate-800 flex flex-col items-center justify-center gap-1">
-          <span class="text-lg">🔒</span>
-          <strong class="text-white text-[11px]">DigiLocker API</strong>
-          <span class="text-[9px] text-slate-500 font-mono">256-Bit Encrypted</span>
-        </div>
-        <div class="p-3 bg-slate-900/60 rounded-2xl border border-slate-800 flex flex-col items-center justify-center gap-1">
-          <span class="text-lg">💳</span>
-          <strong class="text-white text-[11px]">NPCI / PMJDY</strong>
-          <span class="text-[9px] text-slate-500 font-mono">DBT Direct Transfer</span>
-        </div>
-        <div class="p-3 bg-slate-900/60 rounded-2xl border border-slate-800 flex flex-col items-center justify-center gap-1">
-          <span class="text-lg">🛡️</span>
-          <strong class="text-white text-[11px]">GIGW 3.0 & WCAG</strong>
-          <span class="text-[9px] text-slate-500 font-mono">Govt Quality Certified</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Official Helpline & Ministry Support Contacts -->
-    <div class="max-w-7xl mx-auto px-6 py-6 border-b border-slate-800/80 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
-      <div class="space-y-1">
-        <div class="flex items-center justify-center md:justify-start gap-2">
-          <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
-          <strong class="text-white text-xs uppercase tracking-wider">MoSJE 24x7 National Welfare Helpline:</strong>
-          <span class="text-orange-400 font-mono font-bold text-sm">14566 / 1800-11-0031</span>
-        </div>
-        <p class="text-[11px] text-slate-400">Centralized Public Grievance Redress and Monitoring System (CPGRAMS) • Zero Middlemen Assurance</p>
-      </div>
-
-      <div class="flex flex-wrap items-center justify-center gap-3 text-[11px]">
-        <span class="px-3 py-1 bg-slate-900 rounded-lg border border-slate-800 text-slate-300">NIC Guidelines Compliant</span>
-        <span class="px-3 py-1 bg-slate-900 rounded-lg border border-slate-800 text-slate-300">CERT-In Security Standard</span>
-        <span class="px-3 py-1 bg-slate-900 rounded-lg border border-slate-800 text-slate-300">DPDP Act 2023</span>
-      </div>
-    </div>
-
-    <!-- Bottom Copyright & Hackathon Details -->
-    <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-400">
-      <div>
-        <span>© 2026 <strong>UdyamSetu AI (उद्यमसेतु AI)</strong>. Official Entry for <strong>Smart India Hackathon 2026</strong>.</span>
-      </div>
-      <div>
-        <span>Problem ID: <strong class="text-orange-400 font-mono">SIH26092</strong> • Ministry of Social Justice & Empowerment • Team: <strong class="text-white font-bold">Code Catalyst</strong></span>
-      </div>
+  <!-- Master Footer -->
+  <footer class="bg-slate-950 text-slate-500 text-xs py-5 px-6 border-t border-slate-800 mt-auto text-center">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+      <span>Built for <strong>Smart India Hackathon 2026</strong> • Team: <strong class="text-slate-400">Code Catalyst</strong> • Problem ID: <strong class="text-orange-400">SIH26092</strong></span>
+      <span class="text-slate-500">Ministry of Social Justice and Empowerment (MoSJE) • Ready for Production Deployment</span>
     </div>
   </footer>
 
@@ -1758,94 +1406,6 @@
   <!-- MASTER JAVASCRIPT: 22 STATUTORY SCHEMES & MULTI-FACTOR ENGINE   -->
   <!-- ============================================================== -->
   <script>
-    
-    // Accessibility: Toggle High Contrast Mode
-    
-    // Web Speech API: Real Screen Reader Text-to-Speech Engine
-    let isScreenReaderSpeaking = false;
-    function toggleScreenReader() {
-      if (!('speechSynthesis' in window)) {
-        showToast('Screen Reader: Text-to-Speech not supported in this browser.');
-        return;
-      }
-
-      if (isScreenReaderSpeaking) {
-        window.speechSynthesis.cancel();
-        isScreenReaderSpeaking = false;
-        showToast('Screen Reader: Stopped audio playback.');
-        return;
-      }
-
-      const activeText = `Welcome to UdyamSetu AI. National portal for multilingual concessional credit discovery and automated Micro-DPR generation for marginalized entrepreneurs under the Ministry of Social Justice and Empowerment. You are currently on the ${clientState.activePortal.toUpperCase()} section.`;
-      
-      const utterance = new SpeechSynthesisUtterance(activeText);
-      utterance.rate = 1.0;
-      utterance.pitch = 1.0;
-      
-      utterance.onstart = () => {
-        isScreenReaderSpeaking = true;
-        showToast('🔊 Screen Reader: Reading portal summary aloud (WCAG 2.1 AA)...');
-      };
-
-      utterance.onend = () => {
-        isScreenReaderSpeaking = false;
-      };
-
-      utterance.onerror = () => {
-        isScreenReaderSpeaking = false;
-      };
-
-      window.speechSynthesis.cancel();
-      window.speechSynthesis.speak(utterance);
-    }
-
-    // Font Sizing Adjuster
-    let currentFontScale = 100;
-    function changeFontSize(delta) {
-      if (delta === 0) {
-        currentFontScale = 100;
-      } else {
-        currentFontScale = Math.min(125, Math.max(85, currentFontScale + delta));
-      }
-      document.documentElement.style.fontSize = `${currentFontScale}%`;
-      showToast(`Font Size: ${currentFontScale}%`);
-    }
-
-    // Live DBT Tracking Modal Controllers
-    function showDbtTrackingModal() {
-      const modal = document.getElementById('dbtTrackingModal');
-      if (modal) {
-        document.getElementById('trackAppId').innerText = clientState.appId || 'MoSJE-2026-UP-88419';
-        document.getElementById('trackBeneficiary').innerText = `${clientState.name || 'Ramesh Kumar'} (${clientState.category || 'SC'})`;
-        document.getElementById('trackSubsidy').innerText = `₹${(clientState.selectedSubsidyAmt || 75000).toLocaleString('en-IN')} (Capital Subsidy Grant)`;
-        modal.classList.remove('hidden');
-      }
-    }
-
-    function hideDbtTrackingModal() {
-      const modal = document.getElementById('dbtTrackingModal');
-      if (modal) modal.classList.add('hidden');
-    }
-
-    function toggleHighContrast() {
-      document.body.classList.toggle('high-contrast');
-      const isHigh = document.body.classList.contains('high-contrast');
-      showToast(isHigh ? 'High Contrast Accessibility Mode: ON' : 'High Contrast Mode: OFF');
-    }
-
-    // Top Language Switcher sync
-    function changeTopLanguage(langCode) {
-      const promptObj = langPrompts[langCode] || langPrompts['hi-IN'];
-      const name = promptObj ? promptObj.name : 'हिन्दी (Hindi)';
-      
-      const pills = document.querySelectorAll('.lang-pill');
-      let targetBtn = null;
-      pills.forEach(p => {
-        if (p.innerText.includes(name.split(' ')[0])) targetBtn = p;
-      });
-      setSpeechLanguage(langCode, name, targetBtn);
-    }
-
     lucide.createIcons();
 
     // Client State
@@ -2544,96 +2104,7 @@
       }
 
       if (portalId === 'schemes') renderSchemeDirectory();
-      
-    // Accessibility: Toggle High Contrast Mode
-    
-    // Web Speech API: Real Screen Reader Text-to-Speech Engine
-    let isScreenReaderSpeaking = false;
-    function toggleScreenReader() {
-      if (!('speechSynthesis' in window)) {
-        showToast('Screen Reader: Text-to-Speech not supported in this browser.');
-        return;
-      }
-
-      if (isScreenReaderSpeaking) {
-        window.speechSynthesis.cancel();
-        isScreenReaderSpeaking = false;
-        showToast('Screen Reader: Stopped audio playback.');
-        return;
-      }
-
-      const activeText = `Welcome to UdyamSetu AI. National portal for multilingual concessional credit discovery and automated Micro-DPR generation for marginalized entrepreneurs under the Ministry of Social Justice and Empowerment. You are currently on the ${clientState.activePortal.toUpperCase()} section.`;
-      
-      const utterance = new SpeechSynthesisUtterance(activeText);
-      utterance.rate = 1.0;
-      utterance.pitch = 1.0;
-      
-      utterance.onstart = () => {
-        isScreenReaderSpeaking = true;
-        showToast('🔊 Screen Reader: Reading portal summary aloud (WCAG 2.1 AA)...');
-      };
-
-      utterance.onend = () => {
-        isScreenReaderSpeaking = false;
-      };
-
-      utterance.onerror = () => {
-        isScreenReaderSpeaking = false;
-      };
-
-      window.speechSynthesis.cancel();
-      window.speechSynthesis.speak(utterance);
-    }
-
-    // Font Sizing Adjuster
-    let currentFontScale = 100;
-    function changeFontSize(delta) {
-      if (delta === 0) {
-        currentFontScale = 100;
-      } else {
-        currentFontScale = Math.min(125, Math.max(85, currentFontScale + delta));
-      }
-      document.documentElement.style.fontSize = `${currentFontScale}%`;
-      showToast(`Font Size: ${currentFontScale}%`);
-    }
-
-    // Live DBT Tracking Modal Controllers
-    function showDbtTrackingModal() {
-      const modal = document.getElementById('dbtTrackingModal');
-      if (modal) {
-        document.getElementById('trackAppId').innerText = clientState.appId || 'MoSJE-2026-UP-88419';
-        document.getElementById('trackBeneficiary').innerText = `${clientState.name || 'Ramesh Kumar'} (${clientState.category || 'SC'})`;
-        document.getElementById('trackSubsidy').innerText = `₹${(clientState.selectedSubsidyAmt || 75000).toLocaleString('en-IN')} (Capital Subsidy Grant)`;
-        modal.classList.remove('hidden');
-      }
-    }
-
-    function hideDbtTrackingModal() {
-      const modal = document.getElementById('dbtTrackingModal');
-      if (modal) modal.classList.add('hidden');
-    }
-
-    function toggleHighContrast() {
-      document.body.classList.toggle('high-contrast');
-      const isHigh = document.body.classList.contains('high-contrast');
-      showToast(isHigh ? 'High Contrast Accessibility Mode: ON' : 'High Contrast Mode: OFF');
-    }
-
-    // Top Language Switcher sync
-    function changeTopLanguage(langCode) {
-      const promptObj = langPrompts[langCode] || langPrompts['hi-IN'];
-      const name = promptObj ? promptObj.name : 'हिन्दी (Hindi)';
-      
-      const pills = document.querySelectorAll('.lang-pill');
-      let targetBtn = null;
-      pills.forEach(p => {
-        if (p.innerText.includes(name.split(' ')[0])) targetBtn = p;
-      });
-      setSpeechLanguage(langCode, name, targetBtn);
-    }
-
-    lucide.createIcons();
-
+      lucide.createIcons();
     }
 
     // Enhanced Prefill demo user helper (8 diverse personas)
@@ -2675,96 +2146,7 @@
           label.className = "text-slate-400";
         }
       }
-      
-    // Accessibility: Toggle High Contrast Mode
-    
-    // Web Speech API: Real Screen Reader Text-to-Speech Engine
-    let isScreenReaderSpeaking = false;
-    function toggleScreenReader() {
-      if (!('speechSynthesis' in window)) {
-        showToast('Screen Reader: Text-to-Speech not supported in this browser.');
-        return;
-      }
-
-      if (isScreenReaderSpeaking) {
-        window.speechSynthesis.cancel();
-        isScreenReaderSpeaking = false;
-        showToast('Screen Reader: Stopped audio playback.');
-        return;
-      }
-
-      const activeText = `Welcome to UdyamSetu AI. National portal for multilingual concessional credit discovery and automated Micro-DPR generation for marginalized entrepreneurs under the Ministry of Social Justice and Empowerment. You are currently on the ${clientState.activePortal.toUpperCase()} section.`;
-      
-      const utterance = new SpeechSynthesisUtterance(activeText);
-      utterance.rate = 1.0;
-      utterance.pitch = 1.0;
-      
-      utterance.onstart = () => {
-        isScreenReaderSpeaking = true;
-        showToast('🔊 Screen Reader: Reading portal summary aloud (WCAG 2.1 AA)...');
-      };
-
-      utterance.onend = () => {
-        isScreenReaderSpeaking = false;
-      };
-
-      utterance.onerror = () => {
-        isScreenReaderSpeaking = false;
-      };
-
-      window.speechSynthesis.cancel();
-      window.speechSynthesis.speak(utterance);
-    }
-
-    // Font Sizing Adjuster
-    let currentFontScale = 100;
-    function changeFontSize(delta) {
-      if (delta === 0) {
-        currentFontScale = 100;
-      } else {
-        currentFontScale = Math.min(125, Math.max(85, currentFontScale + delta));
-      }
-      document.documentElement.style.fontSize = `${currentFontScale}%`;
-      showToast(`Font Size: ${currentFontScale}%`);
-    }
-
-    // Live DBT Tracking Modal Controllers
-    function showDbtTrackingModal() {
-      const modal = document.getElementById('dbtTrackingModal');
-      if (modal) {
-        document.getElementById('trackAppId').innerText = clientState.appId || 'MoSJE-2026-UP-88419';
-        document.getElementById('trackBeneficiary').innerText = `${clientState.name || 'Ramesh Kumar'} (${clientState.category || 'SC'})`;
-        document.getElementById('trackSubsidy').innerText = `₹${(clientState.selectedSubsidyAmt || 75000).toLocaleString('en-IN')} (Capital Subsidy Grant)`;
-        modal.classList.remove('hidden');
-      }
-    }
-
-    function hideDbtTrackingModal() {
-      const modal = document.getElementById('dbtTrackingModal');
-      if (modal) modal.classList.add('hidden');
-    }
-
-    function toggleHighContrast() {
-      document.body.classList.toggle('high-contrast');
-      const isHigh = document.body.classList.contains('high-contrast');
-      showToast(isHigh ? 'High Contrast Accessibility Mode: ON' : 'High Contrast Mode: OFF');
-    }
-
-    // Top Language Switcher sync
-    function changeTopLanguage(langCode) {
-      const promptObj = langPrompts[langCode] || langPrompts['hi-IN'];
-      const name = promptObj ? promptObj.name : 'हिन्दी (Hindi)';
-      
-      const pills = document.querySelectorAll('.lang-pill');
-      let targetBtn = null;
-      pills.forEach(p => {
-        if (p.innerText.includes(name.split(' ')[0])) targetBtn = p;
-      });
-      setSpeechLanguage(langCode, name, targetBtn);
-    }
-
-    lucide.createIcons();
-
+      lucide.createIcons();
     }
 
     // Step 1: Auth & OTP Verification
@@ -2795,97 +2177,8 @@
         document.getElementById('otpInput').value = randomOtp;
         showToast(`Simulated SMS: Your UdyamSetu verification OTP is ${randomOtp}`);
         actionBtn.innerHTML = '<span>Verify OTP & Launch Voice Intake</span> <i data-lucide="arrow-right" class="w-4 h-4"></i>';
-        
-    // Accessibility: Toggle High Contrast Mode
-    
-    // Web Speech API: Real Screen Reader Text-to-Speech Engine
-    let isScreenReaderSpeaking = false;
-    function toggleScreenReader() {
-      if (!('speechSynthesis' in window)) {
-        showToast('Screen Reader: Text-to-Speech not supported in this browser.');
-        return;
-      }
-
-      if (isScreenReaderSpeaking) {
-        window.speechSynthesis.cancel();
-        isScreenReaderSpeaking = false;
-        showToast('Screen Reader: Stopped audio playback.');
-        return;
-      }
-
-      const activeText = `Welcome to UdyamSetu AI. National portal for multilingual concessional credit discovery and automated Micro-DPR generation for marginalized entrepreneurs under the Ministry of Social Justice and Empowerment. You are currently on the ${clientState.activePortal.toUpperCase()} section.`;
-      
-      const utterance = new SpeechSynthesisUtterance(activeText);
-      utterance.rate = 1.0;
-      utterance.pitch = 1.0;
-      
-      utterance.onstart = () => {
-        isScreenReaderSpeaking = true;
-        showToast('🔊 Screen Reader: Reading portal summary aloud (WCAG 2.1 AA)...');
-      };
-
-      utterance.onend = () => {
-        isScreenReaderSpeaking = false;
-      };
-
-      utterance.onerror = () => {
-        isScreenReaderSpeaking = false;
-      };
-
-      window.speechSynthesis.cancel();
-      window.speechSynthesis.speak(utterance);
-    }
-
-    // Font Sizing Adjuster
-    let currentFontScale = 100;
-    function changeFontSize(delta) {
-      if (delta === 0) {
-        currentFontScale = 100;
+        lucide.createIcons();
       } else {
-        currentFontScale = Math.min(125, Math.max(85, currentFontScale + delta));
-      }
-      document.documentElement.style.fontSize = `${currentFontScale}%`;
-      showToast(`Font Size: ${currentFontScale}%`);
-    }
-
-    // Live DBT Tracking Modal Controllers
-    function showDbtTrackingModal() {
-      const modal = document.getElementById('dbtTrackingModal');
-      if (modal) {
-        document.getElementById('trackAppId').innerText = clientState.appId || 'MoSJE-2026-UP-88419';
-        document.getElementById('trackBeneficiary').innerText = `${clientState.name || 'Ramesh Kumar'} (${clientState.category || 'SC'})`;
-        document.getElementById('trackSubsidy').innerText = `₹${(clientState.selectedSubsidyAmt || 75000).toLocaleString('en-IN')} (Capital Subsidy Grant)`;
-        modal.classList.remove('hidden');
-      }
-    }
-
-    function hideDbtTrackingModal() {
-      const modal = document.getElementById('dbtTrackingModal');
-      if (modal) modal.classList.add('hidden');
-    }
-
-    function toggleHighContrast() {
-      document.body.classList.toggle('high-contrast');
-      const isHigh = document.body.classList.contains('high-contrast');
-      showToast(isHigh ? 'High Contrast Accessibility Mode: ON' : 'High Contrast Mode: OFF');
-    }
-
-    // Top Language Switcher sync
-    function changeTopLanguage(langCode) {
-      const promptObj = langPrompts[langCode] || langPrompts['hi-IN'];
-      const name = promptObj ? promptObj.name : 'हिन्दी (Hindi)';
-      
-      const pills = document.querySelectorAll('.lang-pill');
-      let targetBtn = null;
-      pills.forEach(p => {
-        if (p.innerText.includes(name.split(' ')[0])) targetBtn = p;
-      });
-      setSpeechLanguage(langCode, name, targetBtn);
-    }
-
-    lucide.createIcons();
-
-    } else {
         document.getElementById('paramApplicantName').innerText = clientState.name;
         // Sync parameters to step 2 inputs
         if (clientState.trade) document.getElementById('tradeSelect').value = clientState.trade;
@@ -2903,7 +2196,7 @@
     }
 
     // Step 2: Language Switching
-    
+
     // Dynamic Language Prompt Dictionary for 12 Indic Languages
     const langPrompts = {
       'hi-IN': {
@@ -2934,32 +2227,12 @@
       'te-IN': {
         name: 'తెలుగు (Telugu)',
         instruction: 'మైక్ నొక్కి మాట్లాడండి: "టైలరింగ్ షాప్ కోసం 3 లక్షల రుణం కావాలి, ఎస్సీ వర్గం"',
-        spokenDemo: 'టైలరింగ్ షాప్ కోసం 3 లక్షల రుణం కావాలి, వార్షిక ఆదాయం 2.5 లక్షలు, ఎస్సీ వర్గం'
+        spokenDemo: 'టైలరింగ్ షాప్ కోసం 3 లక్షల రుణం కావాలి, వార్షಿಕ ఆదాయం 2.5 లక్షలు, ఎస్సీ వర్గం'
       },
       'gu-IN': {
         name: 'ગુજરાતી (Gujarati)',
         instruction: 'માઇક દબાવો અને બોલો: "મને દરજીકામ માટે 3 લાખની લોન જોઈએ છે, અનુસૂચિત જાતિ"',
         spokenDemo: 'મને દરજીકામ માટે 3 લાખની લોન જોઈએ છે, વાર્ષિક આવક 2.5 લાખ, એસસી કેટેગરી'
-      },
-      'kn-IN': {
-        name: 'ಕನ್ನಡ (Kannada)',
-        instruction: 'ಮೈಕ್ ಒತ್ತಿ ಮಾತನಾಡಿ: "ಟೈಲರಿಂಗ್ ಅಂಗಡಿಗೆ 3 ಲಕ್ಷ ಸಾಲ ಬೇಕಾಗಿದೆ"',
-        spokenDemo: 'ಟೈಲರಿಂಗ್ ಅಂಗಡಿಗೆ 3 ಲಕ್ಷ ಸಾಲ ಬೇಕಾಗಿದೆ, ವಾರ್ಷಿಕ ಆದಾಯ 2.5 ಲಕ್ಷ, ಎಸ್ಸಿ ವರ್ಗ'
-      },
-      'pa-IN': {
-        name: 'ਪੰਜਾਬੀ (Punjabi)',
-        instruction: 'ਮਾਈਕ ਦਬਾਓ ਅਤੇ ਬੋਲੋ: "ਦਰਜ਼ੀ ਦੁਕਾਨ ਲਈ 3 ਲੱਖ ਦਾ ਕਰਜ਼ਾ ਚਾਹੀਦਾ ਹੈ"',
-        spokenDemo: 'ਦਰਜ਼ੀ ਦੁਕਾਨ ਲਈ 3 ਲੱਖ ਦਾ ਕਰਜ਼ਾ ਚਾਹੀਦਾ ਹੈ, ਸਾਲਾਨਾ ਆਮਦਨ 2.5 ਲੱਖ'
-      },
-      'or-IN': {
-        name: 'ଓଡ଼ିଆ (Odia)',
-        instruction: 'ମାଇକ୍ ଦବାନ୍ତୁ ଏବଂ କୁହନ୍ତୁ: "ଦରଜି ଦୋକାନ ପାଇଁ ୩ ଲକ୍ଷ ଟଙ୍କା ଋଣ ଦରକାର"',
-        spokenDemo: 'ଦରଜି ଦୋକାନ ପାଇଁ ୩ ଲକ୍ଷ ଟଙ୍କା ଋଣ ଦରକାର'
-      },
-      'as-IN': {
-        name: 'অসমীয়া (Assamese)',
-        instruction: 'মাইক টিপি কওক: "দর্জি দোকানৰ বাবে ৩ লাখ টকাৰ ঋণ লাগে"',
-        spokenDemo: 'দর্জি দোকানৰ বাবে ৩ লাখ টকাৰ ঋণ লাগে'
       },
       'en-IN': {
         name: 'English (India)',
@@ -2968,27 +2241,19 @@
       }
     };
 
-    // Step 2: Language Switching with High-Contrast Active State & Dynamic Prompt Translation
     function setSpeechLanguage(langCode, langName, btnEl) {
       clientState.currentSpeechLang = langCode;
       clientState.currentSpeechLangName = langName;
-      
-      const disp = document.getElementById('activeLangDisplay');
-      if (disp) disp.innerText = `Current: ${langName}`;
+      document.getElementById('activeLangDisplay').innerText = `Current: ${langName}`;
 
-      const topSelect = document.getElementById('topLangSelect');
-      if (topSelect) topSelect.value = langCode;
-
-      // Update pill classes to ensure prominent active state
       document.querySelectorAll('.lang-pill').forEach(pill => {
-        pill.className = "lang-pill px-3.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold rounded-xl text-xs border border-slate-700 transition transform hover:scale-105";
+        pill.className = "lang-pill px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold rounded-xl text-xs border border-slate-700 transition";
       });
 
       if (btnEl) {
-        btnEl.className = "lang-pill px-3.5 py-1.5 bg-gradient-to-r from-orange-500 to-amber-500 text-slate-950 font-black rounded-xl text-xs shadow-md shadow-orange-500/40 ring-2 ring-orange-400 transition transform hover:scale-105";
+        btnEl.className = "lang-pill px-3 py-1.5 bg-gradient-to-r from-orange-500 to-amber-500 text-slate-950 font-black rounded-xl text-xs shadow-md shadow-orange-500/40 ring-2 ring-orange-400 transition";
       }
 
-      // Update instructional prompt in the native language
       const promptObj = langPrompts[langCode] || langPrompts['hi-IN'];
       const transcriptEl = document.getElementById('liveTranscript');
       if (transcriptEl) {
@@ -2999,112 +2264,28 @@
         recognition.lang = langCode;
       }
 
-      showToast(`Switched language to ${langName}`);
+      showToast(`Language switched to ${langName}`);
     }
 
-    function changeTopLanguage(langCode) {
-      const promptObj = langPrompts[langCode] || langPrompts['hi-IN'];
-      const name = promptObj.name;
-      
-      // Find matching pill button if on step 2
-      const pills = document.querySelectorAll('.lang-pill');
-      let targetBtn = null;
-      pills.forEach(p => {
-        if (p.innerText.includes(name.split(' ')[0])) targetBtn = p;
-      });
-      setSpeechLanguage(langCode, name, targetBtn);
-    }
-
-    
-    // ================================================================
-    // STEP 2: CONTINUOUS CLICK-TO-LISTEN / CLICK-TO-STOP VOICE ENGINE
-    // ================================================================
+    // CONTINUOUS SPEECH RECOGNITION (Click to Start, Click again to Stop)
     let recognition = null;
     let accumulatedTranscript = "";
-    let isSpeechSupported = false;
 
-    // Initialize Web Speech API if supported
-    function initSpeechEngine() {
-      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-      if (SpeechRecognition) {
-        try {
-          recognition = new SpeechRecognition();
-          recognition.continuous = true;
-          recognition.interimResults = true;
-          isSpeechSupported = true;
-
-          recognition.onstart = () => {
-            clientState.isRecording = true;
-            accumulatedTranscript = "";
-            const micBtn = document.getElementById('micBtn');
-            const micStatus = document.getElementById('micStatus');
-            const wave = document.getElementById('waveContainer');
-
-            if (micBtn) micBtn.className = "w-20 h-20 mx-auto rounded-full bg-red-600 text-white flex items-center justify-center shadow-xl shadow-red-500/40 ring-8 ring-orange-500/40 animate-pulse scale-110 transition transform";
-            if (micStatus) {
-              micStatus.innerText = `🔴 Listening in ${clientState.currentSpeechLangName}... Speak now! (Tap mic to Stop)`;
-              micStatus.className = "text-xs font-black uppercase tracking-wider text-red-400 mt-3.5 animate-pulse";
-            }
-            if (wave) wave.classList.remove('hidden');
-          };
-
-          recognition.onresult = (event) => {
-            let interim = "";
-            let final = "";
-            for (let i = event.resultIndex; i < event.results.length; ++i) {
-              if (event.results[i].isFinal) {
-                final += event.results[i][0].transcript + " ";
-              } else {
-                interim += event.results[i][0].transcript;
-              }
-            }
-            accumulatedTranscript += final;
-            const fullText = (accumulatedTranscript + " " + interim).trim();
-            if (fullText) {
-              document.getElementById('liveTranscript').innerText = `"${fullText}"`;
-              parseSpokenText(fullText);
-            }
-          };
-
-          recognition.onerror = (e) => {
-            console.log("Speech recognition error:", e);
-          };
-
-          recognition.onend = () => {
-            // Handled when user stops
-            if (clientState.isRecording) {
-              stopRecordingState();
-              if (accumulatedTranscript.trim()) {
-                parseSpokenText(accumulatedTranscript);
-              }
-            }
-          };
-        } catch(e) {
-          isSpeechSupported = false;
-        }
-      }
-    }
-
-    // Toggle Microphone: Click once to Start Listening, Click again to Stop
     function toggleSpeechRecognition() {
-      if (!recognition) {
-        initSpeechEngine();
-      }
-
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      
       if (clientState.isRecording) {
-        // User clicked again to STOP recording
+        // User clicked to STOP recording
         if (recognition) {
           try { recognition.stop(); } catch(e){}
         }
         stopRecordingState();
         
-        // Parse whatever transcript was captured
         const transcriptText = document.getElementById('liveTranscript').innerText.replace(/^"|"$/g, '').trim();
         if (transcriptText && !transcriptText.startsWith("Tap mic") && !transcriptText.startsWith("माइक दबाएं") && !transcriptText.startsWith("Listening")) {
           parseSpokenText(transcriptText);
-          showToast("Microphone stopped. Extracted statutory parameters from speech!");
+          showToast("Microphone stopped. Extracted statutory parameters from your speech!");
         } else {
-          // If silence, fallback to active language spoken demo
           const promptObj = langPrompts[clientState.currentSpeechLang] || langPrompts['hi-IN'];
           document.getElementById('liveTranscript').innerText = `"${promptObj.spokenDemo}"`;
           parseSpokenText(promptObj.spokenDemo);
@@ -3116,26 +2297,55 @@
       // User clicked to START recording
       clientState.isRecording = true;
       accumulatedTranscript = "";
-      document.getElementById('liveTranscript').innerText = `Listening... speak your enterprise details in ${clientState.currentSpeechLangName}...`;
+      document.getElementById('liveTranscript').innerText = `Listening... speak your enterprise details in ${clientState.currentSpeechLangName}... (Tap mic when done)`;
 
       const micBtn = document.getElementById('micBtn');
       const micStatus = document.getElementById('micStatus');
       const wave = document.getElementById('waveContainer');
 
-      if (micBtn) micBtn.className = "w-20 h-20 mx-auto rounded-full bg-red-600 text-white flex items-center justify-center shadow-xl shadow-red-500/40 ring-8 ring-orange-500/40 animate-pulse scale-110 transition transform";
+      if (micBtn) micBtn.className = "w-18 h-18 mx-auto p-4 rounded-full bg-red-600 text-white flex items-center justify-center shadow-xl shadow-red-500/40 ring-8 ring-orange-500/40 animate-pulse scale-110 transition transform";
       if (micStatus) {
-        micStatus.innerText = `🔴 Listening in ${clientState.currentSpeechLangName}... (Tap mic again when done speaking)`;
-        micStatus.className = "text-xs font-black uppercase tracking-wider text-orange-400 mt-3.5 animate-pulse";
+        micStatus.innerText = `🔴 Listening in ${clientState.currentSpeechLangName}... (Tap mic to Stop)`;
+        micStatus.className = "text-xs font-bold text-orange-400 mt-3.5 animate-pulse";
       }
       if (wave) wave.classList.remove('hidden');
 
-      if (recognition) {
+      if (SpeechRecognition) {
         try {
+          if (!recognition) {
+            recognition = new SpeechRecognition();
+            recognition.continuous = true;
+            recognition.interimResults = true;
+
+            recognition.onresult = (event) => {
+              let interim = "";
+              let final = "";
+              for (let i = event.resultIndex; i < event.results.length; ++i) {
+                if (event.results[i].isFinal) {
+                  final += event.results[i][0].transcript + " ";
+                } else {
+                  interim += event.results[i][0].transcript;
+                }
+              }
+              accumulatedTranscript += final;
+              const fullText = (accumulatedTranscript + " " + interim).trim();
+              if (fullText) {
+                document.getElementById('liveTranscript').innerText = `"${fullText}"`;
+                parseSpokenText(fullText);
+              }
+            };
+
+            recognition.onerror = () => {};
+            recognition.onend = () => {
+              if (clientState.isRecording) {
+                stopRecordingState();
+                if (accumulatedTranscript.trim()) parseSpokenText(accumulatedTranscript);
+              }
+            };
+          }
           recognition.lang = clientState.currentSpeechLang || 'hi-IN';
           recognition.start();
-        } catch(e) {
-          // Already started or restart
-        }
+        } catch(e) {}
       }
     }
 
@@ -3146,18 +2356,16 @@
       const wave = document.getElementById('waveContainer');
 
       if (micBtn) {
-        micBtn.className = "w-20 h-20 mx-auto rounded-full bg-gradient-to-tr from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-slate-950 flex items-center justify-center shadow-xl shadow-orange-500/30 hover:scale-105 transition transform";
+        micBtn.className = "w-18 h-18 mx-auto p-4 rounded-full bg-gradient-to-tr from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-slate-950 flex items-center justify-center shadow-lg shadow-orange-500/30 hover:scale-105 transition";
       }
       if (micStatus) {
         micStatus.innerText = "✓ Speech Processed & Parameters Extracted";
-        micStatus.className = "text-xs font-black uppercase tracking-wider text-emerald-400 mt-3.5";
+        micStatus.className = "text-xs font-bold text-emerald-400 mt-3.5";
       }
       if (wave) wave.classList.add('hidden');
     }
 
-    // ================================================================
-    // COMPREHENSIVE MULTI-ENTITY SPEECH NLP PARSER
-    // ================================================================
+    // Dynamic Multi-Entity NLP Parser
     function parseSpokenText(rawText) {
       if (!rawText) return;
       const text = rawText.toLowerCase();
@@ -3168,8 +2376,8 @@
       let detectedCategory = null;
       let title = null;
 
-      // 1. DYNAMIC TRADE RECOGNITION (English, Hindi, Hinglish, Regional)
-      if (text.includes("tailor") || text.includes("tailoring") || text.includes("stitching") || text.includes("सिलाई") || text.includes("कपड़ा") || text.includes("दर्जी") || text.includes("garment") || text.includes("boutique") || text.includes("sewing") || text.includes("தையல்") || text.includes("দর্জি")) {
+      // 1. Trade Recognition
+      if (text.includes("tailor") || text.includes("tailoring") || text.includes("stitching") || text.includes("सिलाई") || text.includes("कपड़ा") || text.includes("दर्जी") || text.includes("garment") || text.includes("boutique") || text.includes("sewing")) {
         detectedTrade = "tailoring";
         title = "Garment Tailoring & Manufacturing";
       } else if (text.includes("potter") || text.includes("pottery") || text.includes("clay") || text.includes("ceramic") || text.includes("माटी") || text.includes("बर्तन") || text.includes("कुम्हार") || text.includes("diyas") || text.includes("pots") || text.includes("मिट्टी")) {
@@ -3178,45 +2386,45 @@
       } else if (text.includes("carpenter") || text.includes("carpentry") || text.includes("wood") || text.includes("woodcraft") || text.includes("furniture") || text.includes("लकड़ी") || text.includes("बढ़ई") || text.includes("timber")) {
         detectedTrade = "carpentry";
         title = "Woodworking & Carpentry Workshop";
-      } else if (text.includes("kirana") || text.includes("grocery") || text.includes("retail") || text.includes("store") || text.includes("shop") || text.includes("दुकान") || text.includes("किराना") || text.includes("ration") || text.includes("general store")) {
+      } else if (text.includes("kirana") || text.includes("grocery") || text.includes("retail") || text.includes("store") || text.includes("shop") || text.includes("दुकान") || text.includes("किराना") || text.includes("ration")) {
         detectedTrade = "kirana";
         title = "General Kirana & Retail Store";
-      } else if (text.includes("beauty") || text.includes("parlor") || text.includes("parlour") || text.includes("salon") || text.includes("पार्लर") || text.includes("ब्यूटी") || text.includes("haircut") || text.includes("spa") || text.includes("wellness")) {
+      } else if (text.includes("beauty") || text.includes("parlor") || text.includes("parlour") || text.includes("salon") || text.includes("पार्लर") || text.includes("ब्यूटी") || text.includes("haircut") || text.includes("spa")) {
         detectedTrade = "beauty_parlor";
         title = "Beauty Salon & Wellness Unit";
       } else if (text.includes("mobile") || text.includes("phone") || text.includes("repair") || text.includes("electronics") || text.includes("मोबाइल") || text.includes("रिपेयर") || text.includes("hardware")) {
         detectedTrade = "mobile_repair";
         title = "Mobile & Electronics Repair";
-      } else if (text.includes("dairy") || text.includes("milk") || text.includes("cow") || text.includes("buffalo") || text.includes("cattle") || text.includes("दूध") || text.includes("डेयरी") || text.includes("गाय") || text.includes("भैंस") || text.includes("पशुपालन")) {
+      } else if (text.includes("dairy") || text.includes("milk") || text.includes("cow") || text.includes("buffalo") || text.includes("cattle") || text.includes("दूध") || text.includes("डेयरी") || text.includes("गाय") || text.includes("भैंस")) {
         detectedTrade = "dairy";
         title = "Dairy Farming & Milk Chilling";
-      } else if (text.includes("vendor") || text.includes("hawker") || text.includes("thela") || text.includes("cart") || text.includes("street food") || text.includes("ठेला") || text.includes("सब्जी") || text.includes("फल") || text.includes("chaat")) {
+      } else if (text.includes("vendor") || text.includes("hawker") || text.includes("thela") || text.includes("cart") || text.includes("street food") || text.includes("ठेला") || text.includes("सब्जी") || text.includes("फल")) {
         detectedTrade = "street_vendor";
         title = "Street Food / Micro Vendor Cart";
       }
 
-      // 2. DYNAMIC SOCIAL CATEGORY RECOGNITION
-      if (text.includes("अनुसूचित जाति") || text.includes("scheduled caste") || text.includes("दलित") || text.includes("एससी") || text.includes(" sc ") || text.endsWith(" sc") || text.startsWith("sc ") || text.includes("sc category") || text.includes("எஸ்சி") || text.includes("ఎస్సీ") || text.includes("এসসি")) {
+      // 2. Social Category Recognition
+      if (text.includes("अनुसूचित जाति") || text.includes("scheduled caste") || text.includes("दलित") || text.includes("एससी") || text.includes(" sc ") || text.endsWith(" sc") || text.startsWith("sc ")) {
         detectedCategory = "SC";
-      } else if (text.includes("अन्य पिछड़ा") || text.includes("पिछड़ा") || text.includes("other backward") || text.includes("ओबीसी") || text.includes(" obc ") || text.endsWith(" obc") || text.startsWith("obc ") || text.includes("obc category") || text.includes("ઓબીસી") || text.includes("ओबीसी वर्ग")) {
+      } else if (text.includes("अन्य पिछड़ा") || text.includes("पिछड़ा") || text.includes("other backward") || text.includes("ओबीसी") || text.includes(" obc ") || text.endsWith(" obc") || text.startsWith("obc ")) {
         detectedCategory = "OBC";
-      } else if (text.includes("अनुसूचित जनजाति") || text.includes("आदिवासी") || text.includes("scheduled tribe") || text.includes("एसटी") || text.includes(" st ") || text.endsWith(" st") || text.startsWith("st ") || text.includes("st category") || text.includes("tribal")) {
+      } else if (text.includes("अनुसूचित जनजाति") || text.includes("आदिवासी") || text.includes("scheduled tribe") || text.includes("एसटी") || text.includes(" st ") || text.endsWith(" st") || text.startsWith("st ")) {
         detectedCategory = "ST";
-      } else if (text.includes("महिला") || text.includes("woman") || text.includes("women") || text.includes("female") || text.includes("aurat") || text.includes("shg")) {
+      } else if (text.includes("महिला") || text.includes("woman") || text.includes("women") || text.includes("female") || text.includes("aurat")) {
         detectedCategory = "Women";
-      } else if (text.includes("विश्वकर्मा") || text.includes("vishwakarma") || text.includes("artisan") || text.includes("craftsman") || text.includes("कारीगर") || text.includes("shilpkar")) {
+      } else if (text.includes("विश्वकर्मा") || text.includes("vishwakarma") || text.includes("artisan") || text.includes("craftsman") || text.includes("कारीगर")) {
         detectedCategory = "Vishwakarma";
-      } else if (text.includes("सफाई") || text.includes("safai") || text.includes("sanitation") || text.includes("sweeper") || text.includes("safai karamchari")) {
+      } else if (text.includes("सफाई") || text.includes("safai") || text.includes("sanitation") || text.includes("sweeper")) {
         detectedCategory = "SafaiKaramchari";
-      } else if (text.includes("दिव्यांग") || text.includes("divyang") || text.includes("handicap") || text.includes("disability") || text.includes("pwd") || text.includes("विकलांग")) {
+      } else if (text.includes("दिव्यांग") || text.includes("divyang") || text.includes("handicap") || text.includes("disability") || text.includes("pwd")) {
         detectedCategory = "Divyangjan";
-      } else if (text.includes("माइनॉरिटी") || text.includes("अल्पसंख्यक") || text.includes("minority") || text.includes("muslim") || text.includes("christian") || text.includes("sikh") || text.includes("jain")) {
+      } else if (text.includes("माइनॉरिटी") || text.includes("अल्पसंख्यक") || text.includes("minority") || text.includes("muslim") || text.includes("christian")) {
         detectedCategory = "Minority";
-      } else if (text.includes("जनरल") || text.includes("general") || text.includes("सामान्य") || text.includes("ews") || text.includes("open category")) {
+      } else if (text.includes("जनरल") || text.includes("general") || text.includes("सामान्य") || text.includes("ews")) {
         detectedCategory = "General";
       }
 
-      // 3. DYNAMIC LOAN CAPITAL RECOGNITION (Numbers, Lakhs, Thousands, Spoken Words)
+      // 3. Loan Amount Recognition
       if (text.includes("10 lakh") || text.includes("1000000") || text.includes("दस लाख") || text.includes("10 लाख")) {
         detectedCapital = 1000000;
       } else if (text.includes("5 lakh") || text.includes("500000") || text.includes("पांच लाख") || text.includes("5 लाख") || text.includes("5l")) {
@@ -3237,15 +2445,9 @@
         detectedCapital = 100000;
       } else if (text.includes("50 thousand") || text.includes("50000") || text.includes("50 हजार") || text.includes("पचास हजार") || text.includes("50k")) {
         detectedCapital = 50000;
-      } else {
-        const lakhMatch = text.match(/(\d+(?:\.\d+)?)\s*(?:lakh|lac|लाख|l\b)/i);
-        if (lakhMatch) {
-          const val = parseFloat(lakhMatch[1]);
-          if (!isNaN(val)) detectedCapital = Math.round(val * 100000);
-        }
       }
 
-      // 4. DYNAMIC INCOME RECOGNITION
+      // 4. Income Recognition
       if (text.includes("income 6") || text.includes("6 लाख आय") || text.includes("600000 income")) {
         detectedIncome = 600000;
       } else if (text.includes("income 5") || text.includes("5 लाख आय") || text.includes("500000 income")) {
@@ -3260,7 +2462,6 @@
         detectedIncome = 150000;
       }
 
-      // Apply detected entities (preserve prior only if not mentioned)
       const finalTrade = detectedTrade || clientState.trade || "tailoring";
       const finalTitle = title || clientState.tradeTitle || "Garment Tailoring & Manufacturing";
       const finalCapital = detectedCapital || clientState.capitalNeeded || 300000;
@@ -3270,7 +2471,6 @@
       applyExtractedParameters(finalTrade, finalCapital, finalIncome, finalCategory, finalTitle);
     }
 
-    // Clear / Reset All Selections to Clean State
     function clearExtractedParameters() {
       clientState.trade = "tailoring";
       clientState.tradeTitle = "Garment Tailoring & Manufacturing";
@@ -3290,95 +2490,64 @@
       const badge = document.getElementById('nlpExtractionBadge');
       if (badge) badge.classList.add('hidden');
 
-      showToast("Cleared prior selections. Tap mic or select parameters afresh!");
+      showToast("Cleared prior selections. Form reset to clean state!");
     }
 
 
     function applyExtractedParameters(tradeKey, capital, income, category, title) {
       clientState.trade = tradeKey;
       clientState.tradeTitle = title;
-      clientState.capitalNeeded = parseInt(capital);
-      clientState.annualIncome = parseInt(income);
+      clientState.capitalNeeded = capital;
+      clientState.annualIncome = income;
       clientState.category = category;
 
-      // Update right panel select dropdowns
-      const tradeSelect = document.getElementById('tradeSelect');
-      if (tradeSelect) tradeSelect.value = tradeKey;
-
-      const catSelect = document.getElementById('categorySelect');
-      if (catSelect) catSelect.value = category;
-
-      // Update sliders
-      const capSlider = document.getElementById('capitalSlider');
-      if (capSlider) capSlider.value = capital;
+      document.getElementById('tradeSelect').value = tradeKey;
+      document.getElementById('categorySelect').value = category;
+      document.getElementById('capitalSlider').value = capital;
+      document.getElementById('incomeSlider').value = income;
       updateCapitalDisplay(capital);
-
-      const incSlider = document.getElementById('incomeSlider');
-      if (incSlider) incSlider.value = income;
       updateIncomeDisplay(income);
 
-      // Show NLP Extraction Banner
       const badge = document.getElementById('nlpExtractionBadge');
-      const badgeText = document.getElementById('nlpExtractionText');
-      if (badge && badgeText) {
-        badgeText.innerText = `✨ Parsed: ${title} • ₹${parseInt(capital).toLocaleString('en-IN')} • ${category} Quota • ₹${parseInt(income).toLocaleString('en-IN')} Income`;
-        badge.classList.remove('hidden');
-      }
+      document.getElementById('nlpExtractionText').innerText = `✨ NLP Extracted: ${tradeKey.toUpperCase()} • ₹${capital.toLocaleString('en-IN')} Capital • ${category} Quota • ₹${income.toLocaleString('en-IN')} Income`;
+      badge.classList.remove('hidden');
 
-      showToast(`Auto-Extracted: ${category} | ${title} | ₹${parseInt(capital).toLocaleString('en-IN')}`);
+      showToast(`AI Extracted: ${category} | ${title} | ₹${capital.toLocaleString('en-IN')}`);
     }
 
-    // Real-Time Slider Reactivity
     function updateCapitalDisplay(val) {
-      const num = parseInt(val) || 300000;
-      clientState.capitalNeeded = num;
-      const disp = document.getElementById('capitalDisplay');
-      if (disp) disp.innerText = `₹${num.toLocaleString('en-IN')}`;
+      clientState.capitalNeeded = parseInt(val);
+      document.getElementById('capitalDisplay').innerText = `₹${parseInt(val).toLocaleString('en-IN')}`;
     }
 
     function updateIncomeDisplay(val) {
-      const num = parseInt(val) || 250000;
-      clientState.annualIncome = num;
-      const disp = document.getElementById('incomeDisplay');
-      if (disp) disp.innerText = `₹${num.toLocaleString('en-IN')}`;
-
+      clientState.annualIncome = parseInt(val);
+      document.getElementById('incomeDisplay').innerText = `₹${parseInt(val).toLocaleString('en-IN')}`;
       const badge = document.getElementById('incomeStatusBadge');
-      if (badge) {
-        if (num <= 500000) {
-          badge.innerText = "✓ Eligible for MoSJE & Apex Corporation Subsidies (≤ ₹5.00 Lakhs)";
-          badge.className = "text-[11px] text-emerald-400 font-bold";
-        } else {
-          badge.innerText = "⚠ Above MoSJE ₹5L Limit → Redirected to MSME PMEGP, Mudra & Stand-Up India";
-          badge.className = "text-[11px] text-amber-400 font-bold";
-        }
+      if (clientState.annualIncome <= 500000) {
+        badge.innerText = "✓ Eligible for MoSJE & Apex Corporation Subsidies (≤ ₹5.00 Lakhs)";
+        badge.className = "text-[11px] text-emerald-400 mt-1.5 block font-semibold";
+      } else {
+        badge.innerText = "⚠ Above MoSJE ₹5L Limit → Redirected to MSME PMEGP, Mudra & Stand-Up India";
+        badge.className = "text-[11px] text-amber-400 mt-1.5 block font-semibold";
       }
     }
 
     function updateLiveParameters() {
-      const tradeSel = document.getElementById('tradeSelect');
-      if (tradeSel) {
-        clientState.trade = tradeSel.value;
-        const opt = tradeSel.options[tradeSel.selectedIndex];
-        clientState.tradeTitle = opt ? opt.text : "Garment Tailoring";
-      }
-      const catSel = document.getElementById('categorySelect');
-      if (catSel) {
-        clientState.category = catSel.value;
-      }
+      clientState.trade = document.getElementById('tradeSelect').value;
+      clientState.category = document.getElementById('categorySelect').value;
+      const opt = document.getElementById('tradeSelect').options[document.getElementById('tradeSelect').selectedIndex];
+      clientState.tradeTitle = opt.text;
     }
 
+    // ================================================================
+    // STEP 3: ENHANCED DETERMINISTIC SCHEME MATCH ENGINE (22 SCHEMES)
+    // ================================================================
     function processAndMatchSchemes() {
       updateLiveParameters();
-      const capSlider = document.getElementById('capitalSlider');
-      if (capSlider) clientState.capitalNeeded = parseInt(capSlider.value) || clientState.capitalNeeded;
-
-      const incSlider = document.getElementById('incomeSlider');
-      if (incSlider) clientState.annualIncome = parseInt(incSlider.value) || clientState.annualIncome;
-
       evaluateAndRenderSchemes();
       goToStep(3);
     }
-
 
     function evaluateAndRenderSchemes() {
       const cat = clientState.category;
@@ -3510,7 +2679,7 @@
             <div>
               <div class="flex items-center justify-between mt-1 mb-3">
                 <span class="text-xs font-bold text-blue-300 bg-blue-500/20 border border-blue-500/30 px-2.5 py-0.5 rounded-lg">${scheme.ministry}</span>
-                <span class="text-xs font-black ${isTop ? 'text-emerald-400' : 'text-slate-300'} font-sans num-tabular">${matchPct}% Match</span>
+                <span class="text-xs font-black ${isTop ? 'text-emerald-400' : 'text-slate-400'} font-mono">${matchPct}% Match</span>
               </div>
               <h3 class="text-lg font-black text-white leading-snug">${scheme.name}</h3>
               <p class="text-xs text-slate-400 mt-1">${scheme.desc}</p>
@@ -3522,26 +2691,26 @@
                 `).join('')}
               </div>
 
-              <div class="mt-4 space-y-2 text-xs bg-slate-950/70 p-4 rounded-2xl border border-slate-800/80">
-                <div class="flex justify-between py-1.5 border-b border-slate-800/80">
-                  <span class="text-slate-400 font-medium">Sanctioned Loan (${scheme.loanCoveragePct}%)</span>
-                  <span class="font-black text-white font-sans text-sm num-tabular">₹${scheme.loanAmt.toLocaleString('en-IN')}</span>
+              <div class="mt-4 space-y-2 text-xs">
+                <div class="flex justify-between py-1.5 border-b border-slate-800">
+                  <span class="text-slate-400">Sanctioned Loan (${scheme.loanCoveragePct}%)</span>
+                  <span class="font-black text-white font-mono">₹${scheme.loanAmt.toLocaleString('en-IN')}</span>
                 </div>
-                <div class="flex justify-between py-1.5 border-b border-slate-800/80">
-                  <span class="text-slate-400 font-medium">Concessional Interest</span>
-                  <span class="font-black text-emerald-400 font-sans text-sm num-tabular">${scheme.interestRatePct}% p.a.</span>
+                <div class="flex justify-between py-1.5 border-b border-slate-800">
+                  <span class="text-slate-400">Concessional Interest</span>
+                  <span class="font-black text-emerald-400 font-mono">${scheme.interestRatePct}% p.a.</span>
                 </div>
-                <div class="flex justify-between py-1.5 border-b border-slate-800/80">
-                  <span class="text-slate-400 font-medium">Capital Subsidy Grant</span>
-                  <span class="font-black text-orange-400 font-sans text-sm num-tabular">${scheme.effectiveSubsidy}% (₹${scheme.subsidyAmt.toLocaleString('en-IN')})</span>
+                <div class="flex justify-between py-1.5 border-b border-slate-800">
+                  <span class="text-slate-400">Capital Subsidy Grant</span>
+                  <span class="font-black text-orange-400 font-mono">${scheme.effectiveSubsidy}% (₹${scheme.subsidyAmt.toLocaleString('en-IN')})</span>
                 </div>
-                <div class="flex justify-between py-1.5 border-b border-slate-800/80">
-                  <span class="text-slate-400 font-medium">Repayment Tenor & Moratorium</span>
-                  <span class="font-bold text-slate-200 font-sans text-xs">${scheme.repaymentYears} Yrs (${scheme.moratoriumMonths} Mo Moratorium)</span>
+                <div class="flex justify-between py-1.5 border-b border-slate-800">
+                  <span class="text-slate-400">Repayment Tenor & Moratorium</span>
+                  <span class="font-bold text-slate-200 font-mono">${scheme.repaymentYears} Yrs (${scheme.moratoriumMonths} Mo Moratorium)</span>
                 </div>
                 <div class="flex justify-between py-1.5">
-                  <span class="text-slate-400 font-medium">Estimated Monthly EMI</span>
-                  <span class="font-black text-white font-sans text-sm num-tabular">₹${scheme.emi.toLocaleString('en-IN')}/mo</span>
+                  <span class="text-slate-400">Estimated Monthly EMI</span>
+                  <span class="font-black text-white font-mono">₹${scheme.emi.toLocaleString('en-IN')}/mo</span>
                 </div>
               </div>
 
@@ -3566,96 +2735,7 @@
       });
 
       container.innerHTML = cardsHtml;
-      
-    // Accessibility: Toggle High Contrast Mode
-    
-    // Web Speech API: Real Screen Reader Text-to-Speech Engine
-    let isScreenReaderSpeaking = false;
-    function toggleScreenReader() {
-      if (!('speechSynthesis' in window)) {
-        showToast('Screen Reader: Text-to-Speech not supported in this browser.');
-        return;
-      }
-
-      if (isScreenReaderSpeaking) {
-        window.speechSynthesis.cancel();
-        isScreenReaderSpeaking = false;
-        showToast('Screen Reader: Stopped audio playback.');
-        return;
-      }
-
-      const activeText = `Welcome to UdyamSetu AI. National portal for multilingual concessional credit discovery and automated Micro-DPR generation for marginalized entrepreneurs under the Ministry of Social Justice and Empowerment. You are currently on the ${clientState.activePortal.toUpperCase()} section.`;
-      
-      const utterance = new SpeechSynthesisUtterance(activeText);
-      utterance.rate = 1.0;
-      utterance.pitch = 1.0;
-      
-      utterance.onstart = () => {
-        isScreenReaderSpeaking = true;
-        showToast('🔊 Screen Reader: Reading portal summary aloud (WCAG 2.1 AA)...');
-      };
-
-      utterance.onend = () => {
-        isScreenReaderSpeaking = false;
-      };
-
-      utterance.onerror = () => {
-        isScreenReaderSpeaking = false;
-      };
-
-      window.speechSynthesis.cancel();
-      window.speechSynthesis.speak(utterance);
-    }
-
-    // Font Sizing Adjuster
-    let currentFontScale = 100;
-    function changeFontSize(delta) {
-      if (delta === 0) {
-        currentFontScale = 100;
-      } else {
-        currentFontScale = Math.min(125, Math.max(85, currentFontScale + delta));
-      }
-      document.documentElement.style.fontSize = `${currentFontScale}%`;
-      showToast(`Font Size: ${currentFontScale}%`);
-    }
-
-    // Live DBT Tracking Modal Controllers
-    function showDbtTrackingModal() {
-      const modal = document.getElementById('dbtTrackingModal');
-      if (modal) {
-        document.getElementById('trackAppId').innerText = clientState.appId || 'MoSJE-2026-UP-88419';
-        document.getElementById('trackBeneficiary').innerText = `${clientState.name || 'Ramesh Kumar'} (${clientState.category || 'SC'})`;
-        document.getElementById('trackSubsidy').innerText = `₹${(clientState.selectedSubsidyAmt || 75000).toLocaleString('en-IN')} (Capital Subsidy Grant)`;
-        modal.classList.remove('hidden');
-      }
-    }
-
-    function hideDbtTrackingModal() {
-      const modal = document.getElementById('dbtTrackingModal');
-      if (modal) modal.classList.add('hidden');
-    }
-
-    function toggleHighContrast() {
-      document.body.classList.toggle('high-contrast');
-      const isHigh = document.body.classList.contains('high-contrast');
-      showToast(isHigh ? 'High Contrast Accessibility Mode: ON' : 'High Contrast Mode: OFF');
-    }
-
-    // Top Language Switcher sync
-    function changeTopLanguage(langCode) {
-      const promptObj = langPrompts[langCode] || langPrompts['hi-IN'];
-      const name = promptObj ? promptObj.name : 'हिन्दी (Hindi)';
-      
-      const pills = document.querySelectorAll('.lang-pill');
-      let targetBtn = null;
-      pills.forEach(p => {
-        if (p.innerText.includes(name.split(' ')[0])) targetBtn = p;
-      });
-      setSpeechLanguage(langCode, name, targetBtn);
-    }
-
-    lucide.createIcons();
-
+      lucide.createIcons();
     }
 
     function calculateEmi(principal, annualRate, years) {
@@ -3705,97 +2785,9 @@
     function syncAllFromDigiLocker() {
       const btn = document.getElementById('digilockerSyncBtn');
       btn.innerHTML = '<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i> <span>Syncing Sovereign Vault...</span>';
-      
-    // Accessibility: Toggle High Contrast Mode
-    
-    // Web Speech API: Real Screen Reader Text-to-Speech Engine
-    let isScreenReaderSpeaking = false;
-    function toggleScreenReader() {
-      if (!('speechSynthesis' in window)) {
-        showToast('Screen Reader: Text-to-Speech not supported in this browser.');
-        return;
-      }
+      lucide.createIcons();
 
-      if (isScreenReaderSpeaking) {
-        window.speechSynthesis.cancel();
-        isScreenReaderSpeaking = false;
-        showToast('Screen Reader: Stopped audio playback.');
-        return;
-      }
-
-      const activeText = `Welcome to UdyamSetu AI. National portal for multilingual concessional credit discovery and automated Micro-DPR generation for marginalized entrepreneurs under the Ministry of Social Justice and Empowerment. You are currently on the ${clientState.activePortal.toUpperCase()} section.`;
-      
-      const utterance = new SpeechSynthesisUtterance(activeText);
-      utterance.rate = 1.0;
-      utterance.pitch = 1.0;
-      
-      utterance.onstart = () => {
-        isScreenReaderSpeaking = true;
-        showToast('🔊 Screen Reader: Reading portal summary aloud (WCAG 2.1 AA)...');
-      };
-
-      utterance.onend = () => {
-        isScreenReaderSpeaking = false;
-      };
-
-      utterance.onerror = () => {
-        isScreenReaderSpeaking = false;
-      };
-
-      window.speechSynthesis.cancel();
-      window.speechSynthesis.speak(utterance);
-    }
-
-    // Font Sizing Adjuster
-    let currentFontScale = 100;
-    function changeFontSize(delta) {
-      if (delta === 0) {
-        currentFontScale = 100;
-      } else {
-        currentFontScale = Math.min(125, Math.max(85, currentFontScale + delta));
-      }
-      document.documentElement.style.fontSize = `${currentFontScale}%`;
-      showToast(`Font Size: ${currentFontScale}%`);
-    }
-
-    // Live DBT Tracking Modal Controllers
-    function showDbtTrackingModal() {
-      const modal = document.getElementById('dbtTrackingModal');
-      if (modal) {
-        document.getElementById('trackAppId').innerText = clientState.appId || 'MoSJE-2026-UP-88419';
-        document.getElementById('trackBeneficiary').innerText = `${clientState.name || 'Ramesh Kumar'} (${clientState.category || 'SC'})`;
-        document.getElementById('trackSubsidy').innerText = `₹${(clientState.selectedSubsidyAmt || 75000).toLocaleString('en-IN')} (Capital Subsidy Grant)`;
-        modal.classList.remove('hidden');
-      }
-    }
-
-    function hideDbtTrackingModal() {
-      const modal = document.getElementById('dbtTrackingModal');
-      if (modal) modal.classList.add('hidden');
-    }
-
-    function toggleHighContrast() {
-      document.body.classList.toggle('high-contrast');
-      const isHigh = document.body.classList.contains('high-contrast');
-      showToast(isHigh ? 'High Contrast Accessibility Mode: ON' : 'High Contrast Mode: OFF');
-    }
-
-    // Top Language Switcher sync
-    function changeTopLanguage(langCode) {
-      const promptObj = langPrompts[langCode] || langPrompts['hi-IN'];
-      const name = promptObj ? promptObj.name : 'हिन्दी (Hindi)';
-      
-      const pills = document.querySelectorAll('.lang-pill');
-      let targetBtn = null;
-      pills.forEach(p => {
-        if (p.innerText.includes(name.split(' ')[0])) targetBtn = p;
-      });
-      setSpeechLanguage(langCode, name, targetBtn);
-    }
-
-    lucide.createIcons();
-
-    setTimeout(() => {
+      setTimeout(() => {
         docVerificationState = { aadhaar: true, pan: true, caste: true, income: true, bank: true, trade: true };
 
         document.getElementById('docStatus-aadhaar').innerText = "✓ DigiLocker e-KYC Verified (SHA-256 HMAC Signed)";
@@ -3820,97 +2812,8 @@
 
         btn.innerHTML = '<i data-lucide="check" class="w-4 h-4 text-emerald-300"></i> <span>✓ All 6 Docs Synced</span>';
         btn.className = "px-4 py-2.5 bg-emerald-600 text-white rounded-2xl text-xs font-black shadow flex items-center gap-2 cursor-default";
-        
-    // Accessibility: Toggle High Contrast Mode
-    
-    // Web Speech API: Real Screen Reader Text-to-Speech Engine
-    let isScreenReaderSpeaking = false;
-    function toggleScreenReader() {
-      if (!('speechSynthesis' in window)) {
-        showToast('Screen Reader: Text-to-Speech not supported in this browser.');
-        return;
-      }
-
-      if (isScreenReaderSpeaking) {
-        window.speechSynthesis.cancel();
-        isScreenReaderSpeaking = false;
-        showToast('Screen Reader: Stopped audio playback.');
-        return;
-      }
-
-      const activeText = `Welcome to UdyamSetu AI. National portal for multilingual concessional credit discovery and automated Micro-DPR generation for marginalized entrepreneurs under the Ministry of Social Justice and Empowerment. You are currently on the ${clientState.activePortal.toUpperCase()} section.`;
-      
-      const utterance = new SpeechSynthesisUtterance(activeText);
-      utterance.rate = 1.0;
-      utterance.pitch = 1.0;
-      
-      utterance.onstart = () => {
-        isScreenReaderSpeaking = true;
-        showToast('🔊 Screen Reader: Reading portal summary aloud (WCAG 2.1 AA)...');
-      };
-
-      utterance.onend = () => {
-        isScreenReaderSpeaking = false;
-      };
-
-      utterance.onerror = () => {
-        isScreenReaderSpeaking = false;
-      };
-
-      window.speechSynthesis.cancel();
-      window.speechSynthesis.speak(utterance);
-    }
-
-    // Font Sizing Adjuster
-    let currentFontScale = 100;
-    function changeFontSize(delta) {
-      if (delta === 0) {
-        currentFontScale = 100;
-      } else {
-        currentFontScale = Math.min(125, Math.max(85, currentFontScale + delta));
-      }
-      document.documentElement.style.fontSize = `${currentFontScale}%`;
-      showToast(`Font Size: ${currentFontScale}%`);
-    }
-
-    // Live DBT Tracking Modal Controllers
-    function showDbtTrackingModal() {
-      const modal = document.getElementById('dbtTrackingModal');
-      if (modal) {
-        document.getElementById('trackAppId').innerText = clientState.appId || 'MoSJE-2026-UP-88419';
-        document.getElementById('trackBeneficiary').innerText = `${clientState.name || 'Ramesh Kumar'} (${clientState.category || 'SC'})`;
-        document.getElementById('trackSubsidy').innerText = `₹${(clientState.selectedSubsidyAmt || 75000).toLocaleString('en-IN')} (Capital Subsidy Grant)`;
-        modal.classList.remove('hidden');
-      }
-    }
-
-    function hideDbtTrackingModal() {
-      const modal = document.getElementById('dbtTrackingModal');
-      if (modal) modal.classList.add('hidden');
-    }
-
-    function toggleHighContrast() {
-      document.body.classList.toggle('high-contrast');
-      const isHigh = document.body.classList.contains('high-contrast');
-      showToast(isHigh ? 'High Contrast Accessibility Mode: ON' : 'High Contrast Mode: OFF');
-    }
-
-    // Top Language Switcher sync
-    function changeTopLanguage(langCode) {
-      const promptObj = langPrompts[langCode] || langPrompts['hi-IN'];
-      const name = promptObj ? promptObj.name : 'हिन्दी (Hindi)';
-      
-      const pills = document.querySelectorAll('.lang-pill');
-      let targetBtn = null;
-      pills.forEach(p => {
-        if (p.innerText.includes(name.split(' ')[0])) targetBtn = p;
-      });
-      setSpeechLanguage(langCode, name, targetBtn);
-    }
-
-    lucide.createIcons();
-
-    showToast("DigiLocker Sovereign Sync: 6 of 6 Statutory Documents Verified!");
+        lucide.createIcons();
+        showToast("DigiLocker Sovereign Sync: 6 of 6 Statutory Documents Verified!");
       }, 900);
     }
 
@@ -4060,7 +2963,7 @@
                 </div>
                 <div class="flex justify-between py-1 border-b border-slate-800">
                   <span class="text-slate-500">Concessional Interest:</span>
-                  <span class="font-bold text-emerald-400 font-sans num-tabular">${scheme.interestRatePct}% p.a.</span>
+                  <span class="font-bold text-emerald-400 font-mono">${scheme.interestRatePct}% p.a.</span>
                 </div>
                 <div class="flex justify-between py-1 border-b border-slate-800">
                   <span class="text-slate-500">Max Loan Limit:</span>
@@ -4107,96 +3010,7 @@
       }
 
       grid.innerHTML = html;
-      
-    // Accessibility: Toggle High Contrast Mode
-    
-    // Web Speech API: Real Screen Reader Text-to-Speech Engine
-    let isScreenReaderSpeaking = false;
-    function toggleScreenReader() {
-      if (!('speechSynthesis' in window)) {
-        showToast('Screen Reader: Text-to-Speech not supported in this browser.');
-        return;
-      }
-
-      if (isScreenReaderSpeaking) {
-        window.speechSynthesis.cancel();
-        isScreenReaderSpeaking = false;
-        showToast('Screen Reader: Stopped audio playback.');
-        return;
-      }
-
-      const activeText = `Welcome to UdyamSetu AI. National portal for multilingual concessional credit discovery and automated Micro-DPR generation for marginalized entrepreneurs under the Ministry of Social Justice and Empowerment. You are currently on the ${clientState.activePortal.toUpperCase()} section.`;
-      
-      const utterance = new SpeechSynthesisUtterance(activeText);
-      utterance.rate = 1.0;
-      utterance.pitch = 1.0;
-      
-      utterance.onstart = () => {
-        isScreenReaderSpeaking = true;
-        showToast('🔊 Screen Reader: Reading portal summary aloud (WCAG 2.1 AA)...');
-      };
-
-      utterance.onend = () => {
-        isScreenReaderSpeaking = false;
-      };
-
-      utterance.onerror = () => {
-        isScreenReaderSpeaking = false;
-      };
-
-      window.speechSynthesis.cancel();
-      window.speechSynthesis.speak(utterance);
-    }
-
-    // Font Sizing Adjuster
-    let currentFontScale = 100;
-    function changeFontSize(delta) {
-      if (delta === 0) {
-        currentFontScale = 100;
-      } else {
-        currentFontScale = Math.min(125, Math.max(85, currentFontScale + delta));
-      }
-      document.documentElement.style.fontSize = `${currentFontScale}%`;
-      showToast(`Font Size: ${currentFontScale}%`);
-    }
-
-    // Live DBT Tracking Modal Controllers
-    function showDbtTrackingModal() {
-      const modal = document.getElementById('dbtTrackingModal');
-      if (modal) {
-        document.getElementById('trackAppId').innerText = clientState.appId || 'MoSJE-2026-UP-88419';
-        document.getElementById('trackBeneficiary').innerText = `${clientState.name || 'Ramesh Kumar'} (${clientState.category || 'SC'})`;
-        document.getElementById('trackSubsidy').innerText = `₹${(clientState.selectedSubsidyAmt || 75000).toLocaleString('en-IN')} (Capital Subsidy Grant)`;
-        modal.classList.remove('hidden');
-      }
-    }
-
-    function hideDbtTrackingModal() {
-      const modal = document.getElementById('dbtTrackingModal');
-      if (modal) modal.classList.add('hidden');
-    }
-
-    function toggleHighContrast() {
-      document.body.classList.toggle('high-contrast');
-      const isHigh = document.body.classList.contains('high-contrast');
-      showToast(isHigh ? 'High Contrast Accessibility Mode: ON' : 'High Contrast Mode: OFF');
-    }
-
-    // Top Language Switcher sync
-    function changeTopLanguage(langCode) {
-      const promptObj = langPrompts[langCode] || langPrompts['hi-IN'];
-      const name = promptObj ? promptObj.name : 'हिन्दी (Hindi)';
-      
-      const pills = document.querySelectorAll('.lang-pill');
-      let targetBtn = null;
-      pills.forEach(p => {
-        if (p.innerText.includes(name.split(' ')[0])) targetBtn = p;
-      });
-      setSpeechLanguage(langCode, name, targetBtn);
-    }
-
-    lucide.createIcons();
-
+      lucide.createIcons();
     }
 
     function filterSchemeDirectory(query) {
