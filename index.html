@@ -739,7 +739,13 @@
                   <i data-lucide="sliders" class="w-4 h-4"></i>
                   <span>Live Extracted Parameters</span>
                 </h3>
-                <span class="text-[10px] bg-slate-800 border border-slate-700 text-emerald-300 font-bold px-2.5 py-0.5 rounded-lg">Zero-Hallucination</span>
+                <div class="flex items-center gap-2">
+                  <button type="button" onclick="clearExtractedParameters()" class="text-[11px] bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white px-2.5 py-1 rounded-xl border border-slate-700 transition flex items-center gap-1" title="Reset all selections to blank defaults">
+                    <i data-lucide="rotate-ccw" class="w-3 h-3 text-orange-400"></i>
+                    <span>Clear Selection</span>
+                  </button>
+                  <span class="text-[10px] bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 font-bold px-2 py-1 rounded-xl">0-Hallucination</span>
+                </div>
               </div>
 
               <div class="space-y-5 text-xs">
@@ -3009,80 +3015,128 @@
       setSpeechLanguage(langCode, name, targetBtn);
     }
 
-    // Step 2: Live Speech Recognition & Animation Controller
+    
+    // ================================================================
+    // STEP 2: CONTINUOUS CLICK-TO-LISTEN / CLICK-TO-STOP VOICE ENGINE
+    // ================================================================
     let recognition = null;
-    let micSimTimeout = null;
+    let accumulatedTranscript = "";
+    let isSpeechSupported = false;
 
+    // Initialize Web Speech API if supported
+    function initSpeechEngine() {
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (SpeechRecognition) {
+        try {
+          recognition = new SpeechRecognition();
+          recognition.continuous = true;
+          recognition.interimResults = true;
+          isSpeechSupported = true;
+
+          recognition.onstart = () => {
+            clientState.isRecording = true;
+            accumulatedTranscript = "";
+            const micBtn = document.getElementById('micBtn');
+            const micStatus = document.getElementById('micStatus');
+            const wave = document.getElementById('waveContainer');
+
+            if (micBtn) micBtn.className = "w-20 h-20 mx-auto rounded-full bg-red-600 text-white flex items-center justify-center shadow-xl shadow-red-500/40 ring-8 ring-orange-500/40 animate-pulse scale-110 transition transform";
+            if (micStatus) {
+              micStatus.innerText = `🔴 Listening in ${clientState.currentSpeechLangName}... Speak now! (Tap mic to Stop)`;
+              micStatus.className = "text-xs font-black uppercase tracking-wider text-red-400 mt-3.5 animate-pulse";
+            }
+            if (wave) wave.classList.remove('hidden');
+          };
+
+          recognition.onresult = (event) => {
+            let interim = "";
+            let final = "";
+            for (let i = event.resultIndex; i < event.results.length; ++i) {
+              if (event.results[i].isFinal) {
+                final += event.results[i][0].transcript + " ";
+              } else {
+                interim += event.results[i][0].transcript;
+              }
+            }
+            accumulatedTranscript += final;
+            const fullText = (accumulatedTranscript + " " + interim).trim();
+            if (fullText) {
+              document.getElementById('liveTranscript').innerText = `"${fullText}"`;
+              parseSpokenText(fullText);
+            }
+          };
+
+          recognition.onerror = (e) => {
+            console.log("Speech recognition error:", e);
+          };
+
+          recognition.onend = () => {
+            // Handled when user stops
+            if (clientState.isRecording) {
+              stopRecordingState();
+              if (accumulatedTranscript.trim()) {
+                parseSpokenText(accumulatedTranscript);
+              }
+            }
+          };
+        } catch(e) {
+          isSpeechSupported = false;
+        }
+      }
+    }
+
+    // Toggle Microphone: Click once to Start Listening, Click again to Stop
     function toggleSpeechRecognition() {
-      const micBtn = document.getElementById('micBtn');
-      const micStatus = document.getElementById('micStatus');
-      const wave = document.getElementById('waveContainer');
+      if (!recognition) {
+        initSpeechEngine();
+      }
 
       if (clientState.isRecording) {
-        // Stop recording
-        stopRecordingState();
+        // User clicked again to STOP recording
         if (recognition) {
           try { recognition.stop(); } catch(e){}
+        }
+        stopRecordingState();
+        
+        // Parse whatever transcript was captured
+        const transcriptText = document.getElementById('liveTranscript').innerText.replace(/^"|"$/g, '').trim();
+        if (transcriptText && !transcriptText.startsWith("Tap mic") && !transcriptText.startsWith("माइक दबाएं") && !transcriptText.startsWith("Listening")) {
+          parseSpokenText(transcriptText);
+          showToast("Microphone stopped. Extracted statutory parameters from speech!");
+        } else {
+          // If silence, fallback to active language spoken demo
+          const promptObj = langPrompts[clientState.currentSpeechLang] || langPrompts['hi-IN'];
+          document.getElementById('liveTranscript').innerText = `"${promptObj.spokenDemo}"`;
+          parseSpokenText(promptObj.spokenDemo);
+          showToast("Simulated voice sample captured & parsed!");
         }
         return;
       }
 
-      // Start recording state
+      // User clicked to START recording
       clientState.isRecording = true;
-      micBtn.className = "w-20 h-20 mx-auto rounded-full bg-red-600 text-white flex items-center justify-center shadow-xl shadow-red-500/40 ring-8 ring-orange-500/40 animate-pulse scale-110 transition transform";
-      micStatus.innerText = `🔴 Listening in ${clientState.currentSpeechLangName}... Speak naturally`;
-      micStatus.className = "text-xs font-black uppercase tracking-wider text-orange-400 mt-3.5 animate-pulse";
+      accumulatedTranscript = "";
+      document.getElementById('liveTranscript').innerText = `Listening... speak your enterprise details in ${clientState.currentSpeechLangName}...`;
+
+      const micBtn = document.getElementById('micBtn');
+      const micStatus = document.getElementById('micStatus');
+      const wave = document.getElementById('waveContainer');
+
+      if (micBtn) micBtn.className = "w-20 h-20 mx-auto rounded-full bg-red-600 text-white flex items-center justify-center shadow-xl shadow-red-500/40 ring-8 ring-orange-500/40 animate-pulse scale-110 transition transform";
+      if (micStatus) {
+        micStatus.innerText = `🔴 Listening in ${clientState.currentSpeechLangName}... (Tap mic again when done speaking)`;
+        micStatus.className = "text-xs font-black uppercase tracking-wider text-orange-400 mt-3.5 animate-pulse";
+      }
       if (wave) wave.classList.remove('hidden');
 
-      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-      if (SpeechRecognition) {
+      if (recognition) {
         try {
-          if (!recognition) {
-            recognition = new SpeechRecognition();
-            recognition.interimResults = true;
-            recognition.continuous = false;
-
-            recognition.onresult = (event) => {
-              let transcript = "";
-              for (let i = event.resultIndex; i < event.results.length; ++i) {
-                transcript += event.results[i][0].transcript;
-              }
-              document.getElementById('liveTranscript').innerText = `"${transcript}"`;
-              parseSpokenText(transcript.toLowerCase());
-            };
-
-            recognition.onend = () => {
-              stopRecordingState();
-            };
-
-            recognition.onerror = () => {
-              triggerSimulatedVoiceIntake();
-            };
-          }
           recognition.lang = clientState.currentSpeechLang || 'hi-IN';
           recognition.start();
-          return;
         } catch(e) {
-          // Fallback to simulated audio intake
+          // Already started or restart
         }
       }
-
-      // Simulated 2.5s Voice Intake for Browser/Hackathon Demo
-      triggerSimulatedVoiceIntake();
-    }
-
-    function triggerSimulatedVoiceIntake() {
-      clearTimeout(micSimTimeout);
-      micSimTimeout = setTimeout(() => {
-        const langObj = langPrompts[clientState.currentSpeechLang] || langPrompts['hi-IN'];
-        document.getElementById('liveTranscript').innerText = `"${langObj.spokenDemo}"`;
-        
-        // Auto-extract parameters based on current demo state
-        applyExtractedParameters(clientState.trade || 'tailoring', clientState.capitalNeeded || 300000, clientState.annualIncome || 250000, clientState.category || 'SC', clientState.tradeTitle || 'Garment Tailoring Shop');
-        
-        stopRecordingState();
-        showToast(`Voice captured & extracted via Project Bhashini ASR!`);
-      }, 2200);
     }
 
     function stopRecordingState() {
@@ -3101,22 +3155,145 @@
       if (wave) wave.classList.add('hidden');
     }
 
-    // 1-Click Spoken Dialect Simulation (Jury Shortcuts)
-    function simulateVoicePhrase(tradeKey, capital, income, category, title, spokenPhrase, langCode, langName) {
-      if (langCode && langName) {
-        const pills = document.querySelectorAll('.lang-pill');
-        let targetBtn = null;
-        pills.forEach(p => {
-          if (p.innerText.includes(langName.split(' ')[0])) targetBtn = p;
-        });
-        setSpeechLanguage(langCode, langName, targetBtn);
+    // ================================================================
+    // COMPREHENSIVE MULTI-ENTITY SPEECH NLP PARSER
+    // ================================================================
+    function parseSpokenText(rawText) {
+      if (!rawText) return;
+      const text = rawText.toLowerCase();
+
+      let detectedTrade = null;
+      let detectedCapital = null;
+      let detectedIncome = null;
+      let detectedCategory = null;
+      let title = null;
+
+      // 1. DYNAMIC TRADE RECOGNITION (English, Hindi, Hinglish, Regional)
+      if (text.includes("tailor") || text.includes("tailoring") || text.includes("stitching") || text.includes("सिलाई") || text.includes("कपड़ा") || text.includes("दर्जी") || text.includes("garment") || text.includes("boutique") || text.includes("sewing") || text.includes("தையல்") || text.includes("দর্জি")) {
+        detectedTrade = "tailoring";
+        title = "Garment Tailoring & Manufacturing";
+      } else if (text.includes("potter") || text.includes("pottery") || text.includes("clay") || text.includes("ceramic") || text.includes("माटी") || text.includes("बर्तन") || text.includes("कुम्हार") || text.includes("diyas") || text.includes("pots") || text.includes("मिट्टी")) {
+        detectedTrade = "pottery";
+        title = "Traditional Clay Pottery & Ceramic Craft";
+      } else if (text.includes("carpenter") || text.includes("carpentry") || text.includes("wood") || text.includes("woodcraft") || text.includes("furniture") || text.includes("लकड़ी") || text.includes("बढ़ई") || text.includes("timber")) {
+        detectedTrade = "carpentry";
+        title = "Woodworking & Carpentry Workshop";
+      } else if (text.includes("kirana") || text.includes("grocery") || text.includes("retail") || text.includes("store") || text.includes("shop") || text.includes("दुकान") || text.includes("किराना") || text.includes("ration") || text.includes("general store")) {
+        detectedTrade = "kirana";
+        title = "General Kirana & Retail Store";
+      } else if (text.includes("beauty") || text.includes("parlor") || text.includes("parlour") || text.includes("salon") || text.includes("पार्लर") || text.includes("ब्यूटी") || text.includes("haircut") || text.includes("spa") || text.includes("wellness")) {
+        detectedTrade = "beauty_parlor";
+        title = "Beauty Salon & Wellness Unit";
+      } else if (text.includes("mobile") || text.includes("phone") || text.includes("repair") || text.includes("electronics") || text.includes("मोबाइल") || text.includes("रिपेयर") || text.includes("hardware")) {
+        detectedTrade = "mobile_repair";
+        title = "Mobile & Electronics Repair";
+      } else if (text.includes("dairy") || text.includes("milk") || text.includes("cow") || text.includes("buffalo") || text.includes("cattle") || text.includes("दूध") || text.includes("डेयरी") || text.includes("गाय") || text.includes("भैंस") || text.includes("पशुपालन")) {
+        detectedTrade = "dairy";
+        title = "Dairy Farming & Milk Chilling";
+      } else if (text.includes("vendor") || text.includes("hawker") || text.includes("thela") || text.includes("cart") || text.includes("street food") || text.includes("ठेला") || text.includes("सब्जी") || text.includes("फल") || text.includes("chaat")) {
+        detectedTrade = "street_vendor";
+        title = "Street Food / Micro Vendor Cart";
       }
 
-      document.getElementById('liveTranscript').innerText = `"${spokenPhrase}"`;
-      applyExtractedParameters(tradeKey, capital, income, category, title);
+      // 2. DYNAMIC SOCIAL CATEGORY RECOGNITION
+      if (text.includes("अनुसूचित जाति") || text.includes("scheduled caste") || text.includes("दलित") || text.includes("एससी") || text.includes(" sc ") || text.endsWith(" sc") || text.startsWith("sc ") || text.includes("sc category") || text.includes("எஸ்சி") || text.includes("ఎస్సీ") || text.includes("এসসি")) {
+        detectedCategory = "SC";
+      } else if (text.includes("अन्य पिछड़ा") || text.includes("पिछड़ा") || text.includes("other backward") || text.includes("ओबीसी") || text.includes(" obc ") || text.endsWith(" obc") || text.startsWith("obc ") || text.includes("obc category") || text.includes("ઓબીસી") || text.includes("ओबीसी वर्ग")) {
+        detectedCategory = "OBC";
+      } else if (text.includes("अनुसूचित जनजाति") || text.includes("आदिवासी") || text.includes("scheduled tribe") || text.includes("एसटी") || text.includes(" st ") || text.endsWith(" st") || text.startsWith("st ") || text.includes("st category") || text.includes("tribal")) {
+        detectedCategory = "ST";
+      } else if (text.includes("महिला") || text.includes("woman") || text.includes("women") || text.includes("female") || text.includes("aurat") || text.includes("shg")) {
+        detectedCategory = "Women";
+      } else if (text.includes("विश्वकर्मा") || text.includes("vishwakarma") || text.includes("artisan") || text.includes("craftsman") || text.includes("कारीगर") || text.includes("shilpkar")) {
+        detectedCategory = "Vishwakarma";
+      } else if (text.includes("सफाई") || text.includes("safai") || text.includes("sanitation") || text.includes("sweeper") || text.includes("safai karamchari")) {
+        detectedCategory = "SafaiKaramchari";
+      } else if (text.includes("दिव्यांग") || text.includes("divyang") || text.includes("handicap") || text.includes("disability") || text.includes("pwd") || text.includes("विकलांग")) {
+        detectedCategory = "Divyangjan";
+      } else if (text.includes("माइनॉरिटी") || text.includes("अल्पसंख्यक") || text.includes("minority") || text.includes("muslim") || text.includes("christian") || text.includes("sikh") || text.includes("jain")) {
+        detectedCategory = "Minority";
+      } else if (text.includes("जनरल") || text.includes("general") || text.includes("सामान्य") || text.includes("ews") || text.includes("open category")) {
+        detectedCategory = "General";
+      }
+
+      // 3. DYNAMIC LOAN CAPITAL RECOGNITION (Numbers, Lakhs, Thousands, Spoken Words)
+      if (text.includes("10 lakh") || text.includes("1000000") || text.includes("दस लाख") || text.includes("10 लाख")) {
+        detectedCapital = 1000000;
+      } else if (text.includes("5 lakh") || text.includes("500000") || text.includes("पांच लाख") || text.includes("5 लाख") || text.includes("5l")) {
+        detectedCapital = 500000;
+      } else if (text.includes("4 lakh") || text.includes("400000") || text.includes("चार लाख") || text.includes("4 लाख") || text.includes("4l")) {
+        detectedCapital = 400000;
+      } else if (text.includes("3.5 lakh") || text.includes("350000") || text.includes("साढ़े तीन") || text.includes("3.5 लाख") || text.includes("3.5l")) {
+        detectedCapital = 350000;
+      } else if (text.includes("3 lakh") || text.includes("300000") || text.includes("तीन लाख") || text.includes("3 लाख") || text.includes("3l")) {
+        detectedCapital = 300000;
+      } else if (text.includes("2.5 lakh") || text.includes("250000") || text.includes("ढाई लाख") || text.includes("2.5 लाख") || text.includes("2.5l")) {
+        detectedCapital = 250000;
+      } else if (text.includes("2 lakh") || text.includes("200000") || text.includes("दो लाख") || text.includes("2 लाख") || text.includes("2l")) {
+        detectedCapital = 200000;
+      } else if (text.includes("1.5 lakh") || text.includes("150000") || text.includes("डेढ़ लाख") || text.includes("1.5 लाख")) {
+        detectedCapital = 150000;
+      } else if (text.includes("1 lakh") || text.includes("100000") || text.includes("एक लाख") || text.includes("1 लाख") || text.includes("1l")) {
+        detectedCapital = 100000;
+      } else if (text.includes("50 thousand") || text.includes("50000") || text.includes("50 हजार") || text.includes("पचास हजार") || text.includes("50k")) {
+        detectedCapital = 50000;
+      } else {
+        const lakhMatch = text.match(/(\d+(?:\.\d+)?)\s*(?:lakh|lac|लाख|l\b)/i);
+        if (lakhMatch) {
+          const val = parseFloat(lakhMatch[1]);
+          if (!isNaN(val)) detectedCapital = Math.round(val * 100000);
+        }
+      }
+
+      // 4. DYNAMIC INCOME RECOGNITION
+      if (text.includes("income 6") || text.includes("6 लाख आय") || text.includes("600000 income")) {
+        detectedIncome = 600000;
+      } else if (text.includes("income 5") || text.includes("5 लाख आय") || text.includes("500000 income")) {
+        detectedIncome = 500000;
+      } else if (text.includes("income 3.5") || text.includes("3.5 लाख आय") || text.includes("3.5 lakh income")) {
+        detectedIncome = 350000;
+      } else if (text.includes("income 2.5") || text.includes("2.5 लाख आय") || text.includes("2.5 lakh income") || text.includes("ढाई लाख आय")) {
+        detectedIncome = 250000;
+      } else if (text.includes("income 2") || text.includes("2 लाख आय") || text.includes("200000 income")) {
+        detectedIncome = 200000;
+      } else if (text.includes("income 1.5") || text.includes("1.5 लाख आय") || text.includes("1.5 lakh income")) {
+        detectedIncome = 150000;
+      }
+
+      // Apply detected entities (preserve prior only if not mentioned)
+      const finalTrade = detectedTrade || clientState.trade || "tailoring";
+      const finalTitle = title || clientState.tradeTitle || "Garment Tailoring & Manufacturing";
+      const finalCapital = detectedCapital || clientState.capitalNeeded || 300000;
+      const finalCategory = detectedCategory || clientState.category || "SC";
+      const finalIncome = detectedIncome || clientState.annualIncome || 250000;
+
+      applyExtractedParameters(finalTrade, finalCapital, finalIncome, finalCategory, finalTitle);
     }
 
-    // Apply & Synchronize Parameters into Visual Form Inputs
+    // Clear / Reset All Selections to Clean State
+    function clearExtractedParameters() {
+      clientState.trade = "tailoring";
+      clientState.tradeTitle = "Garment Tailoring & Manufacturing";
+      clientState.category = "SC";
+      clientState.capitalNeeded = 300000;
+      clientState.annualIncome = 250000;
+
+      document.getElementById('tradeSelect').value = "tailoring";
+      document.getElementById('categorySelect').value = "SC";
+      document.getElementById('capitalSlider').value = 300000;
+      document.getElementById('incomeSlider').value = 250000;
+      updateCapitalDisplay(300000);
+      updateIncomeDisplay(250000);
+
+      document.getElementById('liveTranscript').innerText = 'माइक दबाएं और कहें: "मुझे 3 लाख का लोन सिलाई की दुकान के लिए चाहिए, मैं एससी वर्ग से हूँ"';
+      
+      const badge = document.getElementById('nlpExtractionBadge');
+      if (badge) badge.classList.add('hidden');
+
+      showToast("Cleared prior selections. Tap mic or select parameters afresh!");
+    }
+
+
     function applyExtractedParameters(tradeKey, capital, income, category, title) {
       clientState.trade = tradeKey;
       clientState.tradeTitle = title;
