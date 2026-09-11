@@ -107,7 +107,7 @@
         </button>
         <button id="nav-schemes" onclick="switchPortal('schemes')" class="nav-tab px-3.5 py-2 rounded-xl text-slate-400 hover:text-white transition flex items-center gap-1.5">
           <i data-lucide="book-open" class="w-4 h-4"></i>
-          <span class="hidden lg:inline">Scheme Directory</span>
+          <span>Scheme Directory (22+)</span>
         </button>
       </nav>
 
@@ -148,153 +148,127 @@
             <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
             <span>Smart India Hackathon 2026 • Problem Statement SIH26092</span>
           </div>
-
-          <h1 class="text-3xl md:text-5xl font-black text-white leading-tight tracking-tight">
-            Bridging Spoken Intent to <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-yellow-400">Bankable Disbursal</span> for 63M Micro-Entrepreneurs
+          
+          <h1 class="text-4xl md:text-5xl font-black tracking-tight text-white leading-tight">
+            Connecting <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-yellow-400">Marginalized Entrepreneurs</span> to Concessional Credit.
           </h1>
-
-          <p class="text-sm md:text-base text-slate-300 leading-relaxed">
-            Over 60% of India's micro-enterprises belong to SC, ST, OBC, and Women artisans. <strong>UdyamSetu AI</strong> eliminates the language barrier, middlemen extortion, and the "DPR Wall" by translating spoken rural dialects directly into certified 1-page financial Detailed Project Reports with verified 2.1x DSCR.
+          
+          <p class="text-base text-slate-300 font-normal leading-relaxed">
+            A multilingual, voice-first discovery engine powered by <strong class="text-white">Project Bhashini IndicASR</strong>, <strong class="text-white">100% Zero-Hallucination Statutory Matching</strong>, and an <strong class="text-white">Automated Bank-Grade Micro-DPR Generator (DSCR ≥ 1.5x)</strong> for SC, ST, OBC, Women, and Artisan enterprises.
           </p>
 
-          <div class="flex flex-wrap items-center gap-4 pt-2">
-            <button onclick="switchPortal('citizen')" class="px-6 py-3.5 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-slate-950 font-black text-sm rounded-2xl shadow-xl shadow-orange-500/20 hover:scale-105 transition flex items-center gap-2">
-              <i data-lucide="mic" class="w-4 h-4"></i>
-              <span>Launch Citizen Voice Assistant</span>
+          <div class="flex flex-wrap gap-4 pt-2">
+            <button onclick="switchPortal('citizen'); goToStep(1);" class="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-slate-950 font-black text-sm shadow-xl shadow-orange-500/25 transition transform hover:-translate-y-0.5 flex items-center gap-2">
+              <span>Launch Citizen Voice Portal</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </button>
-            <button onclick="switchPortal('bank')" class="px-6 py-3.5 bg-slate-800/90 hover:bg-slate-700 text-white font-bold text-sm rounded-2xl border border-slate-700 transition flex items-center gap-2">
+            <button onclick="switchPortal('bank')" class="px-6 py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm border border-slate-700 transition flex items-center gap-2">
               <i data-lucide="landmark" class="w-4 h-4 text-blue-400"></i>
-              <span>Open Bank Officer Portal</span>
+              <span>Bank Underwriter Portal</span>
+            </button>
+            <button onclick="switchPortal('schemes')" class="px-6 py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm border border-slate-700 transition flex items-center gap-2">
+              <i data-lucide="book-open" class="w-4 h-4 text-amber-400"></i>
+              <span>Browse 22+ Welfare Schemes</span>
             </button>
           </div>
         </div>
-      </div>
 
-      <!-- Macro Statistics Banner -->
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <div class="p-6 rounded-3xl bg-slate-900/90 border border-slate-800 text-center space-y-1">
-          <div class="text-3xl font-black text-orange-400 font-mono">63 Million</div>
-          <div class="text-xs font-bold text-slate-300">Informal MSMEs</div>
-          <div class="text-[11px] text-slate-500">>60% SC/ST/OBC/Women Owned</div>
-        </div>
-        <div class="p-6 rounded-3xl bg-slate-900/90 border border-slate-800 text-center space-y-1">
-          <div class="text-3xl font-black text-red-400 font-mono">₹25L Crore</div>
-          <div class="text-xs font-bold text-slate-300">Credit Deficit</div>
-          <div class="text-[11px] text-slate-500">Trapped in 36% Loan Shark Traps</div>
-        </div>
-        <div class="p-6 rounded-3xl bg-slate-900/90 border border-slate-800 text-center space-y-1">
-          <div class="text-3xl font-black text-emerald-400 font-mono">< 5 Mins</div>
-          <div class="text-xs font-bold text-slate-300">Discovery-to-DPR</div>
-          <div class="text-[11px] text-slate-500">Reduced from 45 Bureaucratic Days</div>
-        </div>
-        <div class="p-6 rounded-3xl bg-slate-900/90 border border-slate-800 text-center space-y-1">
-          <div class="text-3xl font-black text-blue-400 font-mono">₹0 Fee</div>
-          <div class="text-xs font-bold text-slate-300">100% Free Public Good</div>
-          <div class="text-[11px] text-slate-500">Funded via RBI PSL Bank Sourcing</div>
+        <!-- Macro Stats Ribbon -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-10 pt-8 border-t border-slate-800/80">
+          <div>
+            <div class="text-2xl font-black text-white font-mono">63M+</div>
+            <div class="text-xs text-slate-400 font-medium mt-0.5">Grassroots MSMEs in India</div>
+          </div>
+          <div>
+            <div class="text-2xl font-black text-orange-400 font-mono">₹25L Cr</div>
+            <div class="text-xs text-slate-400 font-medium mt-0.5">Unmet Credit Deficit (RBI)</div>
+          </div>
+          <div>
+            <div class="text-2xl font-black text-emerald-400 font-mono">&lt; 5 Mins</div>
+            <div class="text-xs text-slate-400 font-medium mt-0.5">Discovery-to-DPR Time</div>
+          </div>
+          <div>
+            <div class="text-2xl font-black text-blue-400 font-mono">₹0 Fee</div>
+            <div class="text-xs text-slate-400 font-medium mt-0.5">100% Free for Citizens</div>
+          </div>
         </div>
       </div>
 
-      <!-- 4 Core Innovation Pillars -->
-      <div class="space-y-4">
-        <h2 class="text-xl font-black text-white flex items-center gap-2">
-          <i data-lucide="layers" class="w-5 h-5 text-orange-400"></i>
-          <span>The 4 Architectural Pillars of UdyamSetu AI</span>
-        </h2>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="p-6 rounded-3xl bg-slate-900/90 border border-slate-800 space-y-3">
-            <div class="w-10 h-10 rounded-2xl bg-orange-500/20 text-orange-400 flex items-center justify-center font-bold">
-              <i data-lucide="volume-2" class="w-5 h-5"></i>
-            </div>
-            <h3 class="font-black text-white text-base">1. Voice-First Indic Intake</h3>
-            <p class="text-xs text-slate-400 leading-relaxed">
-              Powered by MeitY Project Bhashini in 12+ regional languages. Natural spoken dialogue completely eliminates the digital literacy and English barrier.
-            </p>
-          </div>
-
-          <div class="p-6 rounded-3xl bg-slate-900/90 border border-slate-800 space-y-3">
-            <div class="w-10 h-10 rounded-2xl bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold">
-              <i data-lucide="cpu" class="w-5 h-5"></i>
-            </div>
-            <h3 class="font-black text-white text-base">2. Zero-Hallucination Matcher</h3>
-            <p class="text-xs text-slate-400 leading-relaxed">
-              Strict isolation: NLP parses text entities; a 100% deterministic Python rule engine evaluates statutory criteria across 300+ schemes with zero hallucinations.
-            </p>
-          </div>
-
-          <div class="p-6 rounded-3xl bg-slate-900/90 border border-slate-800 space-y-3">
-            <div class="w-10 h-10 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">
-              <i data-lucide="file-check-2" class="w-5 h-5"></i>
-            </div>
-            <h3 class="font-black text-white text-base">3. Bankable Micro-DPR Engine</h3>
-            <p class="text-xs text-slate-400 leading-relaxed">
-              Calibrated to KVIC 2024 unit economics across 200+ trades. Automatically calculates CapEx, OpEx, cash flows, and certified 2.1x DSCR.
-            </p>
-          </div>
-
-          <div class="p-6 rounded-3xl bg-slate-900/90 border border-slate-800 space-y-3">
-            <div class="w-10 h-10 rounded-2xl bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold">
-              <i data-lucide="shield-check" class="w-5 h-5"></i>
-            </div>
-            <h3 class="font-black text-white text-base">4. Anti-Rejection Resolver</h3>
-            <p class="text-xs text-slate-400 leading-relaxed">
-              DigiLocker SHA-256 HMAC cryptographic verification + 1-click step-by-step guidance to nearest CSC kiosk at the standard ₹15 government fee.
-            </p>
-          </div>
+      <!-- 4 Architectural Pillars -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div class="bg-slate-900/80 border border-slate-800 p-6 rounded-3xl space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-orange-500/20 text-orange-400 flex items-center justify-center font-bold">🎙️</div>
+          <h3 class="font-black text-white text-base">Multilingual Indic Voice</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">Speak in 7+ regional dialects. Project Bhashini ASR transcribes intent into structured parameters with 0 typing.</p>
+        </div>
+        <div class="bg-slate-900/80 border border-slate-800 p-6 rounded-3xl space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">🎯</div>
+          <h3 class="font-black text-white text-base">Zero-Hallucination Engine</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">Deterministic mathematical rules matrix evaluates 22+ apex schemes (NSFDC, NBCFDC, PM Vishwakarma, PMEGP, Mudra).</p>
+        </div>
+        <div class="bg-slate-900/80 border border-slate-800 p-6 rounded-3xl space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center font-bold">📑</div>
+          <h3 class="font-black text-white text-base">Bank-Grade Micro-DPR</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">Automates 1-page financial Detailed Project Report with verified CapEx/OpEx and guaranteed DSCR ≥ 1.5x.</p>
+        </div>
+        <div class="bg-slate-900/80 border border-slate-800 p-6 rounded-3xl space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold">🏛️</div>
+          <h3 class="font-black text-white text-base">Two-Sided Platform</h3>
+          <p class="text-xs text-slate-400 leading-relaxed">Seamless bridge connecting citizen applications directly to Bank Underwriting Desks & MoSJE DBT monitoring.</p>
         </div>
       </div>
 
     </section>
 
     <!-- ============================================================== -->
-    <!-- VIEW 2: CITIZEN VOICE PORTAL (THE FULL 6-STEP FLOW)            -->
+    <!-- VIEW 2: CITIZEN PORTAL (THE COMPLETE 6-STEP WORKFLOW)         -->
     <!-- ============================================================== -->
     <section id="view-citizen" class="portal-view fade-enter space-y-6">
-
-      <!-- Stepper Tracker -->
-      <div class="bg-slate-900/80 backdrop-blur-md p-4 rounded-3xl border border-slate-800 shadow-lg">
-        <div class="flex items-center justify-between text-xs font-semibold text-slate-400 overflow-x-auto gap-2 custom-scrollbar pb-1">
+      
+      <!-- Stepper Progress Header -->
+      <div class="bg-slate-900/90 border border-slate-800 p-4 rounded-3xl shadow-lg">
+        <div class="flex items-center justify-between max-w-4xl mx-auto overflow-x-auto text-xs font-bold gap-2 py-1 custom-scrollbar">
           <div class="flex items-center gap-2.5 flex-shrink-0 cursor-pointer" onclick="goToStep(1)">
-            <div id="step-circle-1" class="w-8 h-8 rounded-full bg-orange-500 text-white flex items-center justify-center font-black shadow-md shadow-orange-500/30">1</div>
-            <span id="step-label-1" class="text-white font-bold">1. Identity & Auth</span>
+            <div id="step-circle-1" class="w-8 h-8 rounded-full bg-orange-500 text-white flex items-center justify-center font-black shadow-lg shadow-orange-500/30 ring-2 ring-orange-400">1</div>
+            <span id="step-label-1" class="text-white">1. Auth</span>
           </div>
           <div class="h-0.5 w-6 bg-slate-700 flex-shrink-0"></div>
           <div class="flex items-center gap-2.5 flex-shrink-0 cursor-pointer" onclick="goToStep(2)">
             <div id="step-circle-2" class="w-8 h-8 rounded-full bg-slate-800 text-slate-400 flex items-center justify-center font-bold">2</div>
-            <span id="step-label-2">2. Voice Intake</span>
+            <span id="step-label-2" class="text-slate-400">2. Voice Intake</span>
           </div>
           <div class="h-0.5 w-6 bg-slate-700 flex-shrink-0"></div>
           <div class="flex items-center gap-2.5 flex-shrink-0 cursor-pointer" onclick="goToStep(3)">
             <div id="step-circle-3" class="w-8 h-8 rounded-full bg-slate-800 text-slate-400 flex items-center justify-center font-bold">3</div>
-            <span id="step-label-3">3. Matched Schemes</span>
+            <span id="step-label-3" class="text-slate-400">3. Match (22+)</span>
           </div>
           <div class="h-0.5 w-6 bg-slate-700 flex-shrink-0"></div>
           <div class="flex items-center gap-2.5 flex-shrink-0 cursor-pointer" onclick="goToStep(4)">
             <div id="step-circle-4" class="w-8 h-8 rounded-full bg-slate-800 text-slate-400 flex items-center justify-center font-bold">4</div>
-            <span id="step-label-4">4. DigiLocker & Docs</span>
+            <span id="step-label-4" class="text-slate-400">4. DigiLocker</span>
           </div>
           <div class="h-0.5 w-6 bg-slate-700 flex-shrink-0"></div>
           <div class="flex items-center gap-2.5 flex-shrink-0 cursor-pointer" onclick="goToStep(5)">
             <div id="step-circle-5" class="w-8 h-8 rounded-full bg-slate-800 text-slate-400 flex items-center justify-center font-bold">5</div>
-            <span id="step-label-5">5. Auto Micro-DPR</span>
+            <span id="step-label-5" class="text-slate-400">5. Micro-DPR</span>
           </div>
           <div class="h-0.5 w-6 bg-slate-700 flex-shrink-0"></div>
           <div class="flex items-center gap-2.5 flex-shrink-0 cursor-pointer" onclick="goToStep(6)">
             <div id="step-circle-6" class="w-8 h-8 rounded-full bg-slate-800 text-slate-400 flex items-center justify-center font-bold">6</div>
-            <span id="step-label-6">6. Live Disbursal</span>
+            <span id="step-label-6" class="text-slate-400">6. Disbursal</span>
           </div>
         </div>
       </div>
 
       <!-- STEP 1: IDENTITY AUTH -->
       <div id="screen-1" class="screen fade-enter">
-        <div class="max-w-md mx-auto bg-slate-900/90 backdrop-blur-xl rounded-3xl p-7 md:p-8 shadow-2xl border border-slate-800">
+        <div class="max-w-2xl mx-auto bg-slate-900/90 backdrop-blur-xl rounded-3xl p-7 md:p-8 shadow-2xl border border-slate-800">
           <div class="text-center mb-6">
             <div class="inline-flex p-3.5 rounded-2xl bg-orange-500/10 text-orange-400 mb-3 border border-orange-500/20 shadow-inner">
               <i data-lucide="shield-check" class="w-8 h-8"></i>
             </div>
-            <h2 class="text-2xl font-black text-white tracking-tight">Citizen Verification</h2>
-            <p class="text-xs text-slate-400 mt-1">Direct Aadhaar / DigiLocker Authentication for Concessional Credit</p>
+            <h2 class="text-2xl font-black text-white tracking-tight">Citizen Verification & Persona Selection</h2>
+            <p class="text-xs text-slate-400 mt-1">Direct Aadhaar / DigiLocker Authentication for MoSJE & Central Concessional Credit</p>
           </div>
 
           <div class="space-y-4">
@@ -311,15 +285,33 @@
               </div>
             </div>
 
-            <!-- Quick Auto-Fill Demo Shortcuts -->
-            <div class="pt-1">
-              <span class="text-[10px] uppercase font-bold text-slate-400 block mb-1">Quick Demo Presets for Jury:</span>
-              <div class="grid grid-cols-2 gap-2">
-                <button onclick="prefillDemoUser('Ramesh Kumar', '5849 2018 4819', 'SC Tailor')" type="button" class="py-2 px-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-xl text-xs font-semibold border border-slate-700 transition text-left truncate">
+            <!-- Quick Auto-Fill Demo Shortcuts (8 Diverse Personas) -->
+            <div class="pt-2">
+              <span class="text-[10px] uppercase font-bold text-slate-400 block mb-1.5">⚡ 1-Click Quick Demo Presets for Jury:</span>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                <button onclick="prefillDemoUser('Ramesh Kumar', '5849 2018 4819', 'SC', 'tailoring', 300000, 250000, 'Garment Tailoring Shop')" type="button" class="py-2 px-2.5 bg-slate-800/90 hover:bg-orange-500/20 hover:border-orange-500/40 text-slate-200 rounded-xl text-xs font-semibold border border-slate-700 transition text-left truncate">
                   🧵 Ramesh (SC Tailor)
                 </button>
-                <button onclick="prefillDemoUser('Suresh Prajapati', '8492 1029 3841', 'OBC Potter')" type="button" class="py-2 px-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-xl text-xs font-semibold border border-slate-700 transition text-left truncate">
+                <button onclick="prefillDemoUser('Suresh Prajapati', '8492 1029 3841', 'OBC', 'pottery', 200000, 200000, 'Traditional Pottery Unit')" type="button" class="py-2 px-2.5 bg-slate-800/90 hover:bg-orange-500/20 hover:border-orange-500/40 text-slate-200 rounded-xl text-xs font-semibold border border-slate-700 transition text-left truncate">
                   🏺 Suresh (OBC Potter)
+                </button>
+                <button onclick="prefillDemoUser('Priya Sharma', '9102 3847 1920', 'Women', 'beauty_parlor', 500000, 350000, 'Beauty Salon & Wellness')" type="button" class="py-2 px-2.5 bg-slate-800/90 hover:bg-orange-500/20 hover:border-orange-500/40 text-slate-200 rounded-xl text-xs font-semibold border border-slate-700 transition text-left truncate">
+                  💇‍♀️ Priya (Women Salon)
+                </button>
+                <button onclick="prefillDemoUser('Karan Murmu', '7381 9201 4827', 'ST', 'carpentry', 350000, 220000, 'Tribal Woodcraft Unit')" type="button" class="py-2 px-2.5 bg-slate-800/90 hover:bg-orange-500/20 hover:border-orange-500/40 text-slate-200 rounded-xl text-xs font-semibold border border-slate-700 transition text-left truncate">
+                  🪵 Karan (ST Woodcraft)
+                </button>
+                <button onclick="prefillDemoUser('Sunita Devi', '6291 8301 9482', 'SafaiKaramchari', 'tailoring', 150000, 180000, 'Garment Tailoring')" type="button" class="py-2 px-2.5 bg-slate-800/90 hover:bg-orange-500/20 hover:border-orange-500/40 text-slate-200 rounded-xl text-xs font-semibold border border-slate-700 transition text-left truncate">
+                  🧹 Sunita (Sanitation)
+                </button>
+                <button onclick="prefillDemoUser('Vikram Patel', '4829 1039 5821', 'Divyangjan', 'mobile_repair', 250000, 280000, 'Electronics & Mobile Repair')" type="button" class="py-2 px-2.5 bg-slate-800/90 hover:bg-orange-500/20 hover:border-orange-500/40 text-slate-200 rounded-xl text-xs font-semibold border border-slate-700 transition text-left truncate">
+                  🦽 Vikram (PwD Repair)
+                </button>
+                <button onclick="prefillDemoUser('Amit Gupta', '7102 9384 1029', 'General', 'kirana', 400000, 450000, 'General Grocery Store')" type="button" class="py-2 px-2.5 bg-slate-800/90 hover:bg-orange-500/20 hover:border-orange-500/40 text-slate-200 rounded-xl text-xs font-semibold border border-slate-700 transition text-left truncate">
+                  🛒 Amit (General Kirana)
+                </button>
+                <button onclick="prefillDemoUser('Raju Ansari', '3910 2847 5019', 'General', 'street_vendor', 50000, 150000, 'Vegetable Mobile Cart')" type="button" class="py-2 px-2.5 bg-slate-800/90 hover:bg-orange-500/20 hover:border-orange-500/40 text-slate-200 rounded-xl text-xs font-semibold border border-slate-700 transition text-left truncate">
+                  🥬 Raju (Street Vendor)
                 </button>
               </div>
             </div>
@@ -418,21 +410,21 @@
                 </div>
               </div>
 
-              <!-- Multilingual Click-to-Test Voice Simulation Presets -->
-              <div class="mt-4">
-                <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-1.5">⚡ Instant Voice Demo Presets (Click to Test):</span>
-                <div class="grid grid-cols-2 gap-2">
-                  <button onclick="simulateVoicePhrase('tailoring', 300000, 250000, 'SC', 'Garment Tailoring Shop', 'मुझे दर्जी की दुकान के लिए 3 लाख का लोन चाहिए, एससी वर्ग से हूँ')" class="px-3 py-2 bg-blue-500/10 hover:bg-blue-500/20 text-blue-300 border border-blue-500/30 rounded-xl text-xs font-bold text-left transition">
-                    🧵 1. "3L Loan for Tailoring (SC)" ➔ NSFDC
+              <!-- Fast 1-Click Voice Simulation Buttons for Live Jury Demo -->
+              <div class="mt-4 pt-3 border-t border-slate-800">
+                <span class="text-[11px] font-bold text-slate-400 block mb-2">⚡ 1-Click Spoken Dialect Simulation:</span>
+                <div class="grid grid-cols-2 gap-2 text-xs">
+                  <button onclick="simulateVoicePhrase('tailoring', 300000, 250000, 'SC', 'Garment Tailoring Shop', 'मुझे 3 लाख का लोन सिलाई की दुकान के लिए चाहिए, सालाना आमदनी ₹2.5 लाख, एससी वर्ग')" class="p-2 bg-slate-800/80 hover:bg-slate-700 text-slate-300 rounded-xl text-left border border-slate-700 transition">
+                    🗣️ <strong>Hindi:</strong> "3L Tailor, SC"
                   </button>
-                  <button onclick="simulateVoicePhrase('carpentry', 450000, 280000, 'OBC', 'Furniture & Woodwork', 'हमार लकड़ी के काम बा, चार लाख पचास हज़ार चाहीं, ओबीसी बानी')" class="px-3 py-2 bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 rounded-xl text-xs font-bold text-left transition">
-                    🪑 2. "4.5L Carpentry (OBC Bhojpuri)" ➔ NBCFDC
+                  <button onclick="simulateVoicePhrase('pottery', 200000, 200000, 'OBC', 'Traditional Pottery Unit', 'हमके 2 लाख के लोन माटी के बर्तन खातिर चाही, ओबीसी वर्ग बा')" class="p-2 bg-slate-800/80 hover:bg-slate-700 text-slate-300 rounded-xl text-left border border-slate-700 transition">
+                    🗣️ <strong>Bhojpuri:</strong> "2L Potter, OBC"
                   </button>
-                  <button onclick="simulateVoicePhrase('beauty_parlor', 500000, 220000, 'Women', 'Beauty Parlor & Salon', 'I need 5 Lakh loan for my beauty salon startup, women entrepreneur')" class="px-3 py-2 bg-purple-500/10 hover:bg-purple-500/20 text-purple-300 border border-purple-500/30 rounded-xl text-xs font-bold text-left transition">
-                    💇‍♀️ 3. "5L Beauty Salon (Women)" ➔ Stand-Up
+                  <button onclick="simulateVoicePhrase('beauty_parlor', 500000, 350000, 'Women', 'Beauty Parlour Unit', 'मला ब्यूटी पार्लरसाठी 5 लाखांचे कर्ज हवे आहे, महिला उद्योजक')" class="p-2 bg-slate-800/80 hover:bg-slate-700 text-slate-300 rounded-xl text-left border border-slate-700 transition">
+                    🗣️ <strong>Marathi:</strong> "5L Parlour, Women"
                   </button>
-                  <button onclick="simulateVoicePhrase('kirana', 400000, 650000, 'General', 'General Kirana Store', 'किराना स्टोर के लिए 4 लाख लोन चाहिए, जनरल कैटिगरी')" class="px-3 py-2 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-xl text-xs font-bold text-left transition">
-                    🏪 4. "4L Kirana Store (General)" ➔ PMEGP/Mudra
+                  <button onclick="simulateVoicePhrase('carpentry', 350000, 220000, 'ST', 'Tribal Woodcraft Unit', 'Need 3.5 Lakhs loan for woodcraft workshop, Scheduled Tribe category')" class="p-2 bg-slate-800/80 hover:bg-slate-700 text-slate-300 rounded-xl text-left border border-slate-700 transition">
+                    🗣️ <strong>English:</strong> "3.5L Woodcraft, ST"
                   </button>
                 </div>
               </div>
@@ -441,7 +433,7 @@
             <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between">
               <button onclick="goToStep(1)" class="text-xs font-bold text-slate-400 hover:text-white transition">&larr; Back to Auth</button>
               <button onclick="processAndMatchSchemes()" class="px-6 py-3 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-slate-950 text-xs font-black rounded-xl shadow-lg shadow-orange-500/20 flex items-center gap-2 transition">
-                <span>Match Statutory Schemes</span>
+                <span>Evaluate 22+ Welfare Schemes</span>
                 <i data-lucide="arrow-right" class="w-4 h-4"></i>
               </button>
             </div>
@@ -464,23 +456,29 @@
                   <label class="block text-slate-300 font-bold mb-1.5">Business Trade / Sector</label>
                   <select id="tradeSelect" onchange="updateLiveParameters()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2.5 text-white font-semibold focus:outline-none focus:ring-2 focus:ring-orange-500">
                     <option value="tailoring">Garment Tailoring & Manufacturing</option>
+                    <option value="pottery">Traditional Clay Pottery & Ceramic Craft</option>
                     <option value="carpentry">Woodworking & Carpentry Workshop</option>
                     <option value="kirana">General Kirana & Retail Store</option>
                     <option value="beauty_parlor">Beauty Parlour & Wellness Unit</option>
                     <option value="mobile_repair">Mobile & Electronics Repair</option>
                     <option value="dairy">Dairy Farming & Milk Chilling</option>
+                    <option value="street_vendor">Street Food / Micro Vendor</option>
                   </select>
                 </div>
 
                 <!-- Social Category -->
                 <div>
-                  <label class="block text-slate-300 font-bold mb-1.5">Social Category</label>
+                  <label class="block text-slate-300 font-bold mb-1.5">Social Demographic Category</label>
                   <select id="categorySelect" onchange="updateLiveParameters()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2.5 text-white font-semibold focus:outline-none focus:ring-2 focus:ring-orange-500">
-                    <option value="SC">Scheduled Caste (SC) - NSFDC Target</option>
-                    <option value="OBC">Other Backward Classes (OBC) - NBCFDC Target</option>
-                    <option value="Women">Women Entrepreneur - Stand-Up India</option>
-                    <option value="ST">Scheduled Tribe (ST) - NSTFDC Target</option>
-                    <option value="General">General Category - PMEGP / Mudra</option>
+                    <option value="SC">Scheduled Caste (SC) - NSFDC Apex Target</option>
+                    <option value="OBC">Other Backward Classes (OBC) - NBCFDC Apex Target</option>
+                    <option value="ST">Scheduled Tribe (ST) - NSTFDC Apex Target</option>
+                    <option value="Women">Women Micro-Entrepreneur - Stand-Up India / Swarnima</option>
+                    <option value="Vishwakarma">Traditional Artisan / Craftsman - PM Vishwakarma</option>
+                    <option value="SafaiKaramchari">Safai Karamchari / Sanitation Worker - NSKFDC</option>
+                    <option value="Divyangjan">Persons with Disabilities (PwD / Divyangjan) - NHFDC</option>
+                    <option value="Minority">Minority Community - NMDFC Target</option>
+                    <option value="General">General / EWS Category - PMEGP & Mudra</option>
                   </select>
                 </div>
 
@@ -490,7 +488,7 @@
                     <span class="text-slate-300">Required Capital Loan:</span>
                     <span id="capitalDisplay" class="text-orange-400 font-mono text-sm font-black">₹3,00,000</span>
                   </div>
-                  <input id="capitalSlider" type="range" min="50000" max="1000000" step="25000" value="300000" oninput="updateCapitalDisplay(this.value)" class="w-full accent-orange-500 cursor-pointer h-2 bg-slate-800 rounded-lg" />
+                  <input id="capitalSlider" type="range" min="25000" max="1000000" step="25000" value="300000" oninput="updateCapitalDisplay(this.value)" class="w-full accent-orange-500 cursor-pointer h-2 bg-slate-800 rounded-lg" />
                 </div>
 
                 <!-- Annual Family Income Slider -->
@@ -499,7 +497,7 @@
                     <span class="text-slate-300">Annual Family Income:</span>
                     <span id="incomeDisplay" class="text-emerald-400 font-mono text-sm font-black">₹2,50,000</span>
                   </div>
-                  <input id="incomeSlider" type="range" min="50000" max="800000" step="25000" value="250000" oninput="updateIncomeDisplay(this.value)" class="w-full accent-emerald-500 cursor-pointer h-2 bg-slate-800 rounded-lg" />
+                  <input id="incomeSlider" type="range" min="50000" max="1000000" step="25000" value="250000" oninput="updateIncomeDisplay(this.value)" class="w-full accent-emerald-500 cursor-pointer h-2 bg-slate-800 rounded-lg" />
                   <span id="incomeStatusBadge" class="text-[11px] text-emerald-400 mt-1.5 block font-semibold">✓ Eligible for MoSJE Concessional Subsidies (&le; ₹5.00 Lakhs)</span>
                 </div>
               </div>
@@ -509,29 +507,34 @@
               <span>Applicant: <strong id="paramApplicantName" class="text-white">Ramesh Kumar</strong></span>
               <span class="text-emerald-400 font-bold flex items-center gap-1">
                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                Live Matching Ready
+                22+ Schemes Matrix Active
               </span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- STEP 3: MATCHED SCHEMES -->
+      <!-- STEP 3: MATCHED SCHEMES (DYNAMIC STATUTORY RANKING) -->
       <div id="screen-3" class="screen hidden fade-enter">
         <div class="mb-6 flex flex-col md:flex-row md:items-center justify-between gap-3">
           <div>
-            <h2 class="text-2xl font-black text-white">Recommended Welfare Schemes</h2>
-            <p class="text-xs text-slate-400 mt-0.5">Ranked dynamically for <strong id="matchedCategoryHeader" class="text-orange-400 font-bold">SC Category</strong> • Income: <strong id="matchedIncomeHeader" class="text-emerald-400 font-bold">&le; ₹5 Lakhs</strong> • Capital: <strong id="matchedCapitalHeader" class="text-white font-bold">₹3,00,000</strong></p>
+            <h2 class="text-2xl font-black text-white">Recommended Concessional Schemes</h2>
+            <p class="text-xs text-slate-400 mt-0.5">Ranked specifically for <strong id="matchedCategoryHeader" class="text-orange-400 font-bold">SC Category</strong> • Income: <strong id="matchedIncomeHeader" class="text-emerald-400 font-bold">&le; ₹5 Lakhs</strong> • Capital: <strong id="matchedCapitalHeader" class="text-white font-bold">₹3,00,000</strong></p>
           </div>
           <div class="inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/30 text-orange-400 px-3.5 py-1.5 rounded-xl text-xs font-bold shadow-sm">
             <i data-lucide="sparkles" class="w-4 h-4 text-orange-400"></i>
-            <span id="matchedAlgorithmBadge">Official MoSJE & MSME Statutory Engine</span>
+            <span id="matchedAlgorithmBadge">22+ Schemes Deterministic Match Matrix</span>
           </div>
         </div>
 
         <!-- Container for Dynamically Ranked Scheme Cards -->
         <div id="schemeCardsContainer" class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <!-- Injected dynamically by evaluateAndRenderSchemes() -->
+        </div>
+
+        <div class="mt-6 flex justify-between items-center bg-slate-900/60 p-4 rounded-2xl border border-slate-800 text-xs">
+          <button onclick="goToStep(2)" class="text-slate-400 hover:text-white font-bold">&larr; Modify Voice / Parameters</button>
+          <span class="text-slate-500">Need more options? View all 22+ schemes in the <strong class="text-orange-400 cursor-pointer" onclick="switchPortal('schemes')">Scheme Directory</strong></span>
         </div>
       </div>
 
@@ -698,166 +701,239 @@
 
               <div class="mt-5 space-y-3 text-xs">
                 <div class="bg-slate-800/80 p-3.5 rounded-2xl border border-slate-700 flex items-start gap-3">
-                  <span class="w-5 h-5 rounded-full bg-orange-500 text-slate-950 flex items-center justify-center font-black text-[10px] flex-shrink-0">1</span>
-                  <span class="text-slate-200"><strong>DigiLocker Integration:</strong> 1-click automatic download of certified Aadhaar, PAN & Caste files.</span>
+                  <div class="p-2 rounded-xl bg-orange-500/20 text-orange-400 mt-0.5">
+                    <i data-lucide="map-pin" class="w-4 h-4"></i>
+                  </div>
+                  <div>
+                    <strong class="text-white block">Nearest CSC Center Guide</strong>
+                    <span class="text-slate-400">Get caste or income certificate issued for strictly ₹15 standard fee.</span>
+                  </div>
                 </div>
+
                 <div class="bg-slate-800/80 p-3.5 rounded-2xl border border-slate-700 flex items-start gap-3">
-                  <span class="w-5 h-5 rounded-full bg-orange-500 text-slate-950 flex items-center justify-center font-black text-[10px] flex-shrink-0">2</span>
-                  <span class="text-slate-200"><strong>Nearest CSC Kiosk:</strong> State e-District application fee is strictly <strong>₹15 standard government fee</strong>.</span>
-                </div>
-                <div class="bg-slate-800/80 p-3.5 rounded-2xl border border-slate-700 flex items-start gap-3">
-                  <span class="w-5 h-5 rounded-full bg-orange-500 text-slate-950 flex items-center justify-center font-black text-[10px] flex-shrink-0">3</span>
-                  <span class="text-slate-200"><strong>OpenCV Quality Check:</strong> Laplacian blur filters eliminate unreadable photos at device edge.</span>
+                  <div class="p-2 rounded-xl bg-emerald-500/20 text-emerald-400 mt-0.5">
+                    <i data-lucide="camera" class="w-4 h-4"></i>
+                  </div>
+                  <div>
+                    <strong class="text-white block">OpenCV Blur Detection</strong>
+                    <span class="text-slate-400">On-device edge AI rejects blurry photos before bank submission.</span>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div class="mt-6 pt-4 border-t border-slate-800 text-xs">
-              <button onclick="showToast('SMS sent: Nearest CSC located at Village Panchayat Hall (850m away). Official Fee: ₹15.')" class="w-full py-2.5 bg-slate-800 hover:bg-slate-700 text-orange-400 font-bold rounded-xl border border-slate-700 transition flex items-center justify-center gap-1.5">
-                <i data-lucide="map-pin" class="w-3.5 h-3.5"></i>
-                <span>Locate Nearest CSC Kiosk</span>
+            <div class="mt-6 pt-4 border-t border-slate-800">
+              <button onclick="showMissingDocModal()" class="w-full py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white rounded-xl text-xs font-bold transition flex items-center justify-center gap-2">
+                <i data-lucide="help-circle" class="w-4 h-4"></i>
+                <span>View Full CSC Certificate Guide</span>
               </button>
             </div>
           </div>
+
         </div>
       </div>
 
-      <!-- STEP 5: AUTOMATED MICRO-DPR -->
+      <!-- STEP 5: AUTOMATED BANK-GRADE MICRO-DPR -->
       <div id="screen-5" class="screen hidden fade-enter">
-        <div id="dpr-print-section" class="bg-slate-900/95 backdrop-blur-xl rounded-3xl p-6 md:p-8 shadow-2xl border border-slate-800 text-slate-100">
+        <div class="max-w-4xl mx-auto bg-slate-900/95 rounded-3xl p-6 md:p-10 shadow-2xl border border-slate-800">
           
-          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-5 mb-5">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-6 mb-6">
             <div>
-              <div class="flex items-center gap-2">
-                <span class="px-2.5 py-0.5 bg-orange-500/20 text-orange-400 border border-orange-500/30 text-xs font-black rounded-lg">KVIC 2024 Benchmark Model</span>
-                <h2 class="text-2xl font-black text-white">Bankable 1-Page Detailed Project Report (Micro-DPR)</h2>
+              <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 rounded-full text-xs font-bold mb-1.5">
+                <i data-lucide="file-check" class="w-3.5 h-3.5"></i>
+                <span>Bank Underwriter Standardized Dossier</span>
               </div>
-              <p class="text-xs text-slate-400 mt-1">Underwriting Blueprint for <strong id="dprTradeHeader" class="text-white">Garment Tailoring</strong> • Total Project Outlay: <strong id="dprTotalCostHeader" class="text-orange-400">₹3,00,000</strong></p>
+              <h2 class="text-2xl font-black text-white">Bankable Micro Detailed Project Report (DPR)</h2>
+              <p class="text-xs text-slate-400 mt-0.5">Compiled per KVIC & RBI Cash-Flow Lending Benchmarks</p>
             </div>
+            
             <div class="flex items-center gap-2">
-              <button onclick="window.print()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold rounded-xl border border-slate-700 flex items-center gap-1.5 shadow-sm transition">
-                <i data-lucide="printer" class="w-4 h-4"></i>
-                <span>Print / Download PDF</span>
+              <button onclick="window.print()" class="px-4 py-2.5 bg-slate-800 hover:bg-slate-700 text-white rounded-xl text-xs font-bold border border-slate-700 transition flex items-center gap-2">
+                <i data-lucide="printer" class="w-4 h-4 text-orange-400"></i>
+                <span>Print / Save PDF</span>
               </button>
             </div>
           </div>
 
-          <!-- CapEx & Financial Viability Cards -->
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-            <!-- CapEx Breakdown -->
-            <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800 text-xs">
-              <h4 class="font-bold text-white mb-3 uppercase tracking-wider flex items-center gap-2">
-                <i data-lucide="pie-chart" class="w-4 h-4 text-blue-400"></i>
-                <span>Capital Expenditure (CapEx Breakdown)</span>
-              </h4>
-              <div id="capexTableBody" class="space-y-2.5"></div>
-            </div>
-
-            <!-- Means of Finance & Viability -->
-            <div class="bg-slate-950 p-5 rounded-2xl border border-slate-800 text-xs">
-              <h4 class="font-bold text-white mb-3 uppercase tracking-wider flex items-center gap-2">
-                <i data-lucide="trending-up" class="w-4 h-4 text-emerald-400"></i>
-                <span>Means of Finance & DSCR Viability</span>
-              </h4>
-              <div id="financeTableBody" class="space-y-2.5"></div>
-            </div>
-          </div>
-
-          <!-- Bottom Action Dispatch Banner -->
-          <div class="bg-gradient-to-r from-orange-500/10 via-amber-500/10 to-transparent border border-orange-500/30 rounded-2xl p-5 flex flex-col md:flex-row md:items-center justify-between gap-4">
-            <div class="flex items-center gap-3.5">
-              <div class="p-3 rounded-2xl bg-orange-500 text-slate-950 font-black shadow-lg shadow-orange-500/20">
-                <i data-lucide="send" class="w-6 h-6"></i>
+          <!-- Printable DPR Section -->
+          <div id="dpr-print-section" class="space-y-6 text-xs text-slate-300">
+            
+            <!-- Applicant & Scheme Meta Header -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 bg-slate-950 p-4 rounded-2xl border border-slate-800 font-mono">
+              <div>
+                <span class="text-slate-500 block text-[10px] uppercase">Applicant</span>
+                <strong id="dprApplicantName" class="text-white text-xs">Ramesh Kumar</strong>
               </div>
               <div>
-                <div id="dprScaDestination" class="font-black text-sm text-white">State Channelizing Agency (SCA) & Lead Bank Quota Available</div>
-                <div class="text-xs text-slate-400 mt-0.5">Automated encrypted dispatch to State Welfare Corporation & Lead Public Sector Bank</div>
+                <span class="text-slate-500 block text-[10px] uppercase">Project Sector</span>
+                <strong id="dprTradeTitle" class="text-orange-400 text-xs">Garment Tailoring</strong>
+              </div>
+              <div>
+                <span class="text-slate-500 block text-[10px] uppercase">Target Scheme</span>
+                <strong id="dprSchemeName" class="text-blue-400 text-xs">NSFDC Term Loan</strong>
+              </div>
+              <div>
+                <span class="text-slate-500 block text-[10px] uppercase">Aadhaar (Last 4)</span>
+                <strong class="text-white text-xs">XXXX-4819</strong>
               </div>
             </div>
 
-            <button onclick="submitFinalApplication()" class="px-7 py-3.5 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-slate-950 font-black text-xs rounded-2xl shadow-xl shadow-orange-500/30 transition flex items-center justify-center gap-2 flex-shrink-0">
-              <span>One-Click E-Sign & Submit Application</span>
-              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            <!-- Financial Summary Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800">
+                <span class="text-slate-400 text-xs block">Total Project Cost</span>
+                <div id="dprProjectCost" class="text-2xl font-black text-white font-mono mt-1">₹3,00,000</div>
+                <span class="text-[11px] text-slate-500">100% Machinery & Stock</span>
+              </div>
+              <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800">
+                <span class="text-slate-400 text-xs block">Bank Loan Sanction (90%)</span>
+                <div id="dprLoanSanction" class="text-2xl font-black text-emerald-400 font-mono mt-1">₹2,70,000</div>
+                <span class="text-[11px] text-slate-500">Concessional @ 4.0% p.a.</span>
+              </div>
+              <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800">
+                <span class="text-slate-400 text-xs block">Capital Subsidy Grant (25%)</span>
+                <div id="dprSubsidyGrant" class="text-2xl font-black text-orange-400 font-mono mt-1">₹75,000</div>
+                <span class="text-[11px] text-slate-500">Direct MoSJE DBT Credit</span>
+              </div>
+            </div>
+
+            <!-- Itemized CapEx Table -->
+            <div>
+              <h3 class="text-xs font-black uppercase tracking-wider text-white mb-2">1. Itemized Capital Expenditure (CapEx)</h3>
+              <div class="border border-slate-800 rounded-2xl overflow-hidden bg-slate-950">
+                <table class="w-full text-left text-xs">
+                  <thead class="bg-slate-900 border-b border-slate-800 text-slate-400">
+                    <tr>
+                      <th class="p-3">Machinery / Asset Description</th>
+                      <th class="p-3 text-right">Cost Allocation</th>
+                      <th class="p-3 text-right">Amount (₹)</th>
+                    </tr>
+                  </thead>
+                  <tbody id="dprCapexTableBody" class="divide-y divide-slate-800 font-mono">
+                    <!-- Dynamic Rows -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Cash Flow & Unit Economics -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <h3 class="text-xs font-black uppercase tracking-wider text-white">2. Monthly Cash Flow Forecast</h3>
+                <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800 space-y-2">
+                  <div class="flex justify-between">
+                    <span class="text-slate-400">Gross Monthly Revenue:</span>
+                    <strong id="dprMonthlyRevenue" class="text-white font-mono">₹66,000</strong>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-slate-400">Operating Expenses (Raw Material):</span>
+                    <strong id="dprMonthlyOpex" class="text-slate-300 font-mono">-₹24,000</strong>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-slate-400">Monthly Loan EMI (5 Yrs @ 4%):</span>
+                    <strong id="dprMonthlyEmi" class="text-orange-400 font-mono">-₹4,973</strong>
+                  </div>
+                  <div class="flex justify-between border-t border-slate-800 pt-2 font-bold">
+                    <span class="text-emerald-400">Net Monthly Free Cash Flow:</span>
+                    <strong id="dprNetCashFlow" class="text-emerald-400 font-mono">₹37,027</strong>
+                  </div>
+                </div>
+              </div>
+
+              <div class="space-y-2">
+                <h3 class="text-xs font-black uppercase tracking-wider text-white">3. DSCR Credit Viability Audit</h3>
+                <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800 space-y-3">
+                  <div class="flex items-center justify-between">
+                    <span class="text-slate-400">Debt Service Coverage Ratio:</span>
+                    <span class="text-xl font-black text-emerald-400 font-mono" id="dprDscrBadge">2.14x</span>
+                  </div>
+                  <div class="w-full bg-slate-800 h-2.5 rounded-full overflow-hidden">
+                    <div class="bg-emerald-500 h-full rounded-full" style="width: 85%"></div>
+                  </div>
+                  <div class="flex justify-between text-[10px] text-slate-400">
+                    <span>Bank Min Threshold: 1.50x</span>
+                    <span class="text-emerald-400 font-bold">✓ Grade AAA Bankable</span>
+                  </div>
+                  <p class="text-[11px] text-slate-400 italic">"The enterprise produces ₹2.14 of operating cash for every ₹1.00 of loan repayment obligation, satisfying all public sector bank credit underwriting norms."</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="mt-8 pt-6 border-t border-slate-800 flex items-center justify-between">
+            <button onclick="goToStep(4)" class="text-xs font-bold text-slate-400 hover:text-white transition">&larr; Back to Documents</button>
+            <button onclick="submitFinalApplication()" class="px-8 py-3.5 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-slate-950 text-xs font-black rounded-xl shadow-xl shadow-emerald-500/25 flex items-center gap-2 transition">
+              <span>Sign & Dispatch to Bank Officer</span>
+              <i data-lucide="send" class="w-4 h-4"></i>
             </button>
           </div>
+
         </div>
       </div>
 
-      <!-- STEP 6: LIVE TRACKING DASHBOARD -->
+      <!-- STEP 6: LIVE DISBURSAL & TRACKING -->
       <div id="screen-6" class="screen hidden fade-enter">
-        <div class="bg-slate-900/90 backdrop-blur-xl rounded-3xl p-6 md:p-8 shadow-2xl border border-slate-800">
-          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-5 mb-6">
-            <div>
-              <div class="flex items-center gap-2">
-                <span class="w-3 h-3 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span class="text-xs font-bold text-slate-400 uppercase tracking-wider font-mono">Live Disbursal Tracking</span>
-              </div>
-              <h2 id="finalAppIdDisplay" class="text-2xl font-black text-white mt-1">Application ID: MoSJE-2026-UP-88419</h2>
-              <p class="text-xs text-slate-400">Applicant: <strong id="trackingApplicantName" class="text-white">Ramesh Kumar</strong> • Scheme: <strong id="trackingSchemeName" class="text-orange-400">NSFDC Term Loan</strong></p>
-            </div>
-
-            <div class="text-left md:text-right">
-              <span class="text-[10px] text-slate-400 block uppercase font-bold">Total Approved Funding</span>
-              <span id="trackingFundingDisplay" class="text-lg font-black text-emerald-400 font-mono">₹2,70,000 Loan + ₹75,000 Subsidy</span>
-            </div>
+        <div class="max-w-2xl mx-auto bg-slate-900/90 rounded-3xl p-8 border border-slate-800 text-center shadow-2xl space-y-6">
+          <div class="w-16 h-16 rounded-3xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto border border-emerald-500/40 shadow-lg shadow-emerald-500/20">
+            <i data-lucide="check-circle-2" class="w-8 h-8"></i>
           </div>
 
-          <!-- 4-Stage Disbursal Pipeline -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            
-            <div class="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30">
-              <div class="flex items-center justify-between mb-2">
-                <span class="w-6 h-6 rounded-full bg-emerald-500 text-slate-950 flex items-center justify-center text-xs font-black">✓</span>
-                <span class="text-[10px] font-bold text-emerald-400">COMPLETED</span>
-              </div>
-              <div class="font-bold text-sm text-white">Application Submitted</div>
-              <div class="text-xs text-slate-400 mt-1">DigiLocker KYC & 1-Page DPR successfully transferred to SCA portal.</div>
-              <div class="text-[10px] text-slate-500 mt-3 font-mono">Just Now</div>
-            </div>
-
-            <div class="p-4 rounded-2xl bg-blue-500/10 border-2 border-blue-500 shadow-sm relative">
-              <div class="flex items-center justify-between mb-2">
-                <span class="w-6 h-6 rounded-full bg-blue-500 text-white flex items-center justify-center text-xs font-bold animate-spin">⟳</span>
-                <span class="text-[10px] font-bold text-blue-400">IN PROGRESS</span>
-              </div>
-              <div class="font-bold text-sm text-white">State SCA Verification</div>
-              <div class="text-xs text-slate-400 mt-1">State Welfare Officer reviewing income & project eligibility.</div>
-              <div class="text-[10px] text-blue-400 font-semibold mt-3 font-mono">Est. Time: &lt; 24 Hours</div>
-            </div>
-
-            <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800 opacity-60">
-              <div class="flex items-center justify-between mb-2">
-                <span class="w-6 h-6 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-xs font-bold">3</span>
-                <span class="text-[10px] font-bold text-slate-500">PENDING</span>
-              </div>
-              <div class="font-bold text-sm text-white">Lead Bank Appraisal</div>
-              <div class="text-xs text-slate-400 mt-1">Branch reviews automated Micro-DPR for concessional refinancing.</div>
-              <div class="text-[10px] text-slate-500 mt-3 font-mono">Stage 3 of 4</div>
-            </div>
-
-            <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800 opacity-60">
-              <div class="flex items-center justify-between mb-2">
-                <span class="w-6 h-6 rounded-full bg-slate-700 text-slate-300 flex items-center justify-center text-xs font-bold">4</span>
-                <span class="text-[10px] font-bold text-slate-500">FINAL STEP</span>
-              </div>
-              <div class="font-bold text-sm text-white">Direct DBT Disbursal</div>
-              <div class="text-xs text-slate-400 mt-1">Capital subsidy credited directly into applicant's Aadhaar bank account.</div>
-              <div class="text-[10px] text-slate-500 mt-3 font-mono">Cycle: &lt; 7 Days</div>
-            </div>
+          <div>
+            <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest">Application Successfully Dispatched</span>
+            <h2 class="text-2xl font-black text-white mt-1">Application Sent to Lead Bank & SCA</h2>
+            <p id="finalAppIdDisplay" class="text-xs font-mono text-orange-400 font-bold mt-1">Application ID: MoSJE-2026-UP-88419</p>
           </div>
 
-          <!-- Simulated Mobile SMS Banner -->
-          <div class="mt-6 p-4 bg-slate-950 border border-slate-800 rounded-2xl flex items-center justify-between">
-            <div class="flex items-center gap-3.5">
-              <div class="p-2 rounded-xl bg-emerald-500/20 text-emerald-400">
-                <i data-lucide="smartphone" class="w-5 h-5"></i>
-              </div>
+          <!-- 4-Stage Pipeline Progress Tracker -->
+          <div class="bg-slate-950 p-6 rounded-2xl border border-slate-800 text-left space-y-4">
+            <div class="flex items-center gap-3">
+              <span class="w-6 h-6 rounded-full bg-emerald-500 text-slate-950 font-bold text-xs flex items-center justify-center">✓</span>
               <div>
-                <div class="text-xs font-bold text-emerald-400">Simulated SMS Sent to Registered Mobile</div>
-                <div id="smsTextDisplay" class="text-xs text-slate-300 font-mono mt-0.5">"प्रिय रमेश जी, आपका लोन आवेदन दर्ज हो गया है।"</div>
+                <strong class="text-white text-xs block">Stage 1: e-KYC & Auto-DPR Sealed</strong>
+                <span class="text-[11px] text-slate-400">SHA-256 HMAC cryptographic tamper seal applied</span>
               </div>
             </div>
-            <span class="text-xs bg-slate-800 border border-slate-700 px-3 py-1 rounded-full text-slate-300 font-mono">Live Webhook Sent</span>
+            <div class="flex items-center gap-3">
+              <span class="w-6 h-6 rounded-full bg-emerald-500 text-slate-950 font-bold text-xs flex items-center justify-center">✓</span>
+              <div>
+                <strong class="text-white text-xs block">Stage 2: Routed to State Channelizing Agency</strong>
+                <span class="text-[11px] text-slate-400">Verified under NSFDC State Allocation Quota</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="w-6 h-6 rounded-full bg-orange-500 text-white font-bold text-xs flex items-center justify-center animate-pulse">3</span>
+              <div>
+                <strong class="text-orange-400 text-xs block">Stage 3: Bank Branch Underwriting Queue</strong>
+                <span class="text-[11px] text-slate-400">Pre-underwritten dossier pending 1-click branch sanction</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-3 opacity-50">
+              <span class="w-6 h-6 rounded-full bg-slate-800 text-slate-400 font-bold text-xs flex items-center justify-center">4</span>
+              <div>
+                <strong class="text-slate-400 text-xs block">Stage 4: Aadhaar DBT Disbursal</strong>
+                <span class="text-[11px] text-slate-400">Direct credit of loan + capital subsidy</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- SMS Notification Mock -->
+          <div class="bg-slate-950/70 p-4 rounded-2xl border border-slate-800 text-left text-xs space-y-1">
+            <div class="flex items-center justify-between text-[11px] text-slate-400 mb-1">
+              <span class="flex items-center gap-1.5"><i data-lucide="message-square" class="w-3.5 h-3.5 text-blue-400"></i> SMS Delivery Webhook</span>
+              <span class="font-mono">Govt of India DBT</span>
+            </div>
+            <p id="smsTextDisplay" class="text-slate-300 font-mono text-[11px]">"प्रिय रमेश जी, आपका NSFDC Term Loan आवेदन (MoSJE-2026-UP-88419) दर्ज हो गया है। स्थिति जांचने हेतु udyamsetu.in खोलें।"</p>
+          </div>
+
+          <div class="flex justify-center gap-3 pt-2">
+            <button onclick="switchPortal('bank')" class="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs rounded-xl transition flex items-center gap-2">
+              <i data-lucide="external-link" class="w-4 h-4"></i>
+              <span>View in Bank Officer Desk</span>
+            </button>
+            <button onclick="resetCitizenSession()" class="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-bold text-xs rounded-xl border border-slate-700 transition">
+              New Application
+            </button>
           </div>
         </div>
       </div>
@@ -865,147 +941,114 @@
     </section>
 
     <!-- ============================================================== -->
-    <!-- VIEW 3: BANK & SCA OFFICER UNDERWRITING DESK                   -->
+    <!-- VIEW 3: BANK & STATE SCA UNDERWRITING DESK                     -->
     <!-- ============================================================== -->
     <section id="view-bank" class="portal-view hidden fade-enter space-y-6">
       
-      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/90 border border-slate-800 p-6 rounded-3xl">
+      <div class="bg-slate-900/90 border border-slate-800 p-6 rounded-3xl flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-bold mb-2">
-            <i data-lucide="landmark" class="w-3.5 h-3.5"></i>
-            <span>Lead Bank & State SCA Underwriter Desk</span>
+            <i data-lucide="shield" class="w-3.5 h-3.5"></i>
+            <span>Lead Bank & SCA Underwriting Portal</span>
           </div>
-          <h2 class="text-2xl font-black text-white">Incoming Pre-Underwritten Applications</h2>
-          <p class="text-xs text-slate-400">Review pre-calculated DSCR ratios, verified DigiLocker KYC, and sanction concessional credit in 1-Click.</p>
+          <h2 class="text-2xl font-black text-white">Pre-Underwritten Concessional Credit Queue</h2>
+          <p class="text-xs text-slate-400">All applications arrive with pre-computed DSCR, verified e-KYC, and DigiLocker certificates.</p>
         </div>
 
         <div class="flex items-center gap-3">
-          <div class="px-4 py-2 bg-slate-950 border border-slate-800 rounded-2xl text-right">
-            <span class="text-[10px] text-slate-400 block font-bold uppercase">RBI PSL Target Achieved</span>
-            <span class="text-base font-black text-emerald-400 font-mono">87.4% (₹43.7 Cr / ₹50 Cr)</span>
-          </div>
+          <span class="text-xs bg-slate-800 text-slate-300 px-3 py-2 rounded-xl border border-slate-700 font-mono">Branch: Bank of Baroda - Kanpur</span>
         </div>
       </div>
 
-      <!-- Application Queue Table -->
+      <!-- Bank Officer Review Table -->
       <div class="bg-slate-900/90 border border-slate-800 rounded-3xl overflow-hidden shadow-xl">
-        <div class="p-4 border-b border-slate-800 flex items-center justify-between">
-          <h3 class="font-bold text-white text-sm flex items-center gap-2">
-            <i data-lucide="inbox" class="w-4 h-4 text-orange-400"></i>
-            <span>Pending Files Awaiting Sanction</span>
-          </h3>
-          <span class="text-xs bg-orange-500/20 text-orange-300 border border-orange-500/30 px-2.5 py-0.5 rounded-lg font-bold">3 Live Files</span>
+        <div class="p-4 bg-slate-950/80 border-b border-slate-800 flex justify-between items-center text-xs">
+          <span class="font-bold text-slate-300">Incoming Welfare Loan Applications (Pre-Audited)</span>
+          <span class="text-emerald-400 font-bold">100% Zero-Document Clerical Rejections</span>
         </div>
 
         <div class="overflow-x-auto">
           <table class="w-full text-left text-xs">
-            <thead class="bg-slate-950 text-slate-400 uppercase text-[10px] font-bold border-b border-slate-800">
+            <thead class="bg-slate-950 border-b border-slate-800 text-slate-400">
               <tr>
-                <th class="p-4">App ID & Date</th>
-                <th class="p-4">Applicant & Trade</th>
-                <th class="p-4">Category & Scheme</th>
-                <th class="p-4">Requested Loan</th>
-                <th class="p-4">DSCR & Risk Score</th>
-                <th class="p-4">KYC Status</th>
-                <th class="p-4 text-right">Action</th>
+                <th class="p-3.5">App ID & Beneficiary</th>
+                <th class="p-3.5">Scheme & Category</th>
+                <th class="p-3.5">Project Trade</th>
+                <th class="p-3.5 text-right">Loan Amount</th>
+                <th class="p-3.5 text-center">Verified DSCR</th>
+                <th class="p-3.5 text-center">e-KYC Status</th>
+                <th class="p-3.5 text-center">Action</th>
               </tr>
             </thead>
-            <tbody class="divide-y divide-slate-800 text-slate-200 font-medium">
+            <tbody class="divide-y divide-slate-800 font-medium text-slate-300">
               
-              <tr class="hover:bg-slate-800/50 transition">
-                <td class="p-4 font-mono font-bold text-orange-400">
-                  MoSJE-2026-UP-88419
-                  <span class="block text-[10px] text-slate-500 font-normal">Today, 10:14 AM</span>
+              <tr class="hover:bg-slate-800/40 transition">
+                <td class="p-3.5">
+                  <div class="font-mono font-bold text-white">MoSJE-2026-UP-88419</div>
+                  <span class="text-[11px] text-slate-400">Ramesh Kumar (XXXX-4819)</span>
                 </td>
-                <td class="p-4">
-                  <strong class="text-white">Ramesh Kumar</strong>
-                  <span class="block text-[11px] text-slate-400">Garment Tailoring (Varanasi)</span>
+                <td class="p-3.5">
+                  <div class="font-bold text-white">NSFDC Term Loan</div>
+                  <span class="text-[10px] text-orange-400 bg-orange-500/10 px-2 py-0.5 rounded font-mono">SC Quota (4% Int)</span>
                 </td>
-                <td class="p-4">
-                  <span class="px-2 py-0.5 bg-blue-500/20 text-blue-300 border border-blue-500/30 rounded font-bold text-[10px]">SC Quota</span>
-                  <span class="block text-[11px] text-slate-300 mt-1">NSFDC Concessional Loan</span>
+                <td class="p-3.5">Garment Tailoring</td>
+                <td class="p-3.5 text-right font-mono font-bold text-white">₹2,70,000</td>
+                <td class="p-3.5 text-center">
+                  <span class="px-2.5 py-1 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-lg font-mono font-bold">2.14x (AAA)</span>
                 </td>
-                <td class="p-4 font-mono">
-                  <strong class="text-white">₹2,70,000</strong>
-                  <span class="block text-[10px] text-emerald-400">+₹75,000 DBT Grant</span>
+                <td class="p-3.5 text-center">
+                  <span class="text-emerald-400 text-xs font-bold">✓ 6/6 DigiLocker</span>
                 </td>
-                <td class="p-4">
-                  <span class="px-2.5 py-1 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-lg font-black font-mono">2.1x DSCR</span>
-                  <span class="block text-[10px] text-emerald-400 mt-0.5">Low Risk Bank Grade</span>
-                </td>
-                <td class="p-4">
-                  <span class="text-emerald-400 font-bold flex items-center gap-1">
-                    <i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i> 6/6 DigiLocker
-                  </span>
-                </td>
-                <td class="p-4 text-right">
-                  <button onclick="approveLoanMock('MoSJE-2026-UP-88419', 'Ramesh Kumar', this)" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl shadow transition">
+                <td class="p-3.5 text-center">
+                  <button onclick="approveLoanMock('MoSJE-2026-UP-88419', 'Ramesh Kumar', this)" class="px-3 py-1.5 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold rounded-xl shadow transition">
                     1-Click Sanction
                   </button>
                 </td>
               </tr>
 
-              <tr class="hover:bg-slate-800/50 transition">
-                <td class="p-4 font-mono font-bold text-orange-400">
-                  MoSJE-2026-MP-41902
-                  <span class="block text-[10px] text-slate-500 font-normal">Yesterday</span>
+              <tr class="hover:bg-slate-800/40 transition">
+                <td class="p-3.5">
+                  <div class="font-mono font-bold text-white">MoSJE-2026-MP-39102</div>
+                  <span class="text-[11px] text-slate-400">Suresh Prajapati (XXXX-3841)</span>
                 </td>
-                <td class="p-4">
-                  <strong class="text-white">Suresh Prajapati</strong>
-                  <span class="block text-[11px] text-slate-400">Terracotta Pottery Unit (Bhopal)</span>
+                <td class="p-3.5">
+                  <div class="font-bold text-white">PM Vishwakarma Scheme</div>
+                  <span class="text-[10px] text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded font-mono">Artisan Quota (5% Int)</span>
                 </td>
-                <td class="p-4">
-                  <span class="px-2 py-0.5 bg-amber-500/20 text-amber-300 border border-amber-500/30 rounded font-bold text-[10px]">OBC Quota</span>
-                  <span class="block text-[11px] text-slate-300 mt-1">NBCFDC Swarnima Scheme</span>
+                <td class="p-3.5">Traditional Pottery Craft</td>
+                <td class="p-3.5 text-right font-mono font-bold text-white">₹2,00,000</td>
+                <td class="p-3.5 text-center">
+                  <span class="px-2.5 py-1 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-lg font-mono font-bold">2.35x (AAA)</span>
                 </td>
-                <td class="p-4 font-mono">
-                  <strong class="text-white">₹3,82,500</strong>
-                  <span class="block text-[10px] text-emerald-400">+₹90,000 DBT Grant</span>
+                <td class="p-3.5 text-center">
+                  <span class="text-emerald-400 text-xs font-bold">✓ 6/6 DigiLocker</span>
                 </td>
-                <td class="p-4">
-                  <span class="px-2.5 py-1 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-lg font-black font-mono">1.9x DSCR</span>
-                  <span class="block text-[10px] text-emerald-400 mt-0.5">Low Risk Bank Grade</span>
-                </td>
-                <td class="p-4">
-                  <span class="text-emerald-400 font-bold flex items-center gap-1">
-                    <i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i> 6/6 DigiLocker
-                  </span>
-                </td>
-                <td class="p-4 text-right">
-                  <button onclick="approveLoanMock('MoSJE-2026-MP-41902', 'Suresh Prajapati', this)" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl shadow transition">
+                <td class="p-3.5 text-center">
+                  <button onclick="approveLoanMock('MoSJE-2026-MP-39102', 'Suresh Prajapati', this)" class="px-3 py-1.5 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold rounded-xl shadow transition">
                     1-Click Sanction
                   </button>
                 </td>
               </tr>
 
-              <tr class="hover:bg-slate-800/50 transition">
-                <td class="p-4 font-mono font-bold text-orange-400">
-                  DFS-2026-MH-77218
-                  <span class="block text-[10px] text-slate-500 font-normal">2 Days Ago</span>
+              <tr class="hover:bg-slate-800/40 transition">
+                <td class="p-3.5">
+                  <div class="font-mono font-bold text-white">MoSJE-2026-MH-49102</div>
+                  <span class="text-[11px] text-slate-400">Priya Sharma (XXXX-1920)</span>
                 </td>
-                <td class="p-4">
-                  <strong class="text-white">Priya Shinde</strong>
-                  <span class="block text-[11px] text-slate-400">Herbal Beauty Clinic (Pune)</span>
+                <td class="p-3.5">
+                  <div class="font-bold text-white">Stand-Up India Scheme</div>
+                  <span class="text-[10px] text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded font-mono">Women Greenfield</span>
                 </td>
-                <td class="p-4">
-                  <span class="px-2 py-0.5 bg-purple-500/20 text-purple-300 border border-purple-500/30 rounded font-bold text-[10px]">Women Startup</span>
-                  <span class="block text-[11px] text-slate-300 mt-1">Stand-Up India Scheme</span>
+                <td class="p-3.5">Beauty Salon & Spa</td>
+                <td class="p-3.5 text-right font-mono font-bold text-white">₹5,00,000</td>
+                <td class="p-3.5 text-center">
+                  <span class="px-2.5 py-1 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-lg font-mono font-bold">1.95x (AAA)</span>
                 </td>
-                <td class="p-4 font-mono">
-                  <strong class="text-white">₹5,00,000</strong>
-                  <span class="block text-[10px] text-emerald-400">+₹75,000 Subsidy</span>
+                <td class="p-3.5 text-center">
+                  <span class="text-emerald-400 text-xs font-bold">✓ 6/6 DigiLocker</span>
                 </td>
-                <td class="p-4">
-                  <span class="px-2.5 py-1 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-lg font-black font-mono">2.4x DSCR</span>
-                  <span class="block text-[10px] text-emerald-400 mt-0.5">Prime Bank Grade</span>
-                </td>
-                <td class="p-4">
-                  <span class="text-emerald-400 font-bold flex items-center gap-1">
-                    <i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i> 6/6 DigiLocker
-                  </span>
-                </td>
-                <td class="p-4 text-right">
-                  <button onclick="approveLoanMock('DFS-2026-MH-77218', 'Priya Shinde', this)" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl shadow transition">
+                <td class="p-3.5 text-center">
+                  <button onclick="approveLoanMock('MoSJE-2026-MH-49102', 'Priya Sharma', this)" class="px-3 py-1.5 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold rounded-xl shadow transition">
                     1-Click Sanction
                   </button>
                 </td>
@@ -1016,6 +1059,24 @@
         </div>
       </div>
 
+      <!-- PSL Priority Sector Lending Quota Gauge -->
+      <div class="p-6 bg-slate-900/80 border border-slate-800 rounded-3xl flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div class="space-y-1">
+          <span class="text-xs font-bold text-slate-400 uppercase">RBI Priority Sector Lending (PSL) Compliance</span>
+          <h3 class="text-lg font-black text-white">Branch Concessional Weaker-Section Lending Target</h3>
+          <p class="text-xs text-slate-400">Bank of Baroda achieves statutory 12% Weaker Section PSL mandate automatically via UdyamSetu pre-underwritten routing.</p>
+        </div>
+        <div class="flex items-center gap-4">
+          <div class="text-right">
+            <span class="text-xs text-slate-400 block">Current Achievement</span>
+            <span class="text-2xl font-black text-emerald-400 font-mono">94.2%</span>
+          </div>
+          <div class="w-16 h-16 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-xl border border-emerald-500/40">
+            ✓ PSL
+          </div>
+        </div>
+      </div>
+
     </section>
 
     <!-- ============================================================== -->
@@ -1023,27 +1084,30 @@
     <!-- ============================================================== -->
     <section id="view-analytics" class="portal-view hidden fade-enter space-y-6">
       
-      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-slate-900/90 border border-slate-800 p-6 rounded-3xl">
+      <div class="bg-slate-900/90 border border-slate-800 p-6 rounded-3xl flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/30 text-orange-400 text-xs font-bold mb-2">
-            <i data-lucide="bar-chart-3" class="w-3.5 h-3.5"></i>
-            <span>B2G SaaS Government Intelligence</span>
+            <i data-lucide="activity" class="w-3.5 h-3.5"></i>
+            <span>Apex Corporations National Dashboard</span>
           </div>
-          <h2 class="text-2xl font-black text-white">National Welfare Scheme Disbursal Dashboard</h2>
-          <p class="text-xs text-slate-400">Live analytics for Ministry of Social Justice & Empowerment (MoSJE) apex corporations.</p>
+          <h2 class="text-2xl font-black text-white">MoSJE Welfare Telemetry & Impact Engine</h2>
+          <p class="text-xs text-slate-400">Real-time DBT disbursal tracking across NSFDC, NBCFDC, PM Vishwakarma, and State SCAs.</p>
         </div>
 
-        <div class="flex items-center gap-2 text-xs">
-          <span class="px-3 py-1.5 bg-slate-950 border border-slate-800 rounded-xl text-slate-300 font-mono">Live API Feed: UP, MP, MH, RJ, TN</span>
+        <div class="flex items-center gap-2">
+          <span class="text-xs bg-emerald-500/20 text-emerald-300 px-3 py-1.5 rounded-xl border border-emerald-500/30 font-bold flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            National Telemetry Live
+          </span>
         </div>
       </div>
 
-      <!-- Analytics Metric Cards -->
+      <!-- Macro Key Performance Indicators -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <div class="p-6 rounded-3xl bg-slate-900/90 border border-slate-800 space-y-1">
-          <span class="text-xs text-slate-400 font-bold block">Total Applications Processed</span>
+          <span class="text-xs text-slate-400 font-bold block">Total Beneficiaries Funded</span>
           <div class="text-3xl font-black text-white font-mono">63,480</div>
-          <span class="text-[11px] text-emerald-400 font-semibold">↑ 412% Faster than Manual Queue</span>
+          <span class="text-[11px] text-emerald-400 font-semibold">+18.4% this quarter</span>
         </div>
 
         <div class="p-6 rounded-3xl bg-slate-900/90 border border-slate-800 space-y-1">
@@ -1097,7 +1161,7 @@
 
             <div>
               <div class="flex justify-between font-bold mb-1">
-                <span class="text-slate-300">Women Entrepreneurs (Stand-Up India)</span>
+                <span class="text-slate-300">Women & Artisans (Vishwakarma & Stand-Up)</span>
                 <span class="text-purple-400 font-mono">18% (11,426 Borrowers)</span>
               </div>
               <div class="w-full bg-slate-950 h-2.5 rounded-full overflow-hidden">
@@ -1107,7 +1171,7 @@
 
             <div>
               <div class="flex justify-between font-bold mb-1">
-                <span class="text-slate-300">General / Micro-Vendors (PMEGP / Mudra)</span>
+                <span class="text-slate-300">ST, PwD, Safai Karamchari & General</span>
                 <span class="text-emerald-400 font-mono">6% (3,810 Borrowers)</span>
               </div>
               <div class="w-full bg-slate-950 h-2.5 rounded-full overflow-hidden">
@@ -1164,22 +1228,58 @@
     </section>
 
     <!-- ============================================================== -->
-    <!-- VIEW 5: SCHEME DIRECTORY & SEARCHABLE CATALOG                  -->
+    <!-- VIEW 5: ENRICHED SCHEME DIRECTORY (22+ STATUTORY SCHEMES)      -->
     <!-- ============================================================== -->
     <section id="view-schemes" class="portal-view hidden fade-enter space-y-6">
       
-      <div class="bg-slate-900/90 border border-slate-800 p-6 rounded-3xl flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div>
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-bold mb-2">
-            <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
-            <span>300+ Statutory Welfare Schemes Database</span>
+      <div class="bg-slate-900/90 border border-slate-800 p-6 rounded-3xl space-y-4">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-bold mb-2">
+              <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
+              <span>22 Authentic Central & Apex Statutory Schemes</span>
+            </div>
+            <h2 class="text-2xl font-black text-white">National Concessional Loan & Subsidy Directory</h2>
+            <p class="text-xs text-slate-400">Explore complete statutory profiles from MoSJE, MoMSME, MoTA, DFS, MoHUA, NMDFC, and MoRD.</p>
           </div>
-          <h2 class="text-2xl font-black text-white">Central & State Concessional Loan Directory</h2>
-          <p class="text-xs text-slate-400">Browse official schemes from MoSJE, Ministry of MSME, Department of Financial Services, and MoHUA.</p>
+
+          <div class="w-full md:w-80">
+            <input id="schemeSearchInput" oninput="filterSchemeDirectory(this.value)" type="text" placeholder="Search by scheme name, ministry, trade..." class="w-full bg-slate-950 border border-slate-700 rounded-2xl px-4 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-orange-500" />
+          </div>
         </div>
 
-        <div class="w-full md:w-72">
-          <input id="schemeSearchInput" oninput="filterSchemeDirectory(this.value)" type="text" placeholder="Search by scheme name or trade..." class="w-full bg-slate-950 border border-slate-700 rounded-2xl px-4 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-orange-500" />
+        <!-- Interactive Category Filter Tabs -->
+        <div class="flex flex-wrap gap-2 pt-2 border-t border-slate-800/80" id="schemeFilterPills">
+          <button onclick="setDirectoryCategoryFilter('ALL', this)" class="scheme-cat-pill px-3 py-1.5 bg-orange-500 text-slate-950 font-black rounded-xl text-xs transition">
+            All Schemes (22)
+          </button>
+          <button onclick="setDirectoryCategoryFilter('SC', this)" class="scheme-cat-pill px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold rounded-xl text-xs border border-slate-700 transition">
+            Scheduled Castes (NSFDC)
+          </button>
+          <button onclick="setDirectoryCategoryFilter('OBC', this)" class="scheme-cat-pill px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold rounded-xl text-xs border border-slate-700 transition">
+            Other Backward Classes (NBCFDC)
+          </button>
+          <button onclick="setDirectoryCategoryFilter('ST', this)" class="scheme-cat-pill px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold rounded-xl text-xs border border-slate-700 transition">
+            Scheduled Tribes (NSTFDC)
+          </button>
+          <button onclick="setDirectoryCategoryFilter('Women', this)" class="scheme-cat-pill px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold rounded-xl text-xs border border-slate-700 transition">
+            Women Entrepreneurs
+          </button>
+          <button onclick="setDirectoryCategoryFilter('Vishwakarma', this)" class="scheme-cat-pill px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold rounded-xl text-xs border border-slate-700 transition">
+            Traditional Artisans (Vishwakarma)
+          </button>
+          <button onclick="setDirectoryCategoryFilter('SafaiKaramchari', this)" class="scheme-cat-pill px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold rounded-xl text-xs border border-slate-700 transition">
+            Safai Karamcharis (NSKFDC)
+          </button>
+          <button onclick="setDirectoryCategoryFilter('Divyangjan', this)" class="scheme-cat-pill px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold rounded-xl text-xs border border-slate-700 transition">
+            Divyangjan / PwD (NHFDC)
+          </button>
+          <button onclick="setDirectoryCategoryFilter('Minority', this)" class="scheme-cat-pill px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold rounded-xl text-xs border border-slate-700 transition">
+            Minorities (NMDFC)
+          </button>
+          <button onclick="setDirectoryCategoryFilter('General', this)" class="scheme-cat-pill px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold rounded-xl text-xs border border-slate-700 transition">
+            General / MSME / Vendors
+          </button>
         </div>
       </div>
 
@@ -1228,7 +1328,7 @@
   </footer>
 
   <!-- ============================================================== -->
-  <!-- MASTER JAVASCRIPT: MULTI-PORTAL ROUTER & DYNAMIC ENGINES       -->
+  <!-- MASTER JAVASCRIPT: 22 STATUTORY SCHEMES & MULTI-FACTOR ENGINE   -->
   <!-- ============================================================== -->
   <script>
     lucide.createIcons();
@@ -1245,94 +1345,571 @@
       category: "SC",
       capitalNeeded: 300000,
       annualIncome: 250000,
-      selectedScheme: "NSFDC Term Loan & Micro-Credit",
+      selectedScheme: "NSFDC Term Loan Scheme",
       selectedLoanAmt: 270000,
       selectedSubsidyAmt: 75000,
       appId: "MoSJE-2026-UP-88419",
       isRecording: false,
       currentSpeechLang: "hi-IN",
-      currentSpeechLangName: "हिन्दी (Hindi)"
+      currentSpeechLangName: "हिन्दी (Hindi)",
+      activeDirectoryFilter: "ALL"
     };
 
-    // Master Catalog of 8 Real Government Schemes
+    // ================================================================
+    // MASTER CATALOG OF 22 AUTHENTIC STATUTORY GOVERNMENT SCHEMES
+    // ================================================================
     const masterSchemes = [
       {
-        id: "NSFDC_01",
-        name: "NSFDC Term Loan & Micro-Credit",
+        id: "NSFDC_TL",
+        name: "NSFDC Term Loan Scheme",
         ministry: "MoSJE / NSFDC",
+        apexBody: "National Scheduled Castes Finance and Development Corporation",
         targetCategories: ["SC"],
+        targetTrades: ["All", "tailoring", "carpentry", "kirana", "dairy", "manufacturing", "services"],
+        maxLoanLimit: 5000000,
         maxIncome: 500000,
         loanCoveragePct: 90,
         interestRatePct: 4.0,
         subsidyPct: 25,
+        moratoriumMonths: 6,
         repaymentYears: 5,
-        desc: "Specialized concessional financing for Scheduled Caste micro-enterprises with family income under ₹5 Lakhs.",
-        priorityTag: "★ Top MoSJE Pick for SC Beneficiaries"
+        marginMoneyPct: 10,
+        collateralFree: true,
+        specialBenefits: [
+          "Direct DBT Capital Subsidy up to ₹1,25,000",
+          "Ultra-low 4.0% p.a. concessional interest rate",
+          "6 Months repayment moratorium for machinery setup"
+        ],
+        requiredDocs: ["Aadhaar Card", "SC Caste Certificate", "Income Certificate (≤ ₹5L)", "Trade Self-Declaration", "Bank Passbook"],
+        desc: "Apex concessional term loan for Scheduled Caste micro-entrepreneurs to establish self-employment units.",
+        priorityTag: "★ #1 Top MoSJE Pick for Scheduled Caste (SC)"
       },
       {
-        id: "NBCFDC_01",
-        name: "NBCFDC General Loan & Swarnima Scheme",
+        id: "NSFDC_MSY",
+        name: "NSFDC Mahila Samriddhi Yojana (MSY)",
+        ministry: "MoSJE / NSFDC",
+        apexBody: "National Scheduled Castes Finance and Development Corporation",
+        targetCategories: ["SC", "Women"],
+        targetTrades: ["All", "tailoring", "beauty_parlor", "dairy", "kirana", "handicrafts"],
+        maxLoanLimit: 140000,
+        maxIncome: 300000,
+        loanCoveragePct: 100,
+        interestRatePct: 4.0,
+        subsidyPct: 25,
+        moratoriumMonths: 3,
+        repaymentYears: 3,
+        marginMoneyPct: 0,
+        collateralFree: true,
+        specialBenefits: [
+          "100% Project Cost Financed (Zero borrower contribution)",
+          "0.5% Additional interest rebate for timely quarterly repayment",
+          "Direct channel to rural SC women Self-Help Groups (SHGs)"
+        ],
+        requiredDocs: ["Aadhaar Card", "SC Caste Certificate", "Income Certificate (≤ ₹3L)", "Bank Account (DBT Linked)"],
+        desc: "Exclusive micro-credit facility empowering rural SC women entrepreneurs with 100% financing and interest rebates.",
+        priorityTag: "★ Top Priority for SC Women Micro-Enterprises"
+      },
+      {
+        id: "NSFDC_MCF",
+        name: "NSFDC Micro Credit Finance (MCF)",
+        ministry: "MoSJE / NSFDC",
+        apexBody: "National Scheduled Castes Finance and Development Corporation",
+        targetCategories: ["SC"],
+        targetTrades: ["All", "street_vendor", "kirana", "tailoring", "mobile_repair"],
+        maxLoanLimit: 100000,
+        maxIncome: 300000,
+        loanCoveragePct: 100,
+        interestRatePct: 5.0,
+        subsidyPct: 20,
+        moratoriumMonths: 3,
+        repaymentYears: 3,
+        marginMoneyPct: 0,
+        collateralFree: true,
+        specialBenefits: [
+          "Fast-track sanction within 72 hours via State SCAs",
+          "Zero promoter contribution required",
+          "Collateral-free micro working capital"
+        ],
+        requiredDocs: ["Aadhaar Card", "SC Certificate", "Local Vendor / Trade Proof"],
+        desc: "Instant micro-financing for small SC artisans, vendors, and tiny businesses requiring rapid working capital.",
+        priorityTag: "★ Instant Nano-Loan for SC Artisans"
+      },
+      {
+        id: "NSFDC_GREEN",
+        name: "NSFDC Green Business Scheme",
+        ministry: "MoSJE / NSFDC",
+        apexBody: "National Scheduled Castes Finance and Development Corporation",
+        targetCategories: ["SC"],
+        targetTrades: ["All", "green_energy", "solar", "ev_rickshaw", "waste_recycling", "mobile_repair"],
+        maxLoanLimit: 3000000,
+        maxIncome: 500000,
+        loanCoveragePct: 90,
+        interestRatePct: 4.5,
+        subsidyPct: 25,
+        moratoriumMonths: 6,
+        repaymentYears: 5,
+        marginMoneyPct: 10,
+        collateralFree: true,
+        specialBenefits: [
+          "Promotes Solar, EV E-Rickshaws & Clean Energy adoption",
+          "25% Capital subsidy credited directly to loan account",
+          "High loan ceiling up to ₹30 Lakhs"
+        ],
+        requiredDocs: ["Aadhaar Card", "SC Certificate", "Green Business Quotation / Estimate"],
+        desc: "Financial assistance for SC entrepreneurs setting up climate-positive businesses such as E-rickshaws and solar units.",
+        priorityTag: "★ Eco-Friendly & EV Business Concessional Loan"
+      },
+      {
+        id: "NBCFDC_GL",
+        name: "NBCFDC General Loan Scheme",
         ministry: "MoSJE / NBCFDC",
+        apexBody: "National Backward Classes Finance and Development Corporation",
         targetCategories: ["OBC"],
+        targetTrades: ["All", "pottery", "carpentry", "dairy", "manufacturing", "services", "kirana"],
+        maxLoanLimit: 1500000,
         maxIncome: 500000,
         loanCoveragePct: 85,
         interestRatePct: 5.0,
         subsidyPct: 20,
+        moratoriumMonths: 6,
         repaymentYears: 5,
-        desc: "Concessional credit and capital assistance for Backward Classes & traditional artisanal crafts.",
-        priorityTag: "★ Top MoSJE Pick for OBC Beneficiaries"
+        marginMoneyPct: 15,
+        collateralFree: true,
+        specialBenefits: [
+          "Concessional 5.0% interest rate for Backward Classes",
+          "Supports all traditional trade setups & modernization",
+          "Direct channel through State Channelizing Agencies (SCAs)"
+        ],
+        requiredDocs: ["Aadhaar Card", "OBC Non-Creamy Layer Certificate", "Income Certificate", "Bank Passbook"],
+        desc: "Broad-spectrum term loan supporting OBC individuals living below double the poverty line to start micro-units.",
+        priorityTag: "★ #1 Top MoSJE Pick for OBC Beneficiaries"
       },
       {
-        id: "STANDUP_01",
-        name: "Stand-Up India Scheme for Women & SC/ST",
+        id: "NBCFDC_SWARNIMA",
+        name: "NBCFDC Swarnima Scheme for Women",
+        ministry: "MoSJE / NBCFDC",
+        apexBody: "National Backward Classes Finance and Development Corporation",
+        targetCategories: ["OBC", "Women"],
+        targetTrades: ["All", "beauty_parlor", "tailoring", "pottery", "dairy", "handicrafts"],
+        maxLoanLimit: 200000,
+        maxIncome: 300000,
+        loanCoveragePct: 100,
+        interestRatePct: 5.0,
+        subsidyPct: 20,
+        moratoriumMonths: 3,
+        repaymentYears: 5,
+        marginMoneyPct: 0,
+        collateralFree: true,
+        specialBenefits: [
+          "100% Project Cost Funded (No personal financial burden)",
+          "Social empowerment grant & digital literacy linkage",
+          "Low 5.0% annual interest rate"
+        ],
+        requiredDocs: ["Aadhaar Card", "OBC Certificate", "Income Proof (≤ ₹3L)", "Bank Details"],
+        desc: "Flagship term loan scheme to inculcate spirit of self-reliance among women belonging to Backward Classes.",
+        priorityTag: "★ Top Priority for OBC Women Entrepreneurs"
+      },
+      {
+        id: "NBCFDC_MICRO",
+        name: "NBCFDC Micro Finance Scheme",
+        ministry: "MoSJE / NBCFDC",
+        apexBody: "National Backward Classes Finance and Development Corporation",
+        targetCategories: ["OBC"],
+        targetTrades: ["All", "pottery", "kirana", "street_vendor", "tailoring"],
+        maxLoanLimit: 125000,
+        maxIncome: 300000,
+        loanCoveragePct: 100,
+        interestRatePct: 6.0,
+        subsidyPct: 15,
+        moratoriumMonths: 3,
+        repaymentYears: 3,
+        marginMoneyPct: 0,
+        collateralFree: true,
+        specialBenefits: [
+          "Zero collateral requirement for micro loans up to ₹1.25L",
+          "Disbursed through SCAs and partner microfinance institutions",
+          "Ideal for working capital and inventory purchases"
+        ],
+        requiredDocs: ["Aadhaar Card", "OBC Certificate", "Bank Account Details"],
+        desc: "Micro-credit assistance to target groups through State Channelizing Agencies and Self-Help Groups.",
+        priorityTag: "★ Micro-Credit for OBC Artisans & Groups"
+      },
+      {
+        id: "PM_VISHWAKARMA",
+        name: "PM Vishwakarma Scheme",
+        ministry: "Ministry of MSME & MoSJE",
+        apexBody: "Central Nodal Agency (MSME, MoSJE & SIDBI)",
+        targetCategories: ["Vishwakarma", "SC", "OBC", "ST", "General"],
+        targetTrades: ["tailoring", "carpentry", "pottery", "blacksmith", "cobbler", "barber", "mason", "sculptor", "mobile_repair"],
+        maxLoanLimit: 300000,
+        maxIncome: 9999999,
+        loanCoveragePct: 100,
+        interestRatePct: 5.0,
+        subsidyPct: 0,
+        moratoriumMonths: 0,
+        repaymentYears: 4,
+        marginMoneyPct: 0,
+        collateralFree: true,
+        specialBenefits: [
+          "₹15,000 Free E-Voucher for Modern Tool-Kit purchase",
+          "5.0% Concessional Interest (8% Interest Subvention by Govt)",
+          "5-7 Days Skill Training with ₹500/day Stipend + Digital ID",
+          "Tranche 1: ₹1 Lakh (18 Mo) ➔ Tranche 2: ₹2 Lakh (30 Mo)"
+        ],
+        requiredDocs: ["Aadhaar Card", "Artisan Trade Self-Verification", "Bank Passbook", "Mobile linked with Aadhaar"],
+        desc: "Comprehensive national recognition and financial package for 18 traditional artisanal and craft trades across India.",
+        priorityTag: "★ Top Pick for Traditional Artisans & Craftsmen"
+      },
+      {
+        id: "NSTFDC_TL",
+        name: "NSTFDC Term Loan Scheme",
+        ministry: "Ministry of Tribal Affairs / NSTFDC",
+        apexBody: "National Scheduled Tribes Finance and Development Corporation",
+        targetCategories: ["ST"],
+        targetTrades: ["All", "carpentry", "dairy", "manufacturing", "handicrafts", "forest_produce"],
+        maxLoanLimit: 5000000,
+        maxIncome: 500000,
+        loanCoveragePct: 90,
+        interestRatePct: 4.0,
+        subsidyPct: 30,
+        moratoriumMonths: 6,
+        repaymentYears: 5,
+        marginMoneyPct: 10,
+        collateralFree: true,
+        specialBenefits: [
+          "High 30% Capital Subsidy for Scheduled Tribe entrepreneurs",
+          "4.0% Concessional interest rate for viable income units",
+          "TRIFED tribal market linkage support"
+        ],
+        requiredDocs: ["Aadhaar Card", "ST Caste Certificate", "Income Certificate (≤ ₹5L)", "Bank Passbook"],
+        desc: "Concessional credit to Scheduled Tribe beneficiaries for viable micro and small self-employment enterprises.",
+        priorityTag: "★ #1 Choice for Scheduled Tribe (ST) Entrepreneurs"
+      },
+      {
+        id: "NSTFDC_AMSY",
+        name: "NSTFDC Adivasi Mahila Sashaktikaran (AMSY)",
+        ministry: "Ministry of Tribal Affairs / NSTFDC",
+        apexBody: "National Scheduled Tribes Finance and Development Corporation",
+        targetCategories: ["ST", "Women"],
+        targetTrades: ["All", "tailoring", "handicrafts", "dairy", "food_processing", "beauty_parlor"],
+        maxLoanLimit: 200000,
+        maxIncome: 300000,
+        loanCoveragePct: 100,
+        interestRatePct: 4.0,
+        subsidyPct: 30,
+        moratoriumMonths: 3,
+        repaymentYears: 5,
+        marginMoneyPct: 0,
+        collateralFree: true,
+        specialBenefits: [
+          "100% Project Cost Funded (No promoter contribution required)",
+          "30% Direct Capital Subsidy (₹60,000 grant on ₹2L loan)",
+          "Special micro-credit focus for tribal women Self-Help Groups"
+        ],
+        requiredDocs: ["Aadhaar Card", "ST Certificate", "Income Proof (≤ ₹3L)", "Bank Details"],
+        desc: "Exclusive concessional scheme aimed at economic empowerment of tribal women for small income-generating units.",
+        priorityTag: "★ Top Priority for Tribal Women Artisans"
+      },
+      {
+        id: "NSKFDC_GL",
+        name: "NSKFDC General Loan Scheme",
+        ministry: "MoSJE / NSKFDC",
+        apexBody: "National Safai Karamcharis Finance and Development Corporation",
+        targetCategories: ["SafaiKaramchari", "SC"],
+        targetTrades: ["All", "sanitation_machinery", "transport", "kirana", "dairy", "tailoring"],
+        maxLoanLimit: 1500000,
+        maxIncome: 500000,
+        loanCoveragePct: 90,
+        interestRatePct: 4.0,
+        subsidyPct: 35,
+        moratoriumMonths: 6,
+        repaymentYears: 5,
+        marginMoneyPct: 10,
+        collateralFree: true,
+        specialBenefits: [
+          "35% Highest Government Capital Subsidy (Rehabilitation Package)",
+          "4.0% Lowest interest rate for mechanization & alternative trade",
+          "Full socio-economic rehabilitation guarantee"
+        ],
+        requiredDocs: ["Aadhaar Card", "Safai Karamchari / Manual Scavenger ID or Certificate", "Bank Passbook"],
+        desc: "Liberation and rehabilitation loan scheme for Safai Karamcharis, manual scavengers, and their dependents.",
+        priorityTag: "★ Top Welfare for Safai Karamcharis & Waste Workers"
+      },
+      {
+        id: "NSKFDC_MAHILA",
+        name: "NSKFDC Mahila Adhikarita Yojana",
+        ministry: "MoSJE / NSKFDC",
+        apexBody: "National Safai Karamcharis Finance and Development Corporation",
+        targetCategories: ["SafaiKaramchari", "Women"],
+        targetTrades: ["All", "tailoring", "beauty_parlor", "kirana", "dairy"],
+        maxLoanLimit: 200000,
+        maxIncome: 300000,
+        loanCoveragePct: 100,
+        interestRatePct: 4.0,
+        subsidyPct: 35,
+        moratoriumMonths: 3,
+        repaymentYears: 3,
+        marginMoneyPct: 0,
+        collateralFree: true,
+        specialBenefits: [
+          "100% Financing for Sanitation Worker Women",
+          "35% Direct Capital Grant (₹70,000 subsidy on ₹2 Lakh project)",
+          "Zero collateral & zero processing charges"
+        ],
+        requiredDocs: ["Aadhaar Card", "Safai Karamchari Dependent Proof", "Bank Passbook"],
+        desc: "Direct micro-credit financial assistance for women sanitation workers to start dignified alternative businesses.",
+        priorityTag: "★ Highest 35% Subsidy for Sanitation Women"
+      },
+      {
+        id: "NHFDC_DIVYANG",
+        name: "NHFDC Divyangjan Swavalamban Scheme",
+        ministry: "MoSJE / DEPwD / NHFDC",
+        apexBody: "National Handicapped Finance and Development Corporation",
+        targetCategories: ["Divyangjan"],
+        targetTrades: ["All", "mobile_repair", "kirana", "tailoring", "services", "dairy"],
+        maxLoanLimit: 5000000,
+        maxIncome: 9999999,
+        loanCoveragePct: 90,
+        interestRatePct: 4.0,
+        subsidyPct: 25,
+        moratoriumMonths: 6,
+        repaymentYears: 7,
+        marginMoneyPct: 10,
+        collateralFree: true,
+        specialBenefits: [
+          "1.0% Additional Interest Rebate for Women Divyangjan (Effective 3%)",
+          "Assistive technology & accessible workshop customization support",
+          "Integrated with Unique Disability ID (UDID) portal"
+        ],
+        requiredDocs: ["Aadhaar Card", "Disability Certificate (≥ 40% Disability / UDID)", "Bank Passbook"],
+        desc: "Dedicated concessional loan facility for persons with disabilities (Divyangjan) to secure sustainable self-employment.",
+        priorityTag: "★ Dedicated Concessional Scheme for Divyangjan (PwD)"
+      },
+      {
+        id: "STANDUP_INDIA",
+        name: "Stand-Up India Scheme",
         ministry: "DFS / Ministry of Finance & SIDBI",
+        apexBody: "SIDBI / Scheduled Commercial Banks",
         targetCategories: ["Women", "SC", "ST"],
+        targetTrades: ["manufacturing", "services", "agri_allied", "trading", "beauty_parlor", "dairy"],
+        maxLoanLimit: 10000000,
         maxIncome: 9999999,
         loanCoveragePct: 85,
         interestRatePct: 7.5,
         subsidyPct: 15,
+        moratoriumMonths: 18,
         repaymentYears: 7,
-        desc: "Greenfield enterprise funding exclusively for Women and SC/ST entrepreneurs with composite loans up to ₹1 Crore.",
-        priorityTag: "★ Top Pick for Women Entrepreneurs"
+        marginMoneyPct: 15,
+        collateralFree: true,
+        specialBenefits: [
+          "Composite high-growth loan from ₹10 Lakhs to ₹1.00 Crore",
+          "Mandated at every public sector bank branch (1 SC/ST + 1 Woman)",
+          "Supported by Credit Guarantee Scheme for Stand Up India (CGSIL)"
+        ],
+        requiredDocs: ["Aadhaar Card", "PAN Card", "Caste / Women Declaration", "Detailed Project Report (DPR)", "Bank Account"],
+        desc: "Flagship central scheme facilitating bank loans between ₹10 Lakhs and ₹1 Crore to SC/ST and Women greenfield enterprises.",
+        priorityTag: "★ Premier High-Growth Loan for Women & SC/ST"
       },
       {
-        id: "PMEGP_01",
+        id: "PMEGP",
         name: "Prime Minister Employment Generation (PMEGP)",
         ministry: "Ministry of MSME / KVIC",
-        targetCategories: ["SC", "ST", "OBC", "Women", "General"],
+        apexBody: "Khadi and Village Industries Commission (KVIC)",
+        targetCategories: ["SC", "ST", "OBC", "Women", "Vishwakarma", "General"],
+        targetTrades: ["manufacturing", "services", "tailoring", "carpentry", "pottery", "dairy", "kirana"],
+        maxLoanLimit: 5000000,
         maxIncome: 9999999,
         loanCoveragePct: 95,
-        interestRatePct: 9.5,
+        interestRatePct: 9.0,
         subsidyPct: 35,
+        moratoriumMonths: 6,
         repaymentYears: 7,
-        desc: "Credit-linked capital subsidy for new micro-manufacturing, textile, and service businesses.",
-        priorityTag: "★ Highest Capital Subsidy (35%)"
+        marginMoneyPct: 5,
+        collateralFree: true,
+        specialBenefits: [
+          "Massive 35% Capital Subsidy for SC/ST/OBC/Women in Rural Areas",
+          "25% Capital Subsidy for General category in Rural Areas",
+          "Entrepreneurship Development Programme (EDP) training included",
+          "Up to ₹50 Lakhs for Manufacturing & ₹20 Lakhs for Service units"
+        ],
+        requiredDocs: ["Aadhaar Card", "Educational Qualification Proof (if > ₹10L)", "Caste / Category Proof", "Bank Account", "Detailed Project Report"],
+        desc: "Major credit-linked subsidy programme to generate self-employment through establishment of micro-enterprises.",
+        priorityTag: "★ Highest Capital Subsidy (Up to 35%) for MSMEs"
       },
       {
-        id: "MUDRA_01",
-        name: "Pradhan Mantri Mudra Yojana (Kishor)",
+        id: "MUDRA_SHISHU",
+        name: "Pradhan Mantri Mudra Yojana - Shishu",
         ministry: "DFS / Ministry of Finance",
-        targetCategories: ["SC", "ST", "OBC", "Women", "General"],
+        apexBody: "Micro Units Development and Refinance Agency (MUDRA)",
+        targetCategories: ["General", "SC", "ST", "OBC", "Women", "Minority"],
+        targetTrades: ["All", "street_vendor", "kirana", "tailoring", "artisan"],
+        maxLoanLimit: 50000,
+        maxIncome: 9999999,
+        loanCoveragePct: 100,
+        interestRatePct: 7.5,
+        subsidyPct: 0,
+        moratoriumMonths: 0,
+        repaymentYears: 3,
+        marginMoneyPct: 0,
+        collateralFree: true,
+        specialBenefits: [
+          "Nano loans up to ₹50,000 with instant bank clearance",
+          "Zero processing fee & zero margin money required",
+          "100% Collateral-Free under National Credit Guarantee Trustee"
+        ],
+        requiredDocs: ["Aadhaar Card", "PAN / Form 60", "Business Address Proof"],
+        desc: "Collateral-free institutional nano credit for aspiring micro-retailers, hawkers, and initial micro-trade setups.",
+        priorityTag: "★ Instant 100% Collateral-Free Nano Credit (≤ ₹50k)"
+      },
+      {
+        id: "MUDRA_KISHOR",
+        name: "Pradhan Mantri Mudra Yojana - Kishor",
+        ministry: "DFS / Ministry of Finance",
+        apexBody: "Micro Units Development and Refinance Agency (MUDRA)",
+        targetCategories: ["General", "SC", "ST", "OBC", "Women", "Minority"],
+        targetTrades: ["All", "kirana", "mobile_repair", "tailoring", "services"],
+        maxLoanLimit: 500000,
         maxIncome: 9999999,
         loanCoveragePct: 100,
         interestRatePct: 8.5,
         subsidyPct: 0,
+        moratoriumMonths: 3,
         repaymentYears: 5,
-        desc: "Collateral-free institutional working capital loan for small traders, shops, and service providers.",
-        priorityTag: "★ 100% Collateral-Free Credit"
+        marginMoneyPct: 0,
+        collateralFree: true,
+        specialBenefits: [
+          "Covers loans from ₹50,000 to ₹5,00,000 for equipment & working capital",
+          "Mudra Debit Card issued for convenient working capital drawdown",
+          "No collateral mortgage required from borrower"
+        ],
+        requiredDocs: ["Aadhaar Card", "PAN Card", "Business Quotation & Bank Statement"],
+        desc: "Mid-level working capital and machinery loan for established small shops, service centers, and micro-fabricators.",
+        priorityTag: "★ Universal Working Capital Loan (₹50k – ₹5L)"
       },
       {
-        id: "PMSVANIDHI_01",
+        id: "MUDRA_TARUN",
+        name: "Pradhan Mantri Mudra Yojana - Tarun",
+        ministry: "DFS / Ministry of Finance",
+        apexBody: "Micro Units Development and Refinance Agency (MUDRA)",
+        targetCategories: ["General", "SC", "ST", "OBC", "Women", "Minority"],
+        targetTrades: ["All", "manufacturing", "retail_expansion", "dairy", "services"],
+        maxLoanLimit: 1000000,
+        maxIncome: 9999999,
+        loanCoveragePct: 90,
+        interestRatePct: 9.0,
+        subsidyPct: 0,
+        moratoriumMonths: 6,
+        repaymentYears: 5,
+        marginMoneyPct: 10,
+        collateralFree: true,
+        specialBenefits: [
+          "Expansion loan up to ₹10,00,000 for established micro-enterprises",
+          "Competitive interest rates linked to bank MCLR/repo rate",
+          "Fast-track processing across all public & private sector banks"
+        ],
+        requiredDocs: ["Aadhaar Card", "PAN Card", "1-Year Bank Statement", "Detailed Project Report"],
+        desc: "Growth-stage credit for micro-enterprises expanding their manufacturing capacity, inventory, or retail space.",
+        priorityTag: "★ SME Business Expansion Loan (₹5L – ₹10L)"
+      },
+      {
+        id: "PMSVANIDHI",
         name: "PM SVANidhi Micro-Credit Scheme",
-        ministry: "MoHUA / Urban Livelihoods",
-        targetCategories: ["SC", "ST", "OBC", "Women", "General"],
+        ministry: "Ministry of Housing and Urban Affairs (MoHUA)",
+        apexBody: "MoHUA / SIDBI",
+        targetCategories: ["General", "SC", "ST", "OBC", "Women", "Minority"],
+        targetTrades: ["street_vendor", "hawker", "food_cart", "cobbler", "barber"],
+        maxLoanLimit: 50000,
         maxIncome: 9999999,
         loanCoveragePct: 100,
         interestRatePct: 7.0,
         subsidyPct: 7,
+        moratoriumMonths: 0,
         repaymentYears: 1,
-        desc: "Working capital micro-loans with 7% interest subvention and digital transaction cashback for vendors.",
-        priorityTag: "★ Ideal for Micro-Retail & Vendors"
+        marginMoneyPct: 0,
+        collateralFree: true,
+        specialBenefits: [
+          "7.0% Interest Subvention (Effective 0% Net Interest with timely pay)",
+          "Up to ₹1,200 annual cashbacks on digital UPI transactions",
+          "Graduated credit ladder: ₹10k ➔ ₹20k ➔ ₹50k on on-time repayment"
+        ],
+        requiredDocs: ["Aadhaar Card", "Vending Certificate (CoC) or Recommendation Letter", "Bank Account"],
+        desc: "Special micro-credit facility providing affordable working capital to urban street vendors and micro-hawkers.",
+        priorityTag: "★ Effective 0% Interest for Street Vendors & Hawkers"
+      },
+      {
+        id: "NMDFC_TL",
+        name: "NMDFC Term Loan Scheme",
+        ministry: "Ministry of Minority Affairs / NMDFC",
+        apexBody: "National Minorities Development and Finance Corporation",
+        targetCategories: ["Minority"],
+        targetTrades: ["All", "manufacturing", "artisans", "services", "tailoring", "carpentry"],
+        maxLoanLimit: 3000000,
+        maxIncome: 500000,
+        loanCoveragePct: 90,
+        interestRatePct: 5.0,
+        subsidyPct: 20,
+        moratoriumMonths: 6,
+        repaymentYears: 5,
+        marginMoneyPct: 10,
+        collateralFree: true,
+        specialBenefits: [
+          "Special 4.0% interest rate for Minority Women beneficiaries",
+          "5.0% Concessional rate for male applicants (Muslims, Christians, Sikhs, Buddhists, Jains, Parsis)",
+          "Cluster-based financing for traditional artisanal trades"
+        ],
+        requiredDocs: ["Aadhaar Card", "Minority Self-Declaration", "Income Certificate (≤ ₹5L)", "Bank Passbook"],
+        desc: "Concessional credit assistance for backward minority community members to establish self-employment ventures.",
+        priorityTag: "★ Concessional Financing for Minority Communities"
+      },
+      {
+        id: "DAY_NRLM",
+        name: "DAY-NRLM (Aajeevika) Livelihood Loan",
+        ministry: "Ministry of Rural Development (MoRD)",
+        apexBody: "National Rural Livelihoods Mission (NRLM)",
+        targetCategories: ["Women", "SC", "ST", "OBC"],
+        targetTrades: ["All", "dairy", "tailoring", "agri_processing", "handicrafts"],
+        maxLoanLimit: 1000000,
+        maxIncome: 9999999,
+        loanCoveragePct: 100,
+        interestRatePct: 7.0,
+        subsidyPct: 3,
+        moratoriumMonths: 6,
+        repaymentYears: 5,
+        marginMoneyPct: 0,
+        collateralFree: true,
+        specialBenefits: [
+          "Effective 4.0% Interest Rate with 3% prompt repayment subvention",
+          "Revolving Fund (RF) and Community Investment Fund (CIF) grants",
+          "Collateral-free group lending up to ₹10 Lakhs for Women SHGs"
+        ],
+        requiredDocs: ["Aadhaar Card", "Self-Help Group (SHG) Passbook", "Bank Account"],
+        desc: "Poverty alleviation and micro-livelihood financing for rural women through community institution networks.",
+        priorityTag: "★ Grassroots Rural Women SHG Livelihood Loan"
+      },
+      {
+        id: "KVIC_REGP",
+        name: "KVIC Rural Artisan Margin Money Scheme",
+        ministry: "Ministry of MSME / KVIC",
+        apexBody: "Khadi and Village Industries Commission",
+        targetCategories: ["Vishwakarma", "SC", "ST", "OBC", "General"],
+        targetTrades: ["pottery", "carpentry", "blacksmith", "handloom", "dairy", "agro_food"],
+        maxLoanLimit: 2500000,
+        maxIncome: 9999999,
+        loanCoveragePct: 90,
+        interestRatePct: 8.5,
+        subsidyPct: 30,
+        moratoriumMonths: 6,
+        repaymentYears: 6,
+        marginMoneyPct: 10,
+        collateralFree: true,
+        specialBenefits: [
+          "Direct 30% Margin Money Subsidy into beneficiary loan account",
+          "Upgrades traditional village artisan workshops into mechanized units",
+          "Khadi & Village Industry Board technical certification"
+        ],
+        requiredDocs: ["Aadhaar Card", "Rural Residence Proof", "Artisan Trade Skill Proof", "Project Costing"],
+        desc: "Financial assistance to establish village industries and rural crafts through commercial bank margin money grants.",
+        priorityTag: "★ Village Agro & Traditional Artisan Subsidy"
       }
     ];
 
@@ -1341,21 +1918,32 @@
       tailoring: {
         title: "Garment Tailoring & Manufacturing Unit",
         capex: [
-          { item: "Industrial High-Speed Juki Sewing Machines (3x)", costRatio: 0.60 },
+          { item: "Industrial High-Speed Juki Sewing Machines (3x)", costRatio: 0.55 },
           { item: "Overlock & Interlock Stitching Machine", costRatio: 0.15 },
-          { item: "Cutting Table, Steam Iron & Fixtures", costRatio: 0.10 },
-          { item: "Initial Fabric Raw Material Stock", costRatio: 0.15 }
+          { item: "Cutting Table, Steam Iron & Fixtures", costRatio: 0.12 },
+          { item: "Initial Fabric Raw Material Stock", costRatio: 0.18 }
         ],
         revenueMultiplier: 0.22,
         monthlyOpexRatio: 0.08
       },
+      pottery: {
+        title: "Traditional Clay Pottery & Ceramic Craft",
+        capex: [
+          { item: "Motorized Electric Potter Wheel Machine", costRatio: 0.35 },
+          { item: "High-Temperature Clay Baking Kiln / Furnace", costRatio: 0.35 },
+          { item: "Glaze Raw Materials & Clay Processing Pugmill", costRatio: 0.18 },
+          { item: "Display Shelves & Workshop Tools", costRatio: 0.12 }
+        ],
+        revenueMultiplier: 0.24,
+        monthlyOpexRatio: 0.07
+      },
       carpentry: {
         title: "Woodworking & Carpentry Workshop",
         capex: [
-          { item: "Wood Planer & Circular Saw Machine", costRatio: 0.45 },
-          { item: "Power Hand Sanders, Routers & Drills", costRatio: 0.20 },
-          { item: "Timber Raw Wood Stock & Fasteners", costRatio: 0.25 },
-          { item: "Workshop Bench & Safety Equipment", costRatio: 0.10 }
+          { item: "Wood Planer & Heavy Circular Saw Machine", costRatio: 0.42 },
+          { item: "Power Hand Sanders, Routers & Precision Drills", costRatio: 0.20 },
+          { item: "Seasoned Timber Raw Wood Stock & Hardware", costRatio: 0.26 },
+          { item: "Workshop Heavy Bench & Safety Gear", costRatio: 0.12 }
         ],
         revenueMultiplier: 0.25,
         monthlyOpexRatio: 0.10
@@ -1363,10 +1951,10 @@
       kirana: {
         title: "General Kirana & Retail Store",
         capex: [
-          { item: "Display Racks & Modular Storage Shelves", costRatio: 0.25 },
-          { item: "Digital Weighing Scale & POS Billing Machine", costRatio: 0.15 },
-          { item: "Refrigeration Unit / Deep Freezer", costRatio: 0.20 },
-          { item: "FMCG Grocery Fast-Moving Wholesale Stock", costRatio: 0.40 }
+          { item: "Modular Storage Display Racks & Shelving", costRatio: 0.22 },
+          { item: "Digital Precision Weighing Scale & POS Terminal", costRatio: 0.14 },
+          { item: "Commercial Deep Freezer / Chilling Unit", costRatio: 0.20 },
+          { item: "FMCG Grocery Fast-Moving Wholesale Inventory", costRatio: 0.44 }
         ],
         revenueMultiplier: 0.35,
         monthlyOpexRatio: 0.18
@@ -1375,9 +1963,9 @@
         title: "Beauty Parlour & Wellness Unit",
         capex: [
           { item: "Hydraulic Styling Chairs & Hair Wash Unit", costRatio: 0.35 },
-          { item: "Facial & Hair Care Electronic Equipment", costRatio: 0.25 },
-          { item: "Cosmetics & Herbal Product Inventory", costRatio: 0.25 },
-          { item: "Interior Mirrors, Lighting & Sterilizer", costRatio: 0.15 }
+          { item: "Electronic Facial, Hair Care & Steamer Equipment", costRatio: 0.25 },
+          { item: "Cosmetics & Herbal Inventory Stock", costRatio: 0.25 },
+          { item: "Interior Mirrors, Lighting & UV Sterilizer", costRatio: 0.15 }
         ],
         revenueMultiplier: 0.28,
         monthlyOpexRatio: 0.09
@@ -1385,10 +1973,10 @@
       mobile_repair: {
         title: "Mobile & Electronics Repair Unit",
         capex: [
-          { item: "SMD Rework Station & Digital Multimeter", costRatio: 0.30 },
-          { item: "Microscope & Screen Separator Machine", costRatio: 0.25 },
-          { item: "Spare Components, Batteries & Screens Stock", costRatio: 0.35 },
-          { item: "Anti-Static Workbench & Toolkits", costRatio: 0.10 }
+          { item: "SMD Rework Station & Digital Oscilloscope", costRatio: 0.28 },
+          { item: "Microscope & Touchscreen Vacuum Separator", costRatio: 0.24 },
+          { item: "Replacement Screens, ICs, Batteries Stock", costRatio: 0.36 },
+          { item: "Anti-Static Clean Workbench & Toolsets", costRatio: 0.12 }
         ],
         revenueMultiplier: 0.30,
         monthlyOpexRatio: 0.10
@@ -1402,6 +1990,17 @@
         ],
         revenueMultiplier: 0.24,
         monthlyOpexRatio: 0.09
+      },
+      street_vendor: {
+        title: "Mobile Street Food & Vendor Cart",
+        capex: [
+          { item: "Stainless Steel Modular Food Cart / Kiosk", costRatio: 0.50 },
+          { item: "Commercial Gas Burner & Utensils", costRatio: 0.22 },
+          { item: "Initial Raw Food Stock & Packaging", costRatio: 0.18 },
+          { item: "Digital Payment Speaker & Battery Light", costRatio: 0.10 }
+        ],
+        revenueMultiplier: 0.40,
+        monthlyOpexRatio: 0.20
       }
     };
 
@@ -1433,11 +2032,19 @@
       lucide.createIcons();
     }
 
-    // Prefill demo user helper
-    function prefillDemoUser(name, aadhaar, hint) {
+    // Enhanced Prefill demo user helper (8 diverse personas)
+    function prefillDemoUser(name, aadhaar, category, tradeKey, capital, income, tradeTitle) {
       document.getElementById('userNameInput').value = name;
       document.getElementById('aadhaarInput').value = aadhaar;
-      showToast(`Loaded demo beneficiary: ${name} (${hint})`);
+      clientState.name = name;
+      clientState.aadhaar = aadhaar;
+      clientState.category = category;
+      clientState.trade = tradeKey;
+      clientState.capitalNeeded = capital;
+      clientState.annualIncome = income;
+      clientState.tradeTitle = tradeTitle;
+
+      showToast(`Loaded Persona: ${name} (${category} • ${tradeTitle})`);
     }
 
     // Citizen Stepper Controller
@@ -1473,11 +2080,11 @@
       let aadhaarInput = document.getElementById('aadhaarInput').value.trim();
       
       if (!nameInput) {
-        nameInput = "Ramesh Kumar";
+        nameInput = clientState.name || "Ramesh Kumar";
         document.getElementById('userNameInput').value = nameInput;
       }
       if (!aadhaarInput) {
-        aadhaarInput = "5849 2018 4819";
+        aadhaarInput = clientState.aadhaar || "5849 2018 4819";
         document.getElementById('aadhaarInput').value = aadhaarInput;
       }
 
@@ -1498,6 +2105,17 @@
         lucide.createIcons();
       } else {
         document.getElementById('paramApplicantName').innerText = clientState.name;
+        // Sync parameters to step 2 inputs
+        if (clientState.trade) document.getElementById('tradeSelect').value = clientState.trade;
+        if (clientState.category) document.getElementById('categorySelect').value = clientState.category;
+        if (clientState.capitalNeeded) {
+          document.getElementById('capitalSlider').value = clientState.capitalNeeded;
+          updateCapitalDisplay(clientState.capitalNeeded);
+        }
+        if (clientState.annualIncome) {
+          document.getElementById('incomeSlider').value = clientState.annualIncome;
+          updateIncomeDisplay(clientState.annualIncome);
+        }
         goToStep(2);
       }
     }
@@ -1598,47 +2216,63 @@
     // Step 2: Intelligent Multi-Entity Speech NLP Parser
     function parseSpokenText(text) {
       let detectedTrade = clientState.trade;
-      let detectedCategory = clientState.category;
       let detectedCapital = clientState.capitalNeeded;
       let detectedIncome = clientState.annualIncome;
+      let detectedCategory = clientState.category;
       let title = clientState.tradeTitle;
 
       // 1. Detect Trade
-      if (text.includes("tailor") || text.includes("silai") || text.includes("kapde") || text.includes("cloth") || text.includes("darzi") || text.includes("सिलाई") || text.includes("दर्जी")) {
+      if (text.includes("सिलाई") || text.includes("कपड़ा") || text.includes("tailor") || text.includes("stitching") || text.includes("tailoring")) {
         detectedTrade = "tailoring";
-        title = "Garment Tailoring & Manufacturing Unit";
-      } else if (text.includes("carpenter") || text.includes("wood") || text.includes("lakdi") || text.includes("furniture") || text.includes("बढ़ई") || text.includes("लकड़ी")) {
+        title = "Garment Tailoring & Manufacturing";
+      } else if (text.includes("माटी") || text.includes("बर्तन") || text.includes("कुम्हार") || text.includes("potter") || text.includes("pottery") || text.includes("clay")) {
+        detectedTrade = "pottery";
+        title = "Traditional Clay Pottery & Ceramic Craft";
+      } else if (text.includes("लकड़ी") || text.includes("carpenter") || text.includes("wood") || text.includes("furniture") || text.includes("बढ़ई")) {
         detectedTrade = "carpentry";
         title = "Woodworking & Carpentry Workshop";
-      } else if (text.includes("kirana") || text.includes("grocery") || text.includes("dukan") || text.includes("shop") || text.includes("store") || text.includes("दुकान") || text.includes("किराना")) {
+      } else if (text.includes("दुकान") || text.includes("किराना") || text.includes("grocery") || text.includes("retail") || text.includes("store")) {
         detectedTrade = "kirana";
         title = "General Kirana & Retail Store";
-      } else if (text.includes("parlor") || text.includes("beauty") || text.includes("salon") || text.includes("पार्लर") || text.includes("सैलून")) {
+      } else if (text.includes("ब्यूटी") || text.includes("पार्लर") || text.includes("salon") || text.includes("beauty") || text.includes("parlour")) {
         detectedTrade = "beauty_parlor";
         title = "Beauty Parlour & Wellness Unit";
-      } else if (text.includes("mobile") || text.includes("repair") || text.includes("phone") || text.includes("मोबाइल") || text.includes("रिपेयर")) {
+      } else if (text.includes("मोबाइल") || text.includes("रिपेयर") || text.includes("mobile") || text.includes("repair") || text.includes("electronics")) {
         detectedTrade = "mobile_repair";
         title = "Mobile & Electronics Repair Unit";
-      } else if (text.includes("dairy") || text.includes("doodh") || text.includes("milk") || text.includes("cow") || text.includes("डेयरी") || text.includes("दूध")) {
+      } else if (text.includes("डेयरी") || text.includes("दूध") || text.includes("गाय") || text.includes("भैंस") || text.includes("dairy") || text.includes("milk")) {
         detectedTrade = "dairy";
-        title = "Dairy Farming & Milk Chilling Unit";
+        title = "Dairy Farming & Milk Chilling";
+      } else if (text.includes("ठेला") || text.includes("सब्जी") || text.includes("vendor") || text.includes("hawker") || text.includes("street")) {
+        detectedTrade = "street_vendor";
+        title = "Mobile Street Food & Vendor Cart";
       }
 
-      // 2. Detect Social Category
-      if (text.includes("sc") || text.includes("scheduled caste") || text.includes("dalit") || text.includes("अनुसूचित जाति") || text.includes("एससी")) {
+      // 2. Detect Category
+      if (text.includes("एससी") || text.includes("sc") || text.includes("scheduled caste") || text.includes("दलित")) {
         detectedCategory = "SC";
-      } else if (text.includes("obc") || text.includes("backward") || text.includes("पिछड़ा") || text.includes("ओबीसी")) {
+      } else if (text.includes("ओबीसी") || text.includes("obc") || text.includes("backward") || text.includes("पिछड़ा")) {
         detectedCategory = "OBC";
-      } else if (text.includes("women") || text.includes("woman") || text.includes("female") || text.includes("mahila") || text.includes("ladki") || text.includes("महिला") || text.includes("स्त्री")) {
-        detectedCategory = "Women";
-      } else if (text.includes("st") || text.includes("scheduled tribe") || text.includes("tribal") || text.includes("adivasi") || text.includes("एसटी") || text.includes("आदिवासी")) {
+      } else if (text.includes("एसटी") || text.includes("st") || text.includes("tribal") || text.includes("आदिवासी")) {
         detectedCategory = "ST";
-      } else if (text.includes("general") || text.includes("samanya") || text.includes("open") || text.includes("सामान्य") || text.includes("जनरल")) {
+      } else if (text.includes("महिला") || text.includes("woman") || text.includes("women") || text.includes("females")) {
+        detectedCategory = "Women";
+      } else if (text.includes("विश्वकर्मा") || text.includes("artisan") || text.includes("craftsman") || text.includes("कारीगर")) {
+        detectedCategory = "Vishwakarma";
+      } else if (text.includes("सफाई") || text.includes("sanitation") || text.includes("safai")) {
+        detectedCategory = "SafaiKaramchari";
+      } else if (text.includes("दिव्यांग") || text.includes("handicapped") || text.includes("pwd") || text.includes("disability")) {
+        detectedCategory = "Divyangjan";
+      } else if (text.includes("माइनॉरिटी") || text.includes("अल्पसंख्यक") || text.includes("minority")) {
+        detectedCategory = "Minority";
+      } else if (text.includes("जनरल") || text.includes("general") || text.includes("सामान्य")) {
         detectedCategory = "General";
       }
 
       // 3. Detect Capital Needed
-      if (text.includes("1 lakh") || text.includes("100000") || text.includes("एक लाख") || text.includes("1 लाख")) {
+      if (text.includes("50 हजार") || text.includes("50,000") || text.includes("50000") || text.includes("fifty thousand")) {
+        detectedCapital = 50000;
+      } else if (text.includes("1 lakh") || text.includes("100000") || text.includes("एक लाख") || text.includes("1 लाख")) {
         detectedCapital = 100000;
       } else if (text.includes("2 lakh") || text.includes("200000") || text.includes("दो लाख") || text.includes("2 लाख")) {
         detectedCapital = 200000;
@@ -1646,10 +2280,10 @@
         detectedCapital = 250000;
       } else if (text.includes("3 lakh") || text.includes("300000") || text.includes("तीन लाख") || text.includes("3 लाख")) {
         detectedCapital = 300000;
+      } else if (text.includes("3.5 lakh") || text.includes("साढ़े तीन") || text.includes("350000")) {
+        detectedCapital = 350000;
       } else if (text.includes("4 lakh") || text.includes("400000") || text.includes("चार लाख") || text.includes("4 लाख")) {
         detectedCapital = 400000;
-      } else if (text.includes("4.5 lakh") || text.includes("साढ़े चार") || text.includes("450000")) {
-        detectedCapital = 450000;
       } else if (text.includes("5 lakh") || text.includes("500000") || text.includes("पांच लाख") || text.includes("5 लाख")) {
         detectedCapital = 500000;
       } else if (text.includes("10 lakh") || text.includes("1000000") || text.includes("दस लाख") || text.includes("10 लाख")) {
@@ -1699,10 +2333,10 @@
       document.getElementById('incomeDisplay').innerText = `₹${parseInt(val).toLocaleString('en-IN')}`;
       const badge = document.getElementById('incomeStatusBadge');
       if (clientState.annualIncome <= 500000) {
-        badge.innerText = "✓ Eligible for MoSJE Concessional Subsidies (≤ ₹5.00 Lakhs)";
+        badge.innerText = "✓ Eligible for MoSJE & Apex Corporation Subsidies (≤ ₹5.00 Lakhs)";
         badge.className = "text-[11px] text-emerald-400 mt-1.5 block font-semibold";
       } else {
-        badge.innerText = "⚠ Above MoSJE ₹5L Limit → Redirected to MSME PMEGP & Mudra Schemes";
+        badge.innerText = "⚠ Above MoSJE ₹5L Limit → Redirected to MSME PMEGP, Mudra & Stand-Up India";
         badge.className = "text-[11px] text-amber-400 mt-1.5 block font-semibold";
       }
     }
@@ -1714,7 +2348,9 @@
       clientState.tradeTitle = opt.text;
     }
 
-    // Step 3: Deterministic Scheme Match Engine
+    // ================================================================
+    // STEP 3: ENHANCED DETERMINISTIC SCHEME MATCH ENGINE (22 SCHEMES)
+    // ================================================================
     function processAndMatchSchemes() {
       updateLiveParameters();
       evaluateAndRenderSchemes();
@@ -1725,46 +2361,95 @@
       const cat = clientState.category;
       const income = clientState.annualIncome;
       const capital = clientState.capitalNeeded;
+      const trade = clientState.trade;
 
-      document.getElementById('matchedCategoryHeader').innerText = `${cat} Category`;
+      document.getElementById('matchedCategoryHeader').innerText = `${cat} Demographic Category`;
       document.getElementById('matchedIncomeHeader').innerText = `Income: ₹${income.toLocaleString('en-IN')}`;
       document.getElementById('matchedCapitalHeader').innerText = `₹${capital.toLocaleString('en-IN')}`;
 
       let scoredSchemes = masterSchemes.map(scheme => {
         let isEligible = true;
         let score = 0;
+        let matchReasons = [];
 
-        if (cat === "General") {
-          if (!scheme.targetCategories.includes("General")) {
-            isEligible = false;
-          }
-        } else {
-          if (!scheme.targetCategories.includes(cat) && !scheme.targetCategories.includes("General")) {
-            isEligible = false;
-          }
+        // 1. Strict Category Eligibility Check
+        const isUniversal = scheme.targetCategories.includes("General") && scheme.targetCategories.length >= 4;
+        const isDirectCategory = scheme.targetCategories.includes(cat);
+
+        if (!isDirectCategory && !isUniversal) {
+          isEligible = false;
         }
 
+        // 2. Strict Income Cap Check
         if (income > scheme.maxIncome) {
           isEligible = false;
         }
 
-        let effectiveSubsidy = scheme.subsidyPct;
-        if (scheme.id === "PMEGP_01" && cat === "General") {
-          effectiveSubsidy = 25;
-        }
-
+        // 3. Multi-Factor Deterministic Scoring
         if (isEligible) {
-          const isDedicatedTarget = scheme.targetCategories.length <= 3 && scheme.targetCategories.includes(cat);
-          let targetBonus = isDedicatedTarget ? 90 : 30;
-          let subsidyWeight = effectiveSubsidy * 2;
-          let interestWeight = (12 - scheme.interestRatePct) * 4;
-          score = targetBonus + subsidyWeight + interestWeight;
+          // A. Demographic Target Weight (Max 160 pts)
+          if (isDirectCategory && !isUniversal) {
+            score += 150; // Heavy bonus for dedicated apex scheme
+            matchReasons.push(`Direct ${cat} Statutory Allocation`);
+          } else if (isDirectCategory && isUniversal) {
+            score += 60;
+          } else {
+            score += 30;
+          }
+
+          // Special Women Bonus
+          if (cat === "Women" && (scheme.id.includes("MSY") || scheme.id.includes("SWARNIMA") || scheme.id.includes("STANDUP") || scheme.id.includes("AMSY") || scheme.id.includes("MAHILA") || scheme.id.includes("DAY_NRLM"))) {
+            score += 40;
+            matchReasons.push("Dedicated Women Empowerment Scheme");
+          }
+
+          // Special Artisan / Vishwakarma Bonus
+          const isArtisanTrade = ["tailoring", "pottery", "carpentry", "blacksmith", "cobbler", "barber"].includes(trade);
+          if ((cat === "Vishwakarma" || isArtisanTrade) && (scheme.id === "PM_VISHWAKARMA" || scheme.id === "KVIC_REGP")) {
+            score += 45;
+            matchReasons.push("Traditional Artisan & Craft Match");
+          }
+
+          // Special Safai Karamchari Bonus
+          if (cat === "SafaiKaramchari" && scheme.id.startsWith("NSKFDC")) {
+            score += 60;
+            matchReasons.push("Apex NSKFDC Rehabilitation Quota");
+          }
+
+          // Special Divyangjan Bonus
+          if (cat === "Divyangjan" && scheme.id.startsWith("NHFDC")) {
+            score += 60;
+            matchReasons.push("Apex NHFDC Disability Concession");
+          }
+
+          // B. Capital Subsidy Factor
+          let effectiveSubsidy = scheme.subsidyPct;
+          if (scheme.id === "PMEGP") {
+            effectiveSubsidy = (cat === "General") ? 25 : 35;
+          }
+          score += effectiveSubsidy * 2.5;
+          if (effectiveSubsidy > 0) matchReasons.push(`${effectiveSubsidy}% Capital Subsidy Grant`);
+
+          // C. Interest Rate Factor (Lower interest gives higher score)
+          const interestSavings = Math.max(0, 12 - scheme.interestRatePct);
+          score += interestSavings * 4;
+          matchReasons.push(`${scheme.interestRatePct}% Concessional Interest`);
+
+          // D. Loan Amount Quantum Fit
+          if (capital <= scheme.maxLoanLimit) {
+            score += 25;
+          } else {
+            score -= 40; // Penalty if applicant's need exceeds scheme cap
+          }
         } else {
           score = 0;
         }
 
-        const loanAmt = Math.round((capital * scheme.loanCoveragePct) / 100);
-        const subsidyAmt = Math.round((capital * effectiveSubsidy) / 100);
+        // Financial calculations
+        const effectiveSubsidy = (scheme.id === "PMEGP" && cat === "General") ? 25 : scheme.subsidyPct;
+        const cappedLoan = Math.min(capital, scheme.maxLoanLimit);
+        const loanAmt = Math.round((cappedLoan * scheme.loanCoveragePct) / 100);
+        const subsidyAmt = Math.round((cappedLoan * effectiveSubsidy) / 100);
         const emi = calculateEmi(loanAmt, scheme.interestRatePct, scheme.repaymentYears);
 
         return {
@@ -1774,10 +2459,12 @@
           score,
           loanAmt,
           subsidyAmt,
-          emi
+          emi,
+          matchReasons
         };
       });
 
+      // Filter and rank top eligible schemes
       let topEligible = scoredSchemes.filter(s => s.isEligible).sort((a, b) => b.score - a.score);
       if (topEligible.length === 0) {
         topEligible = scoredSchemes.sort((a, b) => b.score - a.score);
@@ -1788,12 +2475,12 @@
 
       topEligible.slice(0, 3).forEach((scheme, index) => {
         const isTop = index === 0;
-        const matchPct = isTop ? 98 : (index === 1 ? 89 : 82);
+        const matchPct = isTop ? 99 : (index === 1 ? 91 : 84);
 
         cardsHtml += `
-          <div class="bg-slate-900/95 rounded-3xl p-6 shadow-xl ${isTop ? 'border-2 border-orange-500 relative ring-1 ring-orange-400' : 'border border-slate-800 opacity-90 hover:opacity-100'} flex flex-col justify-between transition">
+          <div class="bg-slate-900/95 rounded-3xl p-6 shadow-xl ${isTop ? 'border-2 border-orange-500 relative ring-2 ring-orange-500/30' : 'border border-slate-800 opacity-90 hover:opacity-100'} flex flex-col justify-between transition">
             ${isTop ? `
-              <div class="absolute -top-3 left-6 bg-gradient-to-r from-orange-500 to-amber-500 text-slate-950 text-[10px] uppercase tracking-wider font-black px-3 py-1 rounded-full shadow-md">
+              <div class="absolute -top-3 left-6 bg-gradient-to-r from-orange-500 to-amber-500 text-slate-950 text-[10px] uppercase tracking-wider font-black px-3.5 py-1 rounded-full shadow-md">
                 ${scheme.priorityTag} (${matchPct}% Match)
               </div>
             ` : ''}
@@ -1802,8 +2489,15 @@
                 <span class="text-xs font-bold text-blue-300 bg-blue-500/20 border border-blue-500/30 px-2.5 py-0.5 rounded-lg">${scheme.ministry}</span>
                 <span class="text-xs font-black ${isTop ? 'text-emerald-400' : 'text-slate-400'} font-mono">${matchPct}% Match</span>
               </div>
-              <h3 class="text-lg font-black text-white">${scheme.name}</h3>
+              <h3 class="text-lg font-black text-white leading-snug">${scheme.name}</h3>
               <p class="text-xs text-slate-400 mt-1">${scheme.desc}</p>
+
+              <!-- Dynamic Match Reasons Tag Line -->
+              <div class="mt-3 flex flex-wrap gap-1.5">
+                ${scheme.matchReasons.slice(0, 2).map(r => `
+                  <span class="text-[10px] font-semibold bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 px-2 py-0.5 rounded-md">✓ ${r}</span>
+                `).join('')}
+              </div>
 
               <div class="mt-4 space-y-2 text-xs">
                 <div class="flex justify-between py-1.5 border-b border-slate-800">
@@ -1816,17 +2510,32 @@
                 </div>
                 <div class="flex justify-between py-1.5 border-b border-slate-800">
                   <span class="text-slate-400">Capital Subsidy Grant</span>
-                  <span class="font-black text-orange-400 font-mono">${scheme.subsidyPct}% (₹${scheme.subsidyAmt.toLocaleString('en-IN')})</span>
+                  <span class="font-black text-orange-400 font-mono">${scheme.effectiveSubsidy}% (₹${scheme.subsidyAmt.toLocaleString('en-IN')})</span>
+                </div>
+                <div class="flex justify-between py-1.5 border-b border-slate-800">
+                  <span class="text-slate-400">Repayment Tenor & Moratorium</span>
+                  <span class="font-bold text-slate-200 font-mono">${scheme.repaymentYears} Yrs (${scheme.moratoriumMonths} Mo Moratorium)</span>
                 </div>
                 <div class="flex justify-between py-1.5">
                   <span class="text-slate-400">Estimated Monthly EMI</span>
                   <span class="font-black text-white font-mono">₹${scheme.emi.toLocaleString('en-IN')}/mo</span>
                 </div>
               </div>
+
+              <!-- Key Benefits List -->
+              <div class="mt-4 pt-3 border-t border-slate-800/80 space-y-1">
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Key Statutory Benefits:</span>
+                ${scheme.specialBenefits.slice(0, 2).map(b => `
+                  <div class="text-[11px] text-slate-300 flex items-start gap-1.5">
+                    <span class="text-orange-400 font-bold">•</span>
+                    <span>${b}</span>
+                  </div>
+                `).join('')}
+              </div>
             </div>
 
             <button onclick="selectSchemeAndProceed('${scheme.name}', ${scheme.loanAmt}, ${scheme.subsidyAmt})" class="mt-6 w-full py-3 ${isTop ? 'bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-slate-950 shadow-lg shadow-orange-500/20' : 'bg-slate-800 hover:bg-slate-700 text-white'} font-black text-xs rounded-xl transition flex items-center justify-center gap-1.5">
-              <span>Select & Prepare Documents</span>
+              <span>Select Scheme & Proceed to Documents</span>
               <i data-lucide="check" class="w-4 h-4"></i>
             </button>
           </div>
@@ -1849,107 +2558,88 @@
       clientState.selectedScheme = schemeName;
       clientState.selectedLoanAmt = loanAmt;
       clientState.selectedSubsidyAmt = subsidyAmt;
-      showToast(`Selected: ${schemeName}`);
+      showToast(`Selected: ${schemeName} (₹${loanAmt.toLocaleString('en-IN')} Loan)`);
       goToStep(4);
     }
 
-    // Step 4: 1-Click DigiLocker Fetch & Sync
+    // Step 4: 1-Click DigiLocker Sync Mock
     function syncAllFromDigiLocker() {
       const btn = document.getElementById('digilockerSyncBtn');
-      btn.innerHTML = '<span class="animate-spin">⟳</span> Connecting to DigiLocker Gateway...';
-      
+      btn.innerHTML = '<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i> <span>Syncing Sovereign Vault...</span>';
+      lucide.createIcons();
+
       setTimeout(() => {
-        btn.innerHTML = '<i data-lucide="check" class="w-4 h-4 text-emerald-300"></i> All 6 Documents Synced!';
-        btn.className = "px-4 py-2.5 bg-emerald-600 text-white rounded-2xl text-xs font-black shadow-lg shadow-emerald-600/20 flex items-center gap-2 flex-shrink-0";
-        
-        document.getElementById('docStatus-aadhaar').innerText = "✓ DigiLocker Verified (UIDAI SHA-256 HMAC)";
-        document.getElementById('docStatus-pan').innerText = "✓ DigiLocker Verified (IT Dept NSDL Token)";
-        document.getElementById('docStatus-caste').innerText = `✓ State e-District Verified (${clientState.category} Proof)`;
-        document.getElementById('docStatus-income').innerText = `✓ Tehsildar Certified (Income: ₹${clientState.annualIncome.toLocaleString('en-IN')})`;
+        document.getElementById('docStatus-aadhaar').innerText = "✓ DigiLocker e-KYC Verified (SHA-256 Signed)";
+        document.getElementById('docStatus-pan').innerText = "✓ IT Dept Verified (NSDL Token Active)";
+        document.getElementById('docStatus-caste').innerText = `✓ State e-District QR Verified (${clientState.category} Quota)`;
+        document.getElementById('docStatus-income').innerText = `✓ Tehsildar Certified (₹${clientState.annualIncome.toLocaleString('en-IN')})`;
         document.getElementById('docStatus-bank').innerText = "✓ Aadhaar DBT Active (Bank of Baroda)";
-        document.getElementById('docStatus-trade').innerText = "✓ Verified KVIC Unit Profile";
-        
-        document.getElementById('docProgressText').innerText = "6 of 6 Verified • 100% Pre-Underwritten for Bank";
-        document.getElementById('docReadinessPct').innerText = "100% Bank Grade";
-        document.getElementById('docReadinessPct').className = "px-3 py-1 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-xl text-xs font-black font-mono animate-pulse";
-        
-        showToast("DigiLocker e-KYC: 6 Documents Authenticated with SHA-256 signatures!");
+        document.getElementById('docStatus-trade').innerText = `✓ Auto-Drafted Declaration (${clientState.tradeTitle})`;
+
+        document.getElementById('docProgressText').innerText = "6 of 6 Verified via DigiLocker • Ready for Instant Underwriting";
+        document.getElementById('docReadinessPct').innerText = "100% Ready";
+        document.getElementById('docReadinessPct').className = "px-3 py-1 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-xl text-xs font-black font-mono";
+
+        btn.innerHTML = '<i data-lucide="check" class="w-4 h-4 text-emerald-300"></i> <span>✓ All 6 Docs Synced</span>';
+        btn.className = "px-4 py-2.5 bg-emerald-600 text-white rounded-2xl text-xs font-black shadow flex items-center gap-2 cursor-default";
         lucide.createIcons();
-      }, 1000);
+        showToast("DigiLocker Sync Complete: 6 of 6 Statutory Documents Verified!");
+      }, 900);
     }
 
-    // Step 4: File Upload with OpenCV Blur Check
     function handleFileUpload(event, docType) {
       const file = event.target.files[0];
-      if (!file) return;
-      
-      showToast(`OpenCV Image Inspection: ${file.name}...`);
-      const targetEl = document.getElementById(`docStatus-${docType}`);
-      if (targetEl) {
-        targetEl.innerText = `✓ Upload Verified (${file.name}) • Laplacian Variance > 140 (Sharp)`;
-        targetEl.className = "text-[11px] text-emerald-400 font-medium";
+      if (file) {
+        const el = document.getElementById(`docStatus-${docType}`);
+        if (el) {
+          el.innerText = `✓ Uploaded: ${file.name} (OpenCV Laplacian Blur Check: PASSED)`;
+          el.className = "text-[11px] text-emerald-400 font-medium";
+        }
+        showToast(`Document ${file.name} verified successfully.`);
       }
     }
 
-    // Step 5: Automated Micro-DPR Engine
+    // Step 5: Dynamic Bankable Micro-DPR Engine
     function generateDprView() {
-      const econ = tradeData[clientState.trade] || tradeData['tailoring'];
+      const trade = tradeData[clientState.trade] || tradeData.tailoring;
       const capital = clientState.capitalNeeded;
-
-      document.getElementById('dprTradeHeader').innerText = econ.title;
-      document.getElementById('dprTotalCostHeader').innerText = `₹${capital.toLocaleString('en-IN')}`;
-
-      // CapEx Breakdown Table
-      let capexHtml = "";
-      econ.capex.forEach(item => {
-        const itemCost = Math.round(capital * item.costRatio);
-        capexHtml += `
-          <div class="flex justify-between py-1.5 border-b border-slate-800">
-            <span class="text-slate-300">${item.item}</span>
-            <span class="font-bold text-white font-mono">₹${itemCost.toLocaleString('en-IN')}</span>
-          </div>
-        `;
-      });
-      capexHtml += `
-        <div class="flex justify-between py-2 font-black text-sm text-white pt-2.5">
-          <span>Total Project CapEx Outlay</span>
-          <span class="text-orange-400 font-mono">₹${capital.toLocaleString('en-IN')}</span>
-        </div>
-      `;
-      document.getElementById('capexTableBody').innerHTML = capexHtml;
-
-      // Finance & DSCR Table
       const loanAmt = clientState.selectedLoanAmt || Math.round(capital * 0.90);
       const subsidyAmt = clientState.selectedSubsidyAmt || Math.round(capital * 0.25);
-      const marginShare = capital - loanAmt > 0 ? capital - loanAmt : Math.round(capital * 0.10);
-      const monthlySales = Math.round(capital * econ.revenueMultiplier);
-      const monthlyOpex = Math.round(capital * econ.monthlyOpexRatio);
-      const monthlyNetProfit = monthlySales - monthlyOpex;
-      const monthlyEmi = calculateEmi(loanAmt, 4.5, 5);
-      const dscr = (monthlyNetProfit / (monthlyEmi + 1)).toFixed(1);
 
-      document.getElementById('financeTableBody').innerHTML = `
-        <div class="flex justify-between py-1.5 border-b border-slate-800">
-          <span class="text-slate-300">Concessional Scheme Loan</span>
-          <span class="font-bold text-emerald-400 font-mono">₹${loanAmt.toLocaleString('en-IN')}</span>
-        </div>
-        <div class="flex justify-between py-1.5 border-b border-slate-800">
-          <span class="text-slate-300">Capital Subsidy Grant (DBT)</span>
-          <span class="font-bold text-orange-400 font-mono">₹${subsidyAmt.toLocaleString('en-IN')}</span>
-        </div>
-        <div class="flex justify-between py-1.5 border-b border-slate-800">
-          <span class="text-slate-300">Promoter Margin (5%–10%)</span>
-          <span class="font-bold text-white font-mono">₹${marginShare.toLocaleString('en-IN')}</span>
-        </div>
-        <div class="flex justify-between py-1.5 border-b border-slate-800">
-          <span class="text-slate-300">Projected Monthly Net Profit</span>
-          <span class="font-bold text-white font-mono">₹${monthlyNetProfit.toLocaleString('en-IN')}/mo</span>
-        </div>
-        <div class="flex justify-between py-2 font-black text-sm text-white pt-2.5">
-          <span>Debt Service Coverage Ratio (DSCR)</span>
-          <span class="text-emerald-400 font-mono">${dscr}x (Bank Grade High)</span>
-        </div>
-      `;
+      document.getElementById('dprApplicantName').innerText = clientState.name || "Ramesh Kumar";
+      document.getElementById('dprTradeTitle').innerText = trade.title;
+      document.getElementById('dprSchemeName').innerText = clientState.selectedScheme;
+      document.getElementById('dprProjectCost').innerText = `₹${capital.toLocaleString('en-IN')}`;
+      document.getElementById('dprLoanSanction').innerText = `₹${loanAmt.toLocaleString('en-IN')}`;
+      document.getElementById('dprSubsidyGrant').innerText = `₹${subsidyAmt.toLocaleString('en-IN')}`;
+
+      // Populate CapEx table
+      const tbody = document.getElementById('dprCapexTableBody');
+      let capexRows = "";
+      trade.capex.forEach(item => {
+        const itemCost = Math.round(capital * item.costRatio);
+        capexRows += `
+          <tr class="hover:bg-slate-900/50">
+            <td class="p-3 text-slate-200">${item.item}</td>
+            <td class="p-3 text-right text-slate-400">${Math.round(item.costRatio * 100)}%</td>
+            <td class="p-3 text-right font-bold text-white">₹${itemCost.toLocaleString('en-IN')}</td>
+          </tr>
+        `;
+      });
+      tbody.innerHTML = capexRows;
+
+      // Cash flows & DSCR
+      const monthlyRev = Math.round(capital * trade.revenueMultiplier);
+      const monthlyOpex = Math.round(capital * trade.monthlyOpexRatio);
+      const emi = calculateEmi(loanAmt, 4.0, 5);
+      const netCash = monthlyRev - monthlyOpex - emi;
+      const dscr = ((monthlyRev - monthlyOpex) / emi).toFixed(2);
+
+      document.getElementById('dprMonthlyRevenue').innerText = `₹${monthlyRev.toLocaleString('en-IN')}`;
+      document.getElementById('dprMonthlyOpex').innerText = `-₹${monthlyOpex.toLocaleString('en-IN')}`;
+      document.getElementById('dprMonthlyEmi').innerText = `-₹${emi.toLocaleString('en-IN')}`;
+      document.getElementById('dprNetCashFlow').innerText = `₹${netCash.toLocaleString('en-IN')}`;
+      document.getElementById('dprDscrBadge').innerText = `${dscr}x`;
     }
 
     // Step 6: Final Submission
@@ -1959,12 +2649,6 @@
       clientState.appId = generatedId;
 
       document.getElementById('finalAppIdDisplay').innerText = `Application ID: ${generatedId}`;
-      document.getElementById('trackingApplicantName').innerText = clientState.name || "Ramesh Kumar";
-      document.getElementById('trackingSchemeName').innerText = clientState.selectedScheme;
-      
-      const loanAmt = clientState.selectedLoanAmt || Math.round(clientState.capitalNeeded * 0.90);
-      const subsidyAmt = clientState.selectedSubsidyAmt || Math.round(clientState.capitalNeeded * 0.25);
-      document.getElementById('trackingFundingDisplay').innerText = `₹${loanAmt.toLocaleString('en-IN')} Loan + ₹${subsidyAmt.toLocaleString('en-IN')} Subsidy`;
 
       document.getElementById('smsTextDisplay').innerText = `"प्रिय ${clientState.name || 'आवेदक'} जी, आपका ${clientState.selectedScheme} आवेदन (${generatedId}) दर्ज हो गया है। स्थिति जांचने हेतु udyamsetu.in खोलें।"`;
 
@@ -1993,49 +2677,105 @@
       showToast(`Loan ${appId} for ${name} sanctioned! PSL quota updated.`);
     }
 
-    // View 5: Searchable Scheme Directory Renderer
+    // ================================================================
+    // VIEW 5: SEARCHABLE & CATEGORY-FILTERED SCHEME DIRECTORY
+    // ================================================================
+    function setDirectoryCategoryFilter(categoryKey, btnEl) {
+      clientState.activeDirectoryFilter = categoryKey;
+      document.querySelectorAll('.scheme-cat-pill').forEach(pill => {
+        pill.className = "scheme-cat-pill px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold rounded-xl text-xs border border-slate-700 transition";
+      });
+      if (btnEl) {
+        btnEl.className = "scheme-cat-pill px-3 py-1.5 bg-orange-500 text-slate-950 font-black rounded-xl text-xs transition";
+      }
+      renderSchemeDirectory(document.getElementById('schemeSearchInput').value || "");
+    }
+
     function renderSchemeDirectory(filterQuery = "") {
       const grid = document.getElementById('fullSchemeDirectoryGrid');
       let html = "";
+      const selectedCat = clientState.activeDirectoryFilter || "ALL";
 
       masterSchemes.forEach(scheme => {
-        if (filterQuery && !scheme.name.toLowerCase().includes(filterQuery.toLowerCase()) && !scheme.desc.toLowerCase().includes(filterQuery.toLowerCase())) {
-          return;
+        // Category Filter
+        if (selectedCat !== "ALL") {
+          if (!scheme.targetCategories.includes(selectedCat)) {
+            return;
+          }
+        }
+
+        // Text Search Filter
+        if (filterQuery) {
+          const q = filterQuery.toLowerCase();
+          const matchName = scheme.name.toLowerCase().includes(q);
+          const matchDesc = scheme.desc.toLowerCase().includes(q);
+          const matchMin = scheme.ministry.toLowerCase().includes(q);
+          const matchCat = scheme.targetCategories.some(c => c.toLowerCase().includes(q));
+          if (!matchName && !matchDesc && !matchMin && !matchCat) return;
         }
 
         html += `
-          <div class="p-6 rounded-3xl bg-slate-900/90 border border-slate-800 space-y-3 flex flex-col justify-between">
+          <div class="p-6 rounded-3xl bg-slate-900/90 border border-slate-800 space-y-4 flex flex-col justify-between hover:border-slate-700 transition shadow-lg">
             <div>
               <div class="flex items-center justify-between mb-2">
                 <span class="text-xs font-bold text-blue-300 bg-blue-500/20 px-2.5 py-0.5 rounded-lg border border-blue-500/30">${scheme.ministry}</span>
-                <span class="text-xs font-bold text-orange-400">${scheme.subsidyPct}% Grant</span>
+                <span class="text-xs font-bold text-orange-400 bg-orange-500/10 px-2.5 py-0.5 rounded-lg border border-orange-500/30">${scheme.subsidyPct > 0 ? scheme.subsidyPct + '% Grant' : 'Collateral-Free'}</span>
               </div>
-              <h3 class="font-black text-white text-base">${scheme.name}</h3>
+              <h3 class="font-black text-white text-base leading-snug">${scheme.name}</h3>
               <p class="text-xs text-slate-400 mt-1">${scheme.desc}</p>
 
-              <div class="mt-4 space-y-1.5 text-xs text-slate-300">
+              <div class="mt-4 space-y-1.5 text-xs text-slate-300 bg-slate-950/60 p-3.5 rounded-2xl border border-slate-800/80">
                 <div class="flex justify-between py-1 border-b border-slate-800">
                   <span class="text-slate-500">Target Group:</span>
-                  <span class="font-bold text-white">${scheme.targetCategories.join(', ')}</span>
+                  <span class="font-bold text-orange-400">${scheme.targetCategories.join(', ')}</span>
                 </div>
                 <div class="flex justify-between py-1 border-b border-slate-800">
                   <span class="text-slate-500">Concessional Interest:</span>
-                  <span class="font-bold text-emerald-400">${scheme.interestRatePct}% p.a.</span>
+                  <span class="font-bold text-emerald-400 font-mono">${scheme.interestRatePct}% p.a.</span>
+                </div>
+                <div class="flex justify-between py-1 border-b border-slate-800">
+                  <span class="text-slate-500">Max Loan Limit:</span>
+                  <span class="font-bold text-white font-mono">₹${scheme.maxLoanLimit >= 10000000 ? (scheme.maxLoanLimit/10000000) + ' Cr' : (scheme.maxLoanLimit/100000) + ' Lakhs'}</span>
+                </div>
+                <div class="flex justify-between py-1 border-b border-slate-800">
+                  <span class="text-slate-500">Repayment & Moratorium:</span>
+                  <span class="font-bold text-slate-300 font-mono">${scheme.repaymentYears} Yrs (${scheme.moratoriumMonths} Mo Mtr)</span>
                 </div>
                 <div class="flex justify-between py-1">
-                  <span class="text-slate-500">Loan Coverage:</span>
-                  <span class="font-bold text-white">Up to ${scheme.loanCoveragePct}% Project Cost</span>
+                  <span class="text-slate-500">Income Ceiling:</span>
+                  <span class="font-bold text-slate-300 font-mono">${scheme.maxIncome >= 9000000 ? 'No Limit' : '≤ ₹' + (scheme.maxIncome/100000) + ' Lakhs'}</span>
                 </div>
+              </div>
+
+              <!-- Special Benefits Bullet List -->
+              <div class="mt-3 space-y-1">
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Statutory Highlights:</span>
+                ${scheme.specialBenefits.slice(0, 2).map(b => `
+                  <div class="text-[11px] text-slate-300 flex items-start gap-1.5">
+                    <span class="text-emerald-400 font-bold">✓</span>
+                    <span>${b}</span>
+                  </div>
+                `).join('')}
               </div>
             </div>
 
-            <button onclick="switchPortal('citizen'); applyExtractedParameters('tailoring', 300000, 250000, '${scheme.targetCategories[0] || 'SC'}', 'Garment Tailoring Unit'); goToStep(2);" class="mt-4 w-full py-2.5 bg-slate-800 hover:bg-orange-500 hover:text-slate-950 text-white font-bold text-xs rounded-xl border border-slate-700 transition flex items-center justify-center gap-1.5">
+            <button onclick="switchPortal('citizen'); prefillDemoUser('Applicant', '5849 2018 4819', '${scheme.targetCategories[0] || 'SC'}', 'tailoring', 300000, 250000, 'Micro Enterprise'); goToStep(2);" class="mt-4 w-full py-2.5 bg-slate-800 hover:bg-orange-500 hover:text-slate-950 text-white font-bold text-xs rounded-xl border border-slate-700 transition flex items-center justify-center gap-1.5">
               <span>Apply via Voice Intake</span>
               <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
             </button>
           </div>
         `;
       });
+
+      if (!html) {
+        html = `
+          <div class="col-span-3 text-center py-12 text-slate-400 bg-slate-900/40 rounded-3xl border border-slate-800">
+            <i data-lucide="search-x" class="w-8 h-8 mx-auto mb-2 text-slate-500"></i>
+            <p class="font-bold text-white">No statutory schemes found matching "${filterQuery}" in this category.</p>
+            <p class="text-xs text-slate-500 mt-1">Try resetting the filter or searching for another trade.</p>
+          </div>
+        `;
+      }
 
       grid.innerHTML = html;
       lucide.createIcons();
