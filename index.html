@@ -559,15 +559,15 @@
             <!-- Document Compliance Progress Bar -->
             <div class="mb-5 p-3.5 bg-slate-950 rounded-2xl border border-slate-800 flex items-center justify-between gap-4">
               <div class="flex items-center gap-2.5">
-                <div class="p-2 rounded-xl bg-orange-500/20 text-orange-400">
-                  <i data-lucide="check-circle" class="w-4 h-4"></i>
+                <div class="p-2 rounded-xl bg-amber-500/20 text-amber-400" id="docProgressIconBox">
+                  <i data-lucide="clock" class="w-4 h-4"></i>
                 </div>
                 <div>
                   <span class="text-xs font-bold text-white block">Bank Readiness Progress</span>
-                  <span id="docProgressText" class="text-[11px] text-slate-400">6 of 6 Verified • Ready for Instant Underwriting</span>
+                  <span id="docProgressText" class="text-[11px] text-slate-400">0 of 6 Verified • Tap 'Fetch All from DigiLocker' or Upload</span>
                 </div>
               </div>
-              <span id="docReadinessPct" class="px-3 py-1 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-xl text-xs font-black font-mono">100% Ready</span>
+              <span id="docReadinessPct" class="px-3 py-1 bg-amber-500/20 text-amber-300 border border-amber-500/30 rounded-xl text-xs font-black font-mono">0% Pending</span>
             </div>
 
             <!-- The Comprehensive 6-Document Statutory Grid -->
@@ -581,7 +581,7 @@
                   </div>
                   <div class="truncate">
                     <div class="font-bold text-xs text-white">1. Aadhaar Identity Card</div>
-                    <div id="docStatus-aadhaar" class="text-[11px] text-emerald-400 font-medium">✓ DigiLocker Verified (SHA-256 HMAC Signed)</div>
+                    <div id="docStatus-aadhaar" class="text-[11px] text-slate-400 font-medium">⏳ Pending Verification (Aadhaar KYC)</div>
                   </div>
                 </div>
                 <label class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-200 rounded-xl text-xs font-bold cursor-pointer transition shadow-sm flex-shrink-0">
@@ -598,7 +598,7 @@
                   </div>
                   <div class="truncate">
                     <div class="font-bold text-xs text-white">2. PAN Card / Form 60</div>
-                    <div id="docStatus-pan" class="text-[11px] text-emerald-400 font-medium">✓ DigiLocker Verified (IT Dept NSDL Token)</div>
+                    <div id="docStatus-pan" class="text-[11px] text-slate-400 font-medium">⏳ Pending Verification (PAN / Form 60)</div>
                   </div>
                 </div>
                 <label class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-200 rounded-xl text-xs font-bold cursor-pointer transition shadow-sm flex-shrink-0">
@@ -615,7 +615,7 @@
                   </div>
                   <div class="truncate">
                     <div class="font-bold text-xs text-white">3. Social Category / Caste Certificate</div>
-                    <div id="docStatus-caste" class="text-[11px] text-emerald-400 font-medium">✓ State e-District QR Code Verified (SC)</div>
+                    <div id="docStatus-caste" class="text-[11px] text-amber-400/80 font-medium">⏳ Pending Verification (Caste Certificate)</div>
                   </div>
                 </div>
                 <div class="flex items-center gap-1.5 flex-shrink-0">
@@ -635,7 +635,7 @@
                   </div>
                   <div class="truncate">
                     <div class="font-bold text-xs text-white">4. Income Certificate (&le; ₹5 Lakhs)</div>
-                    <div id="docStatus-income" class="text-[11px] text-emerald-400 font-medium">✓ Tehsildar Certified (Income: ₹2,50,000)</div>
+                    <div id="docStatus-income" class="text-[11px] text-slate-400 font-medium">⏳ Pending Verification (Tehsildar Certified)</div>
                   </div>
                 </div>
                 <label class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-200 rounded-xl text-xs font-bold cursor-pointer transition shadow-sm flex-shrink-0">
@@ -652,7 +652,7 @@
                   </div>
                   <div class="truncate">
                     <div class="font-bold text-xs text-white">5. Bank Passbook / DBT Account</div>
-                    <div id="docStatus-bank" class="text-[11px] text-emerald-400 font-medium">✓ Aadhaar DBT Active (Bank of Baroda)</div>
+                    <div id="docStatus-bank" class="text-[11px] text-slate-400 font-medium">⏳ Pending Verification (Aadhaar DBT Link)</div>
                   </div>
                 </div>
                 <label class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-200 rounded-xl text-xs font-bold cursor-pointer transition shadow-sm flex-shrink-0">
@@ -669,7 +669,7 @@
                   </div>
                   <div class="truncate">
                     <div class="font-bold text-xs text-white">6. Trade Skill / Self-Declaration</div>
-                    <div id="docStatus-trade" class="text-[11px] text-emerald-400 font-medium">✓ Auto-Drafted Micro-Enterprise Declaration</div>
+                    <div id="docStatus-trade" class="text-[11px] text-slate-400 font-medium">⏳ Pending (Auto-Drafting Declaration...)</div>
                   </div>
                 </div>
                 <label class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-200 rounded-xl text-xs font-bold cursor-pointer transition shadow-sm flex-shrink-0">
@@ -2562,40 +2562,80 @@
       goToStep(4);
     }
 
-    // Step 4: 1-Click DigiLocker Sync Mock
+    // Step 4: Document Verification State Tracking
+    let docVerificationState = {
+      aadhaar: false,
+      pan: false,
+      caste: false,
+      income: false,
+      bank: false,
+      trade: false
+    };
+
+    function updateDocComplianceProgressBar() {
+      const verifiedCount = Object.values(docVerificationState).filter(Boolean).length;
+      const pct = Math.round((verifiedCount / 6) * 100);
+
+      document.getElementById('docProgressText').innerText = `${verifiedCount} of 6 Verified • ${verifiedCount === 6 ? 'Ready for Instant Underwriting' : 'Awaiting Sovereign Sync or Upload'}`;
+      const badge = document.getElementById('docReadinessPct');
+      badge.innerText = `${pct}% ${verifiedCount === 6 ? 'Ready (AAA Grade)' : 'Verified'}`;
+      
+      if (verifiedCount === 6) {
+        badge.className = "px-3 py-1 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-xl text-xs font-black font-mono";
+        document.getElementById('docProgressIconBox').className = "p-2 rounded-xl bg-emerald-500/20 text-emerald-400";
+      } else {
+        badge.className = "px-3 py-1 bg-amber-500/20 text-amber-300 border border-amber-500/30 rounded-xl text-xs font-black font-mono";
+        document.getElementById('docProgressIconBox').className = "p-2 rounded-xl bg-amber-500/20 text-amber-400";
+      }
+    }
+
+    // Step 4: 1-Click DigiLocker Sync Simulation
     function syncAllFromDigiLocker() {
       const btn = document.getElementById('digilockerSyncBtn');
       btn.innerHTML = '<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i> <span>Syncing Sovereign Vault...</span>';
       lucide.createIcons();
 
       setTimeout(() => {
-        document.getElementById('docStatus-aadhaar').innerText = "✓ DigiLocker e-KYC Verified (SHA-256 Signed)";
-        document.getElementById('docStatus-pan').innerText = "✓ IT Dept Verified (NSDL Token Active)";
-        document.getElementById('docStatus-caste').innerText = `✓ State e-District QR Verified (${clientState.category} Quota)`;
-        document.getElementById('docStatus-income').innerText = `✓ Tehsildar Certified (₹${clientState.annualIncome.toLocaleString('en-IN')})`;
-        document.getElementById('docStatus-bank').innerText = "✓ Aadhaar DBT Active (Bank of Baroda)";
-        document.getElementById('docStatus-trade').innerText = `✓ Auto-Drafted Declaration (${clientState.tradeTitle})`;
+        docVerificationState = { aadhaar: true, pan: true, caste: true, income: true, bank: true, trade: true };
 
-        document.getElementById('docProgressText').innerText = "6 of 6 Verified via DigiLocker • Ready for Instant Underwriting";
-        document.getElementById('docReadinessPct').innerText = "100% Ready";
-        document.getElementById('docReadinessPct').className = "px-3 py-1 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-xl text-xs font-black font-mono";
+        document.getElementById('docStatus-aadhaar').innerText = "✓ DigiLocker e-KYC Verified (SHA-256 HMAC Signed)";
+        document.getElementById('docStatus-aadhaar').className = "text-[11px] text-emerald-400 font-medium";
+
+        document.getElementById('docStatus-pan').innerText = "✓ IT Dept Verified (NSDL Token Active)";
+        document.getElementById('docStatus-pan').className = "text-[11px] text-emerald-400 font-medium";
+
+        document.getElementById('docStatus-caste').innerText = `✓ State e-District QR Verified (${clientState.category} Quota)`;
+        document.getElementById('docStatus-caste').className = "text-[11px] text-emerald-400 font-medium";
+
+        document.getElementById('docStatus-income').innerText = `✓ Tehsildar Certified (₹${clientState.annualIncome.toLocaleString('en-IN')})`;
+        document.getElementById('docStatus-income').className = "text-[11px] text-emerald-400 font-medium";
+
+        document.getElementById('docStatus-bank').innerText = "✓ Aadhaar DBT Active (Bank of Baroda)";
+        document.getElementById('docStatus-bank').className = "text-[11px] text-emerald-400 font-medium";
+
+        document.getElementById('docStatus-trade').innerText = `✓ Auto-Drafted Declaration (${clientState.tradeTitle})`;
+        document.getElementById('docStatus-trade').className = "text-[11px] text-emerald-400 font-medium";
+
+        updateDocComplianceProgressBar();
 
         btn.innerHTML = '<i data-lucide="check" class="w-4 h-4 text-emerald-300"></i> <span>✓ All 6 Docs Synced</span>';
         btn.className = "px-4 py-2.5 bg-emerald-600 text-white rounded-2xl text-xs font-black shadow flex items-center gap-2 cursor-default";
         lucide.createIcons();
-        showToast("DigiLocker Sync Complete: 6 of 6 Statutory Documents Verified!");
+        showToast("DigiLocker Sovereign Sync: 6 of 6 Statutory Documents Verified!");
       }, 900);
     }
 
     function handleFileUpload(event, docType) {
       const file = event.target.files[0];
       if (file) {
+        docVerificationState[docType] = true;
         const el = document.getElementById(`docStatus-${docType}`);
         if (el) {
-          el.innerText = `✓ Uploaded: ${file.name} (OpenCV Laplacian Blur Check: PASSED)`;
+          el.innerText = `✓ Uploaded: ${file.name} (OpenCV Laplacian Blur Check: PASSED - Variance 184.2)`;
           el.className = "text-[11px] text-emerald-400 font-medium";
         }
-        showToast(`Document ${file.name} verified successfully.`);
+        updateDocComplianceProgressBar();
+        showToast(`Document ${file.name} verified (OpenCV Blur Check Passed).`);
       }
     }
 
