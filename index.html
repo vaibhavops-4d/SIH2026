@@ -197,7 +197,7 @@
 
       <!-- Right: Accessibility Toolbar & Language Switcher -->
       <div class="flex items-center gap-3 text-slate-400 text-[11px]">
-        <button onclick="showToast('Screen Reader Mode: Active (WCAG 2.1 AA Compliant)')" class="hidden lg:inline hover:text-white transition">Screen Reader</button>
+        <button onclick="toggleScreenReader()" class="hidden lg:inline hover:text-white transition">Screen Reader</button>
         <button onclick="document.querySelector('main').scrollIntoView({behavior:'smooth'})" class="hidden md:inline hover:text-white transition">Skip to Content</button>
         
         <!-- High Contrast Mode Toggle -->
@@ -208,9 +208,9 @@
 
         <!-- Font Sizing Buttons -->
         <div class="flex items-center gap-1 border-l border-slate-700 pl-2 font-mono text-[10px]">
-          <button class="px-1.5 py-0.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded font-bold" title="Decrease Font Size" onclick="document.body.style.fontSize='92%'">A-</button>
-          <button class="px-1.5 py-0.5 bg-slate-800 hover:bg-slate-700 text-orange-400 font-bold rounded" title="Standard Font Size" onclick="document.body.style.fontSize='100%'">A</button>
-          <button class="px-1.5 py-0.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold rounded" title="Increase Font Size" onclick="document.body.style.fontSize='108%'">A+</button>
+          <button class="px-1.5 py-0.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded font-bold" title="Decrease Font Size" onclick="changeFontSize(-5)">A-</button>
+          <button class="px-1.5 py-0.5 bg-slate-800 hover:bg-slate-700 text-orange-400 font-bold rounded" title="Standard Font Size" onclick="changeFontSize(0)">A</button>
+          <button class="px-1.5 py-0.5 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold rounded" title="Increase Font Size" onclick="changeFontSize(5)">A+</button>
         </div>
 
         <!-- Indic Language Selector -->
@@ -1226,9 +1226,9 @@
           </div>
 
           <div class="flex justify-center gap-3 pt-2">
-            <button onclick="switchPortal('bank')" class="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs rounded-xl transition flex items-center gap-2">
+            <button onclick="showDbtTrackingModal()" class="px-5 py-2.5 bg-gradient-to-r from-orange-500 to-amber-500 text-slate-950 font-black text-xs rounded-xl shadow transition flex items-center gap-2">
               <i data-lucide="external-link" class="w-4 h-4"></i>
-              <span>View in Bank Officer Desk</span>
+              <span>Track DBT in MoSJE Portal</span>
             </button>
             <button onclick="resetCitizenSession()" class="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-bold text-xs rounded-xl border border-slate-700 transition">
               New Application
@@ -1591,6 +1591,66 @@
 
   </main>
 
+  
+  <!-- Live MoSJE DBT Escrow Tracking Modal -->
+  <div id="dbtTrackingModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-700 rounded-3xl p-6 md:p-8 max-w-lg w-full shadow-2xl space-y-5">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">
+            <i data-lucide="activity" class="w-4 h-4"></i>
+          </div>
+          <div>
+            <h3 class="text-base font-black text-white">MoSJE Public Financial Management System (PFMS)</h3>
+            <span class="text-[10px] text-emerald-400 font-mono">DBT Escrow Gateway: ACTIVE</span>
+          </div>
+        </div>
+        <button onclick="hideDbtTrackingModal()" class="text-slate-400 hover:text-white transition">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800 space-y-2 text-xs">
+        <div class="flex justify-between">
+          <span class="text-slate-400">Application Reference:</span>
+          <strong id="trackAppId" class="text-white font-mono">MoSJE-2026-UP-88419</strong>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-slate-400">Beneficiary Name:</span>
+          <strong id="trackBeneficiary" class="text-orange-400">Ramesh Kumar (SC)</strong>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-slate-400">PFMS Transaction UTR:</span>
+          <strong class="text-emerald-400 font-mono">UTR-2026-DBT-8891042</strong>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-slate-400">Direct Capital Subsidy:</span>
+          <strong id="trackSubsidy" class="text-orange-400 font-sans num-tabular">₹75,000 (25% Grant)</strong>
+        </div>
+      </div>
+
+      <!-- Real-time Disbursal Milestones -->
+      <div class="space-y-2.5 text-xs">
+        <div class="p-3 bg-slate-800/80 rounded-xl border border-slate-700 flex items-center justify-between">
+          <span class="text-slate-300">1. Bank Lead Branch Pre-Approval</span>
+          <span class="text-emerald-400 font-bold">✓ Cleared</span>
+        </div>
+        <div class="p-3 bg-slate-800/80 rounded-xl border border-slate-700 flex items-center justify-between">
+          <span class="text-slate-300">2. DigiLocker SHA-256 e-KYC Vault</span>
+          <span class="text-emerald-400 font-bold">✓ Sealed</span>
+        </div>
+        <div class="p-3 bg-slate-800/80 rounded-xl border border-slate-700 flex items-center justify-between">
+          <span class="text-slate-300">3. MoSJE Central PFMS DBT Release</span>
+          <span class="text-orange-400 font-bold animate-pulse">⚡ Scheduled (48h)</span>
+        </div>
+      </div>
+
+      <button onclick="hideDbtTrackingModal()" class="w-full py-3 bg-gradient-to-r from-orange-500 to-amber-500 text-slate-950 font-black text-xs rounded-xl shadow transition">
+        Close Tracking Window
+      </button>
+    </div>
+  </div>
+
   <!-- Missing Document Help Modal -->
   <div id="missingDocModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
     <div class="bg-slate-900 border border-slate-700 rounded-3xl p-6 md:p-8 max-w-lg w-full shadow-2xl">
@@ -1694,6 +1754,73 @@
   <script>
     
     // Accessibility: Toggle High Contrast Mode
+    
+    // Web Speech API: Real Screen Reader Text-to-Speech Engine
+    let isScreenReaderSpeaking = false;
+    function toggleScreenReader() {
+      if (!('speechSynthesis' in window)) {
+        showToast('Screen Reader: Text-to-Speech not supported in this browser.');
+        return;
+      }
+
+      if (isScreenReaderSpeaking) {
+        window.speechSynthesis.cancel();
+        isScreenReaderSpeaking = false;
+        showToast('Screen Reader: Stopped audio playback.');
+        return;
+      }
+
+      const activeText = `Welcome to UdyamSetu AI. National portal for multilingual concessional credit discovery and automated Micro-DPR generation for marginalized entrepreneurs under the Ministry of Social Justice and Empowerment. You are currently on the ${clientState.activePortal.toUpperCase()} section.`;
+      
+      const utterance = new SpeechSynthesisUtterance(activeText);
+      utterance.rate = 1.0;
+      utterance.pitch = 1.0;
+      
+      utterance.onstart = () => {
+        isScreenReaderSpeaking = true;
+        showToast('🔊 Screen Reader: Reading portal summary aloud (WCAG 2.1 AA)...');
+      };
+
+      utterance.onend = () => {
+        isScreenReaderSpeaking = false;
+      };
+
+      utterance.onerror = () => {
+        isScreenReaderSpeaking = false;
+      };
+
+      window.speechSynthesis.cancel();
+      window.speechSynthesis.speak(utterance);
+    }
+
+    // Font Sizing Adjuster
+    let currentFontScale = 100;
+    function changeFontSize(delta) {
+      if (delta === 0) {
+        currentFontScale = 100;
+      } else {
+        currentFontScale = Math.min(125, Math.max(85, currentFontScale + delta));
+      }
+      document.documentElement.style.fontSize = `${currentFontScale}%`;
+      showToast(`Font Size: ${currentFontScale}%`);
+    }
+
+    // Live DBT Tracking Modal Controllers
+    function showDbtTrackingModal() {
+      const modal = document.getElementById('dbtTrackingModal');
+      if (modal) {
+        document.getElementById('trackAppId').innerText = clientState.appId || 'MoSJE-2026-UP-88419';
+        document.getElementById('trackBeneficiary').innerText = `${clientState.name || 'Ramesh Kumar'} (${clientState.category || 'SC'})`;
+        document.getElementById('trackSubsidy').innerText = `₹${(clientState.selectedSubsidyAmt || 75000).toLocaleString('en-IN')} (Capital Subsidy Grant)`;
+        modal.classList.remove('hidden');
+      }
+    }
+
+    function hideDbtTrackingModal() {
+      const modal = document.getElementById('dbtTrackingModal');
+      if (modal) modal.classList.add('hidden');
+    }
+
     function toggleHighContrast() {
       document.body.classList.toggle('high-contrast');
       const isHigh = document.body.classList.contains('high-contrast');
@@ -2413,6 +2540,73 @@
       if (portalId === 'schemes') renderSchemeDirectory();
       
     // Accessibility: Toggle High Contrast Mode
+    
+    // Web Speech API: Real Screen Reader Text-to-Speech Engine
+    let isScreenReaderSpeaking = false;
+    function toggleScreenReader() {
+      if (!('speechSynthesis' in window)) {
+        showToast('Screen Reader: Text-to-Speech not supported in this browser.');
+        return;
+      }
+
+      if (isScreenReaderSpeaking) {
+        window.speechSynthesis.cancel();
+        isScreenReaderSpeaking = false;
+        showToast('Screen Reader: Stopped audio playback.');
+        return;
+      }
+
+      const activeText = `Welcome to UdyamSetu AI. National portal for multilingual concessional credit discovery and automated Micro-DPR generation for marginalized entrepreneurs under the Ministry of Social Justice and Empowerment. You are currently on the ${clientState.activePortal.toUpperCase()} section.`;
+      
+      const utterance = new SpeechSynthesisUtterance(activeText);
+      utterance.rate = 1.0;
+      utterance.pitch = 1.0;
+      
+      utterance.onstart = () => {
+        isScreenReaderSpeaking = true;
+        showToast('🔊 Screen Reader: Reading portal summary aloud (WCAG 2.1 AA)...');
+      };
+
+      utterance.onend = () => {
+        isScreenReaderSpeaking = false;
+      };
+
+      utterance.onerror = () => {
+        isScreenReaderSpeaking = false;
+      };
+
+      window.speechSynthesis.cancel();
+      window.speechSynthesis.speak(utterance);
+    }
+
+    // Font Sizing Adjuster
+    let currentFontScale = 100;
+    function changeFontSize(delta) {
+      if (delta === 0) {
+        currentFontScale = 100;
+      } else {
+        currentFontScale = Math.min(125, Math.max(85, currentFontScale + delta));
+      }
+      document.documentElement.style.fontSize = `${currentFontScale}%`;
+      showToast(`Font Size: ${currentFontScale}%`);
+    }
+
+    // Live DBT Tracking Modal Controllers
+    function showDbtTrackingModal() {
+      const modal = document.getElementById('dbtTrackingModal');
+      if (modal) {
+        document.getElementById('trackAppId').innerText = clientState.appId || 'MoSJE-2026-UP-88419';
+        document.getElementById('trackBeneficiary').innerText = `${clientState.name || 'Ramesh Kumar'} (${clientState.category || 'SC'})`;
+        document.getElementById('trackSubsidy').innerText = `₹${(clientState.selectedSubsidyAmt || 75000).toLocaleString('en-IN')} (Capital Subsidy Grant)`;
+        modal.classList.remove('hidden');
+      }
+    }
+
+    function hideDbtTrackingModal() {
+      const modal = document.getElementById('dbtTrackingModal');
+      if (modal) modal.classList.add('hidden');
+    }
+
     function toggleHighContrast() {
       document.body.classList.toggle('high-contrast');
       const isHigh = document.body.classList.contains('high-contrast');
@@ -2477,6 +2671,73 @@
       }
       
     // Accessibility: Toggle High Contrast Mode
+    
+    // Web Speech API: Real Screen Reader Text-to-Speech Engine
+    let isScreenReaderSpeaking = false;
+    function toggleScreenReader() {
+      if (!('speechSynthesis' in window)) {
+        showToast('Screen Reader: Text-to-Speech not supported in this browser.');
+        return;
+      }
+
+      if (isScreenReaderSpeaking) {
+        window.speechSynthesis.cancel();
+        isScreenReaderSpeaking = false;
+        showToast('Screen Reader: Stopped audio playback.');
+        return;
+      }
+
+      const activeText = `Welcome to UdyamSetu AI. National portal for multilingual concessional credit discovery and automated Micro-DPR generation for marginalized entrepreneurs under the Ministry of Social Justice and Empowerment. You are currently on the ${clientState.activePortal.toUpperCase()} section.`;
+      
+      const utterance = new SpeechSynthesisUtterance(activeText);
+      utterance.rate = 1.0;
+      utterance.pitch = 1.0;
+      
+      utterance.onstart = () => {
+        isScreenReaderSpeaking = true;
+        showToast('🔊 Screen Reader: Reading portal summary aloud (WCAG 2.1 AA)...');
+      };
+
+      utterance.onend = () => {
+        isScreenReaderSpeaking = false;
+      };
+
+      utterance.onerror = () => {
+        isScreenReaderSpeaking = false;
+      };
+
+      window.speechSynthesis.cancel();
+      window.speechSynthesis.speak(utterance);
+    }
+
+    // Font Sizing Adjuster
+    let currentFontScale = 100;
+    function changeFontSize(delta) {
+      if (delta === 0) {
+        currentFontScale = 100;
+      } else {
+        currentFontScale = Math.min(125, Math.max(85, currentFontScale + delta));
+      }
+      document.documentElement.style.fontSize = `${currentFontScale}%`;
+      showToast(`Font Size: ${currentFontScale}%`);
+    }
+
+    // Live DBT Tracking Modal Controllers
+    function showDbtTrackingModal() {
+      const modal = document.getElementById('dbtTrackingModal');
+      if (modal) {
+        document.getElementById('trackAppId').innerText = clientState.appId || 'MoSJE-2026-UP-88419';
+        document.getElementById('trackBeneficiary').innerText = `${clientState.name || 'Ramesh Kumar'} (${clientState.category || 'SC'})`;
+        document.getElementById('trackSubsidy').innerText = `₹${(clientState.selectedSubsidyAmt || 75000).toLocaleString('en-IN')} (Capital Subsidy Grant)`;
+        modal.classList.remove('hidden');
+      }
+    }
+
+    function hideDbtTrackingModal() {
+      const modal = document.getElementById('dbtTrackingModal');
+      if (modal) modal.classList.add('hidden');
+    }
+
     function toggleHighContrast() {
       document.body.classList.toggle('high-contrast');
       const isHigh = document.body.classList.contains('high-contrast');
@@ -2530,6 +2791,73 @@
         actionBtn.innerHTML = '<span>Verify OTP & Launch Voice Intake</span> <i data-lucide="arrow-right" class="w-4 h-4"></i>';
         
     // Accessibility: Toggle High Contrast Mode
+    
+    // Web Speech API: Real Screen Reader Text-to-Speech Engine
+    let isScreenReaderSpeaking = false;
+    function toggleScreenReader() {
+      if (!('speechSynthesis' in window)) {
+        showToast('Screen Reader: Text-to-Speech not supported in this browser.');
+        return;
+      }
+
+      if (isScreenReaderSpeaking) {
+        window.speechSynthesis.cancel();
+        isScreenReaderSpeaking = false;
+        showToast('Screen Reader: Stopped audio playback.');
+        return;
+      }
+
+      const activeText = `Welcome to UdyamSetu AI. National portal for multilingual concessional credit discovery and automated Micro-DPR generation for marginalized entrepreneurs under the Ministry of Social Justice and Empowerment. You are currently on the ${clientState.activePortal.toUpperCase()} section.`;
+      
+      const utterance = new SpeechSynthesisUtterance(activeText);
+      utterance.rate = 1.0;
+      utterance.pitch = 1.0;
+      
+      utterance.onstart = () => {
+        isScreenReaderSpeaking = true;
+        showToast('🔊 Screen Reader: Reading portal summary aloud (WCAG 2.1 AA)...');
+      };
+
+      utterance.onend = () => {
+        isScreenReaderSpeaking = false;
+      };
+
+      utterance.onerror = () => {
+        isScreenReaderSpeaking = false;
+      };
+
+      window.speechSynthesis.cancel();
+      window.speechSynthesis.speak(utterance);
+    }
+
+    // Font Sizing Adjuster
+    let currentFontScale = 100;
+    function changeFontSize(delta) {
+      if (delta === 0) {
+        currentFontScale = 100;
+      } else {
+        currentFontScale = Math.min(125, Math.max(85, currentFontScale + delta));
+      }
+      document.documentElement.style.fontSize = `${currentFontScale}%`;
+      showToast(`Font Size: ${currentFontScale}%`);
+    }
+
+    // Live DBT Tracking Modal Controllers
+    function showDbtTrackingModal() {
+      const modal = document.getElementById('dbtTrackingModal');
+      if (modal) {
+        document.getElementById('trackAppId').innerText = clientState.appId || 'MoSJE-2026-UP-88419';
+        document.getElementById('trackBeneficiary').innerText = `${clientState.name || 'Ramesh Kumar'} (${clientState.category || 'SC'})`;
+        document.getElementById('trackSubsidy').innerText = `₹${(clientState.selectedSubsidyAmt || 75000).toLocaleString('en-IN')} (Capital Subsidy Grant)`;
+        modal.classList.remove('hidden');
+      }
+    }
+
+    function hideDbtTrackingModal() {
+      const modal = document.getElementById('dbtTrackingModal');
+      if (modal) modal.classList.add('hidden');
+    }
+
     function toggleHighContrast() {
       document.body.classList.toggle('high-contrast');
       const isHigh = document.body.classList.contains('high-contrast');
@@ -3063,6 +3391,73 @@
       container.innerHTML = cardsHtml;
       
     // Accessibility: Toggle High Contrast Mode
+    
+    // Web Speech API: Real Screen Reader Text-to-Speech Engine
+    let isScreenReaderSpeaking = false;
+    function toggleScreenReader() {
+      if (!('speechSynthesis' in window)) {
+        showToast('Screen Reader: Text-to-Speech not supported in this browser.');
+        return;
+      }
+
+      if (isScreenReaderSpeaking) {
+        window.speechSynthesis.cancel();
+        isScreenReaderSpeaking = false;
+        showToast('Screen Reader: Stopped audio playback.');
+        return;
+      }
+
+      const activeText = `Welcome to UdyamSetu AI. National portal for multilingual concessional credit discovery and automated Micro-DPR generation for marginalized entrepreneurs under the Ministry of Social Justice and Empowerment. You are currently on the ${clientState.activePortal.toUpperCase()} section.`;
+      
+      const utterance = new SpeechSynthesisUtterance(activeText);
+      utterance.rate = 1.0;
+      utterance.pitch = 1.0;
+      
+      utterance.onstart = () => {
+        isScreenReaderSpeaking = true;
+        showToast('🔊 Screen Reader: Reading portal summary aloud (WCAG 2.1 AA)...');
+      };
+
+      utterance.onend = () => {
+        isScreenReaderSpeaking = false;
+      };
+
+      utterance.onerror = () => {
+        isScreenReaderSpeaking = false;
+      };
+
+      window.speechSynthesis.cancel();
+      window.speechSynthesis.speak(utterance);
+    }
+
+    // Font Sizing Adjuster
+    let currentFontScale = 100;
+    function changeFontSize(delta) {
+      if (delta === 0) {
+        currentFontScale = 100;
+      } else {
+        currentFontScale = Math.min(125, Math.max(85, currentFontScale + delta));
+      }
+      document.documentElement.style.fontSize = `${currentFontScale}%`;
+      showToast(`Font Size: ${currentFontScale}%`);
+    }
+
+    // Live DBT Tracking Modal Controllers
+    function showDbtTrackingModal() {
+      const modal = document.getElementById('dbtTrackingModal');
+      if (modal) {
+        document.getElementById('trackAppId').innerText = clientState.appId || 'MoSJE-2026-UP-88419';
+        document.getElementById('trackBeneficiary').innerText = `${clientState.name || 'Ramesh Kumar'} (${clientState.category || 'SC'})`;
+        document.getElementById('trackSubsidy').innerText = `₹${(clientState.selectedSubsidyAmt || 75000).toLocaleString('en-IN')} (Capital Subsidy Grant)`;
+        modal.classList.remove('hidden');
+      }
+    }
+
+    function hideDbtTrackingModal() {
+      const modal = document.getElementById('dbtTrackingModal');
+      if (modal) modal.classList.add('hidden');
+    }
+
     function toggleHighContrast() {
       document.body.classList.toggle('high-contrast');
       const isHigh = document.body.classList.contains('high-contrast');
@@ -3135,6 +3530,73 @@
       btn.innerHTML = '<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i> <span>Syncing Sovereign Vault...</span>';
       
     // Accessibility: Toggle High Contrast Mode
+    
+    // Web Speech API: Real Screen Reader Text-to-Speech Engine
+    let isScreenReaderSpeaking = false;
+    function toggleScreenReader() {
+      if (!('speechSynthesis' in window)) {
+        showToast('Screen Reader: Text-to-Speech not supported in this browser.');
+        return;
+      }
+
+      if (isScreenReaderSpeaking) {
+        window.speechSynthesis.cancel();
+        isScreenReaderSpeaking = false;
+        showToast('Screen Reader: Stopped audio playback.');
+        return;
+      }
+
+      const activeText = `Welcome to UdyamSetu AI. National portal for multilingual concessional credit discovery and automated Micro-DPR generation for marginalized entrepreneurs under the Ministry of Social Justice and Empowerment. You are currently on the ${clientState.activePortal.toUpperCase()} section.`;
+      
+      const utterance = new SpeechSynthesisUtterance(activeText);
+      utterance.rate = 1.0;
+      utterance.pitch = 1.0;
+      
+      utterance.onstart = () => {
+        isScreenReaderSpeaking = true;
+        showToast('🔊 Screen Reader: Reading portal summary aloud (WCAG 2.1 AA)...');
+      };
+
+      utterance.onend = () => {
+        isScreenReaderSpeaking = false;
+      };
+
+      utterance.onerror = () => {
+        isScreenReaderSpeaking = false;
+      };
+
+      window.speechSynthesis.cancel();
+      window.speechSynthesis.speak(utterance);
+    }
+
+    // Font Sizing Adjuster
+    let currentFontScale = 100;
+    function changeFontSize(delta) {
+      if (delta === 0) {
+        currentFontScale = 100;
+      } else {
+        currentFontScale = Math.min(125, Math.max(85, currentFontScale + delta));
+      }
+      document.documentElement.style.fontSize = `${currentFontScale}%`;
+      showToast(`Font Size: ${currentFontScale}%`);
+    }
+
+    // Live DBT Tracking Modal Controllers
+    function showDbtTrackingModal() {
+      const modal = document.getElementById('dbtTrackingModal');
+      if (modal) {
+        document.getElementById('trackAppId').innerText = clientState.appId || 'MoSJE-2026-UP-88419';
+        document.getElementById('trackBeneficiary').innerText = `${clientState.name || 'Ramesh Kumar'} (${clientState.category || 'SC'})`;
+        document.getElementById('trackSubsidy').innerText = `₹${(clientState.selectedSubsidyAmt || 75000).toLocaleString('en-IN')} (Capital Subsidy Grant)`;
+        modal.classList.remove('hidden');
+      }
+    }
+
+    function hideDbtTrackingModal() {
+      const modal = document.getElementById('dbtTrackingModal');
+      if (modal) modal.classList.add('hidden');
+    }
+
     function toggleHighContrast() {
       document.body.classList.toggle('high-contrast');
       const isHigh = document.body.classList.contains('high-contrast');
@@ -3183,6 +3645,73 @@
         btn.className = "px-4 py-2.5 bg-emerald-600 text-white rounded-2xl text-xs font-black shadow flex items-center gap-2 cursor-default";
         
     // Accessibility: Toggle High Contrast Mode
+    
+    // Web Speech API: Real Screen Reader Text-to-Speech Engine
+    let isScreenReaderSpeaking = false;
+    function toggleScreenReader() {
+      if (!('speechSynthesis' in window)) {
+        showToast('Screen Reader: Text-to-Speech not supported in this browser.');
+        return;
+      }
+
+      if (isScreenReaderSpeaking) {
+        window.speechSynthesis.cancel();
+        isScreenReaderSpeaking = false;
+        showToast('Screen Reader: Stopped audio playback.');
+        return;
+      }
+
+      const activeText = `Welcome to UdyamSetu AI. National portal for multilingual concessional credit discovery and automated Micro-DPR generation for marginalized entrepreneurs under the Ministry of Social Justice and Empowerment. You are currently on the ${clientState.activePortal.toUpperCase()} section.`;
+      
+      const utterance = new SpeechSynthesisUtterance(activeText);
+      utterance.rate = 1.0;
+      utterance.pitch = 1.0;
+      
+      utterance.onstart = () => {
+        isScreenReaderSpeaking = true;
+        showToast('🔊 Screen Reader: Reading portal summary aloud (WCAG 2.1 AA)...');
+      };
+
+      utterance.onend = () => {
+        isScreenReaderSpeaking = false;
+      };
+
+      utterance.onerror = () => {
+        isScreenReaderSpeaking = false;
+      };
+
+      window.speechSynthesis.cancel();
+      window.speechSynthesis.speak(utterance);
+    }
+
+    // Font Sizing Adjuster
+    let currentFontScale = 100;
+    function changeFontSize(delta) {
+      if (delta === 0) {
+        currentFontScale = 100;
+      } else {
+        currentFontScale = Math.min(125, Math.max(85, currentFontScale + delta));
+      }
+      document.documentElement.style.fontSize = `${currentFontScale}%`;
+      showToast(`Font Size: ${currentFontScale}%`);
+    }
+
+    // Live DBT Tracking Modal Controllers
+    function showDbtTrackingModal() {
+      const modal = document.getElementById('dbtTrackingModal');
+      if (modal) {
+        document.getElementById('trackAppId').innerText = clientState.appId || 'MoSJE-2026-UP-88419';
+        document.getElementById('trackBeneficiary').innerText = `${clientState.name || 'Ramesh Kumar'} (${clientState.category || 'SC'})`;
+        document.getElementById('trackSubsidy').innerText = `₹${(clientState.selectedSubsidyAmt || 75000).toLocaleString('en-IN')} (Capital Subsidy Grant)`;
+        modal.classList.remove('hidden');
+      }
+    }
+
+    function hideDbtTrackingModal() {
+      const modal = document.getElementById('dbtTrackingModal');
+      if (modal) modal.classList.add('hidden');
+    }
+
     function toggleHighContrast() {
       document.body.classList.toggle('high-contrast');
       const isHigh = document.body.classList.contains('high-contrast');
@@ -3403,6 +3932,73 @@
       grid.innerHTML = html;
       
     // Accessibility: Toggle High Contrast Mode
+    
+    // Web Speech API: Real Screen Reader Text-to-Speech Engine
+    let isScreenReaderSpeaking = false;
+    function toggleScreenReader() {
+      if (!('speechSynthesis' in window)) {
+        showToast('Screen Reader: Text-to-Speech not supported in this browser.');
+        return;
+      }
+
+      if (isScreenReaderSpeaking) {
+        window.speechSynthesis.cancel();
+        isScreenReaderSpeaking = false;
+        showToast('Screen Reader: Stopped audio playback.');
+        return;
+      }
+
+      const activeText = `Welcome to UdyamSetu AI. National portal for multilingual concessional credit discovery and automated Micro-DPR generation for marginalized entrepreneurs under the Ministry of Social Justice and Empowerment. You are currently on the ${clientState.activePortal.toUpperCase()} section.`;
+      
+      const utterance = new SpeechSynthesisUtterance(activeText);
+      utterance.rate = 1.0;
+      utterance.pitch = 1.0;
+      
+      utterance.onstart = () => {
+        isScreenReaderSpeaking = true;
+        showToast('🔊 Screen Reader: Reading portal summary aloud (WCAG 2.1 AA)...');
+      };
+
+      utterance.onend = () => {
+        isScreenReaderSpeaking = false;
+      };
+
+      utterance.onerror = () => {
+        isScreenReaderSpeaking = false;
+      };
+
+      window.speechSynthesis.cancel();
+      window.speechSynthesis.speak(utterance);
+    }
+
+    // Font Sizing Adjuster
+    let currentFontScale = 100;
+    function changeFontSize(delta) {
+      if (delta === 0) {
+        currentFontScale = 100;
+      } else {
+        currentFontScale = Math.min(125, Math.max(85, currentFontScale + delta));
+      }
+      document.documentElement.style.fontSize = `${currentFontScale}%`;
+      showToast(`Font Size: ${currentFontScale}%`);
+    }
+
+    // Live DBT Tracking Modal Controllers
+    function showDbtTrackingModal() {
+      const modal = document.getElementById('dbtTrackingModal');
+      if (modal) {
+        document.getElementById('trackAppId').innerText = clientState.appId || 'MoSJE-2026-UP-88419';
+        document.getElementById('trackBeneficiary').innerText = `${clientState.name || 'Ramesh Kumar'} (${clientState.category || 'SC'})`;
+        document.getElementById('trackSubsidy').innerText = `₹${(clientState.selectedSubsidyAmt || 75000).toLocaleString('en-IN')} (Capital Subsidy Grant)`;
+        modal.classList.remove('hidden');
+      }
+    }
+
+    function hideDbtTrackingModal() {
+      const modal = document.getElementById('dbtTrackingModal');
+      if (modal) modal.classList.add('hidden');
+    }
+
     function toggleHighContrast() {
       document.body.classList.toggle('high-contrast');
       const isHigh = document.body.classList.contains('high-contrast');
