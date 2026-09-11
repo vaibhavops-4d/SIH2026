@@ -827,7 +827,7 @@
         </div>
 
         <!-- Container for Dynamically Ranked Scheme Cards -->
-        <div id="schemeCardsContainer" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div id="schemeCardsContainer" class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
           <!-- Injected dynamically by evaluateAndRenderSchemes() -->
         </div>
 
@@ -1081,17 +1081,17 @@
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800">
                 <span class="text-slate-400 text-xs block">Total Project Cost</span>
-                <div id="dprProjectCost" class="text-2xl font-black text-white font-mono mt-1">₹3,00,000</div>
+                <div id="dprProjectCost" class="text-2xl font-black text-white font-sans tracking-tight num-tabular mt-1">₹3,00,000</div>
                 <span class="text-[11px] text-slate-500">100% Machinery & Stock</span>
               </div>
               <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800">
                 <span class="text-slate-400 text-xs block">Bank Loan Sanction (90%)</span>
-                <div id="dprLoanSanction" class="text-2xl font-black text-emerald-400 font-mono mt-1">₹2,70,000</div>
+                <div id="dprLoanSanction" class="text-2xl font-black text-emerald-400 font-sans tracking-tight num-tabular mt-1">₹2,70,000</div>
                 <span class="text-[11px] text-slate-500">Concessional @ 4.0% p.a.</span>
               </div>
               <div class="p-4 rounded-2xl bg-slate-950 border border-slate-800">
                 <span class="text-slate-400 text-xs block">Capital Subsidy Grant (25%)</span>
-                <div id="dprSubsidyGrant" class="text-2xl font-black text-orange-400 font-mono mt-1">₹75,000</div>
+                <div id="dprSubsidyGrant" class="text-2xl font-black text-orange-400 font-sans tracking-tight num-tabular mt-1">₹75,000</div>
                 <span class="text-[11px] text-slate-500">Direct MoSJE DBT Credit</span>
               </div>
             </div>
@@ -1122,19 +1122,19 @@
                 <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800 space-y-2">
                   <div class="flex justify-between">
                     <span class="text-slate-400">Gross Monthly Revenue:</span>
-                    <strong id="dprMonthlyRevenue" class="text-white font-mono">₹66,000</strong>
+                    <strong id="dprMonthlyRevenue" class="text-white font-sans num-tabular">₹66,000</strong>
                   </div>
                   <div class="flex justify-between">
                     <span class="text-slate-400">Operating Expenses (Raw Material):</span>
-                    <strong id="dprMonthlyOpex" class="text-slate-300 font-mono">-₹24,000</strong>
+                    <strong id="dprMonthlyOpex" class="text-slate-300 font-sans num-tabular">-₹24,000</strong>
                   </div>
                   <div class="flex justify-between">
                     <span class="text-slate-400">Monthly Loan EMI (5 Yrs @ 4%):</span>
-                    <strong id="dprMonthlyEmi" class="text-orange-400 font-mono">-₹4,973</strong>
+                    <strong id="dprMonthlyEmi" class="text-orange-400 font-sans num-tabular">-₹4,973</strong>
                   </div>
                   <div class="flex justify-between border-t border-slate-800 pt-2 font-bold">
                     <span class="text-emerald-400">Net Monthly Free Cash Flow:</span>
-                    <strong id="dprNetCashFlow" class="text-emerald-400 font-mono">₹37,027</strong>
+                    <strong id="dprNetCashFlow" class="text-emerald-400 font-sans num-tabular">₹37,027</strong>
                   </div>
                 </div>
               </div>
@@ -1583,7 +1583,7 @@
       </div>
 
       <!-- Scheme Cards Grid -->
-      <div id="fullSchemeDirectoryGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div id="fullSchemeDirectoryGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
         <!-- Dynamically rendered by renderSchemeDirectory() -->
       </div>
 
@@ -1692,8 +1692,7 @@
   <!-- MASTER JAVASCRIPT: 22 STATUTORY SCHEMES & MULTI-FACTOR ENGINE   -->
   <!-- ============================================================== -->
   <script>
-    lucide.createIcons();
-
+    
     // Accessibility: Toggle High Contrast Mode
     function toggleHighContrast() {
       document.body.classList.toggle('high-contrast');
@@ -1703,29 +1702,18 @@
 
     // Top Language Switcher sync
     function changeTopLanguage(langCode) {
-      const langNames = {
-        'hi-IN': 'हिन्दी (Hindi)',
-        'en-IN': 'English (India)',
-        'bho-IN': 'भोजपुरी (Bhojpuri)',
-        'mr-IN': 'मराठी (Marathi)',
-        'bn-IN': 'বাংলা (Bengali)',
-        'ta-IN': 'தமிழ் (Tamil)',
-        'te-IN': 'తెలుగు (Telugu)',
-        'gu-IN': 'ગુજરાતી (Gujarati)',
-        'kn-IN': 'ಕನ್ನಡ (Kannada)',
-        'pa-IN': 'ਪੰਜਾਬੀ (Punjabi)',
-        'or-IN': 'ଓଡ଼ିଆ (Odia)',
-        'as-IN': 'অসমীয়া (Assamese)'
-      };
-      const name = langNames[langCode] || 'हिन्दी (Hindi)';
-      clientState.currentSpeechLang = langCode;
-      clientState.currentSpeechLangName = name;
+      const promptObj = langPrompts[langCode] || langPrompts['hi-IN'];
+      const name = promptObj ? promptObj.name : 'हिन्दी (Hindi)';
       
-      const disp = document.getElementById('activeLangDisplay');
-      if (disp) disp.innerText = 'Current: ' + name;
-      showToast('Switched portal language to ' + name);
+      const pills = document.querySelectorAll('.lang-pill');
+      let targetBtn = null;
+      pills.forEach(p => {
+        if (p.innerText.includes(name.split(' ')[0])) targetBtn = p;
+      });
+      setSpeechLanguage(langCode, name, targetBtn);
     }
-    
+
+    lucide.createIcons();
 
     // Client State
     let clientState = {
@@ -2423,8 +2411,7 @@
       }
 
       if (portalId === 'schemes') renderSchemeDirectory();
-      lucide.createIcons();
-
+      
     // Accessibility: Toggle High Contrast Mode
     function toggleHighContrast() {
       document.body.classList.toggle('high-contrast');
@@ -2434,29 +2421,19 @@
 
     // Top Language Switcher sync
     function changeTopLanguage(langCode) {
-      const langNames = {
-        'hi-IN': 'हिन्दी (Hindi)',
-        'en-IN': 'English (India)',
-        'bho-IN': 'भोजपुरी (Bhojpuri)',
-        'mr-IN': 'मराठी (Marathi)',
-        'bn-IN': 'বাংলা (Bengali)',
-        'ta-IN': 'தமிழ் (Tamil)',
-        'te-IN': 'తెలుగు (Telugu)',
-        'gu-IN': 'ગુજરાતી (Gujarati)',
-        'kn-IN': 'ಕನ್ನಡ (Kannada)',
-        'pa-IN': 'ਪੰਜਾਬੀ (Punjabi)',
-        'or-IN': 'ଓଡ଼ିଆ (Odia)',
-        'as-IN': 'অসমীয়া (Assamese)'
-      };
-      const name = langNames[langCode] || 'हिन्दी (Hindi)';
-      clientState.currentSpeechLang = langCode;
-      clientState.currentSpeechLangName = name;
+      const promptObj = langPrompts[langCode] || langPrompts['hi-IN'];
+      const name = promptObj ? promptObj.name : 'हिन्दी (Hindi)';
       
-      const disp = document.getElementById('activeLangDisplay');
-      if (disp) disp.innerText = 'Current: ' + name;
-      showToast('Switched portal language to ' + name);
+      const pills = document.querySelectorAll('.lang-pill');
+      let targetBtn = null;
+      pills.forEach(p => {
+        if (p.innerText.includes(name.split(' ')[0])) targetBtn = p;
+      });
+      setSpeechLanguage(langCode, name, targetBtn);
     }
-    
+
+    lucide.createIcons();
+
     }
 
     // Enhanced Prefill demo user helper (8 diverse personas)
@@ -2498,8 +2475,7 @@
           label.className = "text-slate-400";
         }
       }
-      lucide.createIcons();
-
+      
     // Accessibility: Toggle High Contrast Mode
     function toggleHighContrast() {
       document.body.classList.toggle('high-contrast');
@@ -2509,29 +2485,19 @@
 
     // Top Language Switcher sync
     function changeTopLanguage(langCode) {
-      const langNames = {
-        'hi-IN': 'हिन्दी (Hindi)',
-        'en-IN': 'English (India)',
-        'bho-IN': 'भोजपुरी (Bhojpuri)',
-        'mr-IN': 'मराठी (Marathi)',
-        'bn-IN': 'বাংলা (Bengali)',
-        'ta-IN': 'தமிழ் (Tamil)',
-        'te-IN': 'తెలుగు (Telugu)',
-        'gu-IN': 'ગુજરાતી (Gujarati)',
-        'kn-IN': 'ಕನ್ನಡ (Kannada)',
-        'pa-IN': 'ਪੰਜਾਬੀ (Punjabi)',
-        'or-IN': 'ଓଡ଼ିଆ (Odia)',
-        'as-IN': 'অসমীয়া (Assamese)'
-      };
-      const name = langNames[langCode] || 'हिन्दी (Hindi)';
-      clientState.currentSpeechLang = langCode;
-      clientState.currentSpeechLangName = name;
+      const promptObj = langPrompts[langCode] || langPrompts['hi-IN'];
+      const name = promptObj ? promptObj.name : 'हिन्दी (Hindi)';
       
-      const disp = document.getElementById('activeLangDisplay');
-      if (disp) disp.innerText = 'Current: ' + name;
-      showToast('Switched portal language to ' + name);
+      const pills = document.querySelectorAll('.lang-pill');
+      let targetBtn = null;
+      pills.forEach(p => {
+        if (p.innerText.includes(name.split(' ')[0])) targetBtn = p;
+      });
+      setSpeechLanguage(langCode, name, targetBtn);
     }
-    
+
+    lucide.createIcons();
+
     }
 
     // Step 1: Auth & OTP Verification
@@ -2562,8 +2528,7 @@
         document.getElementById('otpInput').value = randomOtp;
         showToast(`Simulated SMS: Your UdyamSetu verification OTP is ${randomOtp}`);
         actionBtn.innerHTML = '<span>Verify OTP & Launch Voice Intake</span> <i data-lucide="arrow-right" class="w-4 h-4"></i>';
-        lucide.createIcons();
-
+        
     // Accessibility: Toggle High Contrast Mode
     function toggleHighContrast() {
       document.body.classList.toggle('high-contrast');
@@ -2573,30 +2538,20 @@
 
     // Top Language Switcher sync
     function changeTopLanguage(langCode) {
-      const langNames = {
-        'hi-IN': 'हिन्दी (Hindi)',
-        'en-IN': 'English (India)',
-        'bho-IN': 'भोजपुरी (Bhojpuri)',
-        'mr-IN': 'मराठी (Marathi)',
-        'bn-IN': 'বাংলা (Bengali)',
-        'ta-IN': 'தமிழ் (Tamil)',
-        'te-IN': 'తెలుగు (Telugu)',
-        'gu-IN': 'ગુજરાતી (Gujarati)',
-        'kn-IN': 'ಕನ್ನಡ (Kannada)',
-        'pa-IN': 'ਪੰਜਾਬੀ (Punjabi)',
-        'or-IN': 'ଓଡ଼ିଆ (Odia)',
-        'as-IN': 'অসমীয়া (Assamese)'
-      };
-      const name = langNames[langCode] || 'हिन्दी (Hindi)';
-      clientState.currentSpeechLang = langCode;
-      clientState.currentSpeechLangName = name;
+      const promptObj = langPrompts[langCode] || langPrompts['hi-IN'];
+      const name = promptObj ? promptObj.name : 'हिन्दी (Hindi)';
       
-      const disp = document.getElementById('activeLangDisplay');
-      if (disp) disp.innerText = 'Current: ' + name;
-      showToast('Switched portal language to ' + name);
+      const pills = document.querySelectorAll('.lang-pill');
+      let targetBtn = null;
+      pills.forEach(p => {
+        if (p.innerText.includes(name.split(' ')[0])) targetBtn = p;
+      });
+      setSpeechLanguage(langCode, name, targetBtn);
     }
-    
-      } else {
+
+    lucide.createIcons();
+
+    } else {
         document.getElementById('paramApplicantName').innerText = clientState.name;
         // Sync parameters to step 2 inputs
         if (clientState.trade) document.getElementById('tradeSelect').value = clientState.trade;
@@ -3050,7 +3005,7 @@
             <div>
               <div class="flex items-center justify-between mt-1 mb-3">
                 <span class="text-xs font-bold text-blue-300 bg-blue-500/20 border border-blue-500/30 px-2.5 py-0.5 rounded-lg">${scheme.ministry}</span>
-                <span class="text-xs font-black ${isTop ? 'text-emerald-400' : 'text-slate-400'} font-mono">${matchPct}% Match</span>
+                <span class="text-xs font-black ${isTop ? 'text-emerald-400' : 'text-slate-300'} font-sans num-tabular">${matchPct}% Match</span>
               </div>
               <h3 class="text-lg font-black text-white leading-snug">${scheme.name}</h3>
               <p class="text-xs text-slate-400 mt-1">${scheme.desc}</p>
@@ -3062,26 +3017,26 @@
                 `).join('')}
               </div>
 
-              <div class="mt-4 space-y-2 text-xs">
-                <div class="flex justify-between py-1.5 border-b border-slate-800">
-                  <span class="text-slate-400">Sanctioned Loan (${scheme.loanCoveragePct}%)</span>
-                  <span class="font-black text-white font-mono">₹${scheme.loanAmt.toLocaleString('en-IN')}</span>
+              <div class="mt-4 space-y-2 text-xs bg-slate-950/70 p-4 rounded-2xl border border-slate-800/80">
+                <div class="flex justify-between py-1.5 border-b border-slate-800/80">
+                  <span class="text-slate-400 font-medium">Sanctioned Loan (${scheme.loanCoveragePct}%)</span>
+                  <span class="font-black text-white font-sans text-sm num-tabular">₹${scheme.loanAmt.toLocaleString('en-IN')}</span>
                 </div>
-                <div class="flex justify-between py-1.5 border-b border-slate-800">
-                  <span class="text-slate-400">Concessional Interest</span>
-                  <span class="font-black text-emerald-400 font-mono">${scheme.interestRatePct}% p.a.</span>
+                <div class="flex justify-between py-1.5 border-b border-slate-800/80">
+                  <span class="text-slate-400 font-medium">Concessional Interest</span>
+                  <span class="font-black text-emerald-400 font-sans text-sm num-tabular">${scheme.interestRatePct}% p.a.</span>
                 </div>
-                <div class="flex justify-between py-1.5 border-b border-slate-800">
-                  <span class="text-slate-400">Capital Subsidy Grant</span>
-                  <span class="font-black text-orange-400 font-mono">${scheme.effectiveSubsidy}% (₹${scheme.subsidyAmt.toLocaleString('en-IN')})</span>
+                <div class="flex justify-between py-1.5 border-b border-slate-800/80">
+                  <span class="text-slate-400 font-medium">Capital Subsidy Grant</span>
+                  <span class="font-black text-orange-400 font-sans text-sm num-tabular">${scheme.effectiveSubsidy}% (₹${scheme.subsidyAmt.toLocaleString('en-IN')})</span>
                 </div>
-                <div class="flex justify-between py-1.5 border-b border-slate-800">
-                  <span class="text-slate-400">Repayment Tenor & Moratorium</span>
-                  <span class="font-bold text-slate-200 font-mono">${scheme.repaymentYears} Yrs (${scheme.moratoriumMonths} Mo Moratorium)</span>
+                <div class="flex justify-between py-1.5 border-b border-slate-800/80">
+                  <span class="text-slate-400 font-medium">Repayment Tenor & Moratorium</span>
+                  <span class="font-bold text-slate-200 font-sans text-xs">${scheme.repaymentYears} Yrs (${scheme.moratoriumMonths} Mo Moratorium)</span>
                 </div>
                 <div class="flex justify-between py-1.5">
-                  <span class="text-slate-400">Estimated Monthly EMI</span>
-                  <span class="font-black text-white font-mono">₹${scheme.emi.toLocaleString('en-IN')}/mo</span>
+                  <span class="text-slate-400 font-medium">Estimated Monthly EMI</span>
+                  <span class="font-black text-white font-sans text-sm num-tabular">₹${scheme.emi.toLocaleString('en-IN')}/mo</span>
                 </div>
               </div>
 
@@ -3106,8 +3061,7 @@
       });
 
       container.innerHTML = cardsHtml;
-      lucide.createIcons();
-
+      
     // Accessibility: Toggle High Contrast Mode
     function toggleHighContrast() {
       document.body.classList.toggle('high-contrast');
@@ -3117,29 +3071,19 @@
 
     // Top Language Switcher sync
     function changeTopLanguage(langCode) {
-      const langNames = {
-        'hi-IN': 'हिन्दी (Hindi)',
-        'en-IN': 'English (India)',
-        'bho-IN': 'भोजपुरी (Bhojpuri)',
-        'mr-IN': 'मराठी (Marathi)',
-        'bn-IN': 'বাংলা (Bengali)',
-        'ta-IN': 'தமிழ் (Tamil)',
-        'te-IN': 'తెలుగు (Telugu)',
-        'gu-IN': 'ગુજરાતી (Gujarati)',
-        'kn-IN': 'ಕನ್ನಡ (Kannada)',
-        'pa-IN': 'ਪੰਜਾਬੀ (Punjabi)',
-        'or-IN': 'ଓଡ଼ିଆ (Odia)',
-        'as-IN': 'অসমীয়া (Assamese)'
-      };
-      const name = langNames[langCode] || 'हिन्दी (Hindi)';
-      clientState.currentSpeechLang = langCode;
-      clientState.currentSpeechLangName = name;
+      const promptObj = langPrompts[langCode] || langPrompts['hi-IN'];
+      const name = promptObj ? promptObj.name : 'हिन्दी (Hindi)';
       
-      const disp = document.getElementById('activeLangDisplay');
-      if (disp) disp.innerText = 'Current: ' + name;
-      showToast('Switched portal language to ' + name);
+      const pills = document.querySelectorAll('.lang-pill');
+      let targetBtn = null;
+      pills.forEach(p => {
+        if (p.innerText.includes(name.split(' ')[0])) targetBtn = p;
+      });
+      setSpeechLanguage(langCode, name, targetBtn);
     }
-    
+
+    lucide.createIcons();
+
     }
 
     function calculateEmi(principal, annualRate, years) {
@@ -3189,8 +3133,7 @@
     function syncAllFromDigiLocker() {
       const btn = document.getElementById('digilockerSyncBtn');
       btn.innerHTML = '<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i> <span>Syncing Sovereign Vault...</span>';
-      lucide.createIcons();
-
+      
     // Accessibility: Toggle High Contrast Mode
     function toggleHighContrast() {
       document.body.classList.toggle('high-contrast');
@@ -3200,31 +3143,20 @@
 
     // Top Language Switcher sync
     function changeTopLanguage(langCode) {
-      const langNames = {
-        'hi-IN': 'हिन्दी (Hindi)',
-        'en-IN': 'English (India)',
-        'bho-IN': 'भोजपुरी (Bhojpuri)',
-        'mr-IN': 'मराठी (Marathi)',
-        'bn-IN': 'বাংলা (Bengali)',
-        'ta-IN': 'தமிழ் (Tamil)',
-        'te-IN': 'తెలుగు (Telugu)',
-        'gu-IN': 'ગુજરાતી (Gujarati)',
-        'kn-IN': 'ಕನ್ನಡ (Kannada)',
-        'pa-IN': 'ਪੰਜਾਬੀ (Punjabi)',
-        'or-IN': 'ଓଡ଼ିଆ (Odia)',
-        'as-IN': 'অসমীয়া (Assamese)'
-      };
-      const name = langNames[langCode] || 'हिन्दी (Hindi)';
-      clientState.currentSpeechLang = langCode;
-      clientState.currentSpeechLangName = name;
+      const promptObj = langPrompts[langCode] || langPrompts['hi-IN'];
+      const name = promptObj ? promptObj.name : 'हिन्दी (Hindi)';
       
-      const disp = document.getElementById('activeLangDisplay');
-      if (disp) disp.innerText = 'Current: ' + name;
-      showToast('Switched portal language to ' + name);
+      const pills = document.querySelectorAll('.lang-pill');
+      let targetBtn = null;
+      pills.forEach(p => {
+        if (p.innerText.includes(name.split(' ')[0])) targetBtn = p;
+      });
+      setSpeechLanguage(langCode, name, targetBtn);
     }
-    
 
-      setTimeout(() => {
+    lucide.createIcons();
+
+    setTimeout(() => {
         docVerificationState = { aadhaar: true, pan: true, caste: true, income: true, bank: true, trade: true };
 
         document.getElementById('docStatus-aadhaar').innerText = "✓ DigiLocker e-KYC Verified (SHA-256 HMAC Signed)";
@@ -3249,8 +3181,7 @@
 
         btn.innerHTML = '<i data-lucide="check" class="w-4 h-4 text-emerald-300"></i> <span>✓ All 6 Docs Synced</span>';
         btn.className = "px-4 py-2.5 bg-emerald-600 text-white rounded-2xl text-xs font-black shadow flex items-center gap-2 cursor-default";
-        lucide.createIcons();
-
+        
     // Accessibility: Toggle High Contrast Mode
     function toggleHighContrast() {
       document.body.classList.toggle('high-contrast');
@@ -3260,30 +3191,20 @@
 
     // Top Language Switcher sync
     function changeTopLanguage(langCode) {
-      const langNames = {
-        'hi-IN': 'हिन्दी (Hindi)',
-        'en-IN': 'English (India)',
-        'bho-IN': 'भोजपुरी (Bhojpuri)',
-        'mr-IN': 'मराठी (Marathi)',
-        'bn-IN': 'বাংলা (Bengali)',
-        'ta-IN': 'தமிழ் (Tamil)',
-        'te-IN': 'తెలుగు (Telugu)',
-        'gu-IN': 'ગુજરાતી (Gujarati)',
-        'kn-IN': 'ಕನ್ನಡ (Kannada)',
-        'pa-IN': 'ਪੰਜਾਬੀ (Punjabi)',
-        'or-IN': 'ଓଡ଼ିଆ (Odia)',
-        'as-IN': 'অসমীয়া (Assamese)'
-      };
-      const name = langNames[langCode] || 'हिन्दी (Hindi)';
-      clientState.currentSpeechLang = langCode;
-      clientState.currentSpeechLangName = name;
+      const promptObj = langPrompts[langCode] || langPrompts['hi-IN'];
+      const name = promptObj ? promptObj.name : 'हिन्दी (Hindi)';
       
-      const disp = document.getElementById('activeLangDisplay');
-      if (disp) disp.innerText = 'Current: ' + name;
-      showToast('Switched portal language to ' + name);
+      const pills = document.querySelectorAll('.lang-pill');
+      let targetBtn = null;
+      pills.forEach(p => {
+        if (p.innerText.includes(name.split(' ')[0])) targetBtn = p;
+      });
+      setSpeechLanguage(langCode, name, targetBtn);
     }
-    
-        showToast("DigiLocker Sovereign Sync: 6 of 6 Statutory Documents Verified!");
+
+    lucide.createIcons();
+
+    showToast("DigiLocker Sovereign Sync: 6 of 6 Statutory Documents Verified!");
       }, 900);
     }
 
@@ -3433,7 +3354,7 @@
                 </div>
                 <div class="flex justify-between py-1 border-b border-slate-800">
                   <span class="text-slate-500">Concessional Interest:</span>
-                  <span class="font-bold text-emerald-400 font-mono">${scheme.interestRatePct}% p.a.</span>
+                  <span class="font-bold text-emerald-400 font-sans num-tabular">${scheme.interestRatePct}% p.a.</span>
                 </div>
                 <div class="flex justify-between py-1 border-b border-slate-800">
                   <span class="text-slate-500">Max Loan Limit:</span>
@@ -3480,8 +3401,7 @@
       }
 
       grid.innerHTML = html;
-      lucide.createIcons();
-
+      
     // Accessibility: Toggle High Contrast Mode
     function toggleHighContrast() {
       document.body.classList.toggle('high-contrast');
@@ -3491,29 +3411,19 @@
 
     // Top Language Switcher sync
     function changeTopLanguage(langCode) {
-      const langNames = {
-        'hi-IN': 'हिन्दी (Hindi)',
-        'en-IN': 'English (India)',
-        'bho-IN': 'भोजपुरी (Bhojpuri)',
-        'mr-IN': 'मराठी (Marathi)',
-        'bn-IN': 'বাংলা (Bengali)',
-        'ta-IN': 'தமிழ் (Tamil)',
-        'te-IN': 'తెలుగు (Telugu)',
-        'gu-IN': 'ગુજરાતી (Gujarati)',
-        'kn-IN': 'ಕನ್ನಡ (Kannada)',
-        'pa-IN': 'ਪੰਜਾਬੀ (Punjabi)',
-        'or-IN': 'ଓଡ଼ିଆ (Odia)',
-        'as-IN': 'অসমীয়া (Assamese)'
-      };
-      const name = langNames[langCode] || 'हिन्दी (Hindi)';
-      clientState.currentSpeechLang = langCode;
-      clientState.currentSpeechLangName = name;
+      const promptObj = langPrompts[langCode] || langPrompts['hi-IN'];
+      const name = promptObj ? promptObj.name : 'हिन्दी (Hindi)';
       
-      const disp = document.getElementById('activeLangDisplay');
-      if (disp) disp.innerText = 'Current: ' + name;
-      showToast('Switched portal language to ' + name);
+      const pills = document.querySelectorAll('.lang-pill');
+      let targetBtn = null;
+      pills.forEach(p => {
+        if (p.innerText.includes(name.split(' ')[0])) targetBtn = p;
+      });
+      setSpeechLanguage(langCode, name, targetBtn);
     }
-    
+
+    lucide.createIcons();
+
     }
 
     function filterSchemeDirectory(query) {
